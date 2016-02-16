@@ -1,0 +1,127 @@
+
+/*
+Theme Name: BVS Events
+Description: VHL Theme for events agenda 
+Author: BIREME/PAHO/WHO
+Author URI: https://github.com/bireme
+Template: twentysixteen
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+Version: 0.1
+Tags: responsive, events, bvs, bireme
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../twentysixteen/style.css');
+
+/* Styles for the child theme
+-------------------------------------------------------------- */
+body {background: #fff;font-family: arial;line-height: 1.4;}
+.widget{border-top:none;}
+.site-content {padding: 0 3%;}
+.site-header{padding:0;}
+.home article .entry-header {display: none;}
+.flex-direction-nav li a {box-shadow:none !important;}
+.page-template-page-full-width .content-area {width:100%;margin-right:0;}
+.site-branding {display:flex;margin:0 auto 0.875em 0;}
+.site-branding .site-name {margin-left: 1em;}
+.site-header-menu {display: flex;justify-content:space-between;margin: 0 0 2em 0;border-bottom: 2px solid;}
+.site-header-menu .widget_search {border-top:none; margin:0;padding:0;}
+.menu-header-menu-container ul,
+.menu-header-menu-es-container ul,
+.menu-header-menu-en-container ul {display:flex;list-style: none;}
+.menu-header-menu-container ul li,
+.menu-header-menu-es-container ul li,
+.menu-header-menu-en-container ul li {font-size:80%;margin-left: 1em;}
+.contact {margin-right: 2.5em;}
+.contact a {margin-left: 5px;}
+.sum-sessions {display: flex;justify-content:center;}
+.sum-day .slider-wrapper {border-top:1px solid #d1d1d1;}
+.program-day{margin-bottom: 4em;}
+.schedule-date {font-size:120%;font-weight: bold;border-bottom: 2px solid;}
+.ss-item {padding:1em 1.6em;font-size:80%;}
+.ss-item span {display:block;}
+.ss-item .initial-time {font-style: italic;}
+.ss-item .ss-ttl{font-weight: bold;}
+.session {display:flex;margin:1em 0;}
+.session-title {font-size: 130%;font-weight: bold;}
+.session-time {width:18%;font-size:85%;margin-top:5px;font-style: italic;}
+.session-data {width:82%;border-bottom: 1px solid #ccc;padding-bottom: 1.2em;}
+.single-session .session-time,
+.single-session .session-data {width: auto;}
+.location {font-size:85%;}
+.presentation-list {margin-left:2em;}
+.presentation {border-top:1px solid #eee}
+.presentation, .summary {margin:12px 0;}
+.presentation-title {margin:6px 0 0 0;font-size:120%;display: inline-block;width:75%;}
+.view-detail {display: inline-block;width:23%;vertical-align: top;margin-top: 10px;font-size: 80%;}
+.view-detail:hover {color:#007acc;}
+.view-detail:before {content:'| ';}
+.s-author {display: flex;}
+.detail {margin-top: 12px;}
+.single-schedule .detail .author-pic,
+.single-schedule .detail .summary,
+.single-schedule .detail .s-tags {display:none;}
+.single-session .detail .author-pic,
+.single-session .detail .summary,
+.single-session .detail .s-tags {display:block;}
+.detail.more-detail .author-pic,
+.detail.more-detail .summary,
+.detail.more-detail .s-tags {display:block;}
+.author-pic {width: 80px; margin: 0 6px 6px 0;}
+.author-pic img {width: 100%;}
+.author-name {font-weight:bold;}
+.author-name a {color: #666;border-bottom: 1px dotted;}
+.author-name a:hover {border-bottom: none;color:#007acc;}
+.author-inst {font-size:80%;}
+.summary p {margin:0;font-size:85%;color:#686868;line-height: 1.7}
+.s-tags {margin:4px 0;}
+.s-tags span {display: inline-block; border-radius: 12px; background: #efefef; padding: 0 10px;margin:0 4px;font-size: 80%;}
+.s-links {font-size: 85%;margin:4px 0;}
+.s-links span {margin-right: 8px;}
+
+.single-session .session {display: block;}
+/*.single-session .session-time, 
+.single-session .session-data {width:auto;}*/
+.s-players {margin-top:1em;}
+.s-players * {font-family:arial;font-size: 85%;}
+.s-players ul {background: none; border-radius: 0px; border: none; border-bottom: 1px solid #aaa;}
+.s-players #tabs {border-radius: 0px;padding:0;}
+.s-players #tabs div {text-align: center;}
+.related-content {margin-top: 2em;}
+.related-content li {margin-left: 2em;}
+.single-participant aside ul {margin-top: 2.5em; list-style: none;}
+.single-participant aside ul li {margin-bottom: 1em;line-height: 1;}
+
+
+
+
+
+    #mask{  
+    position:absolute; /* important */  
+    top:0px; /* start from top */  
+    left:0px; /* start from left */  
+    height:100%; /* cover the whole page */  
+    width:100%;  /* cover the whole page */  
+    display:none; /* don't show it '*/  
+  
+    /* styling bellow */  
+    background-color: black;  
+}  
+  
+.modal_window{  
+    position:absolute; /* important so we can position it on center later */  
+    display:none; /* don't show it */  
+  
+    /* styling bellow */  
+    color:white;  
+}  
+  
+/* style a specific modal window  */  
+#modal_window{  
+    padding:50px;  
+    border:1px solid gray;  
+    background: #246493;  
+    color:black;  
+}  

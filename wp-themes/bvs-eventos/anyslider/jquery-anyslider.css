@@ -1,0 +1,137 @@
+/* Bare minimum styles */
+.slider {
+    -ms-touch-action: pan-y; /* Prevent default touch actions on Windows 8. Only required for IE10 */
+    overflow: auto; /* Not required but recommended for accessibility when JavaScript is turned off */
+    position: relative;
+    touch-action: pan-y; /* Prevent default touch actions on Windows 8. Supported in IE11+ */
+}
+
+/* AnySlider can be styled to your liking. This is just example styles */
+.slider {
+    border: 1px solid #000;
+    border-radius: 8px;
+    background: #eee;
+    height: 120px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    overflow: visible;
+}
+/*.slider-s {
+    border: none;
+    border-top: 1px solid #efefef;
+    height: 80px;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    width: 90%;
+}*/
+
+/* The arrows can of course also be styled to your liking. This is just example styles */
+.as-prev-arrow,
+.as-next-arrow {
+    background: url(arrows.png) no-repeat;
+    background-size: 200%;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    height: 20px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 100%;
+    top: 12px;
+    white-space: nowrap;
+    width: 20px;
+    z-index: 10;
+}
+/*.slider-s .as-prev-arrow,
+.slider-s .as-next-arrow {
+    top: 30px;
+}*/
+
+.as-prev-arrow {
+    left: 0;
+    filter: alpha(opacity=1);
+    opacity: 1;
+    margin-left: 6px;
+}
+
+.as-next-arrow {
+    background-position: -20px 0;
+    right: 0;
+    filter: alpha(opacity=1);
+    opacity: 1;
+    margin-right: 6px;
+}
+
+.slider:hover .as-prev-arrow,
+.slider:hover .as-next-arrow,
+.slider-s:hover .as-prev-arrow,
+.slider-s:hover .as-next-arrow {}
+    
+
+/* The same rules for styling apply here. Style to your liking */
+.as-nav {
+    bottom: -10px;
+    left: 50%;
+    margin-left: -27px;
+    position: absolute;
+    text-align: left;
+    width: 54px;
+    z-index: 1;
+}
+
+.as-nav a {
+    background: url(bullets.png) no-repeat;
+    height: 16px;
+    display: inline-block;
+    margin: 0 1px;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 16px;
+}
+
+.as-nav .as-active,
+.as-nav a:hover {
+    background-position: 0 -16px;
+}
+
+/* Other styles not related to AnySlider */
+body {
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding-bottom: 25px;
+}
+
+section {
+    display: block;
+}
+
+.content {
+    margin: 0 auto;
+    position: relative;
+    width: 80%;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+p {
+    margin: 10px 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.slider-wrapper {
+    height: 120px;
+    position: relative;
+    margin-bottom: 40px;
+}
