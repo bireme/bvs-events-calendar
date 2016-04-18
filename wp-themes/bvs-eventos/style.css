@@ -38,27 +38,30 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .contact a {margin-left: 5px;}
 .sum-sessions {display: flex;justify-content:center;}
 .sum-day .slider-wrapper {border-top:1px solid #d1d1d1;}
-.program-day{margin-bottom: 4em;}
+.program-day {margin-top: 4em;}
+.program-day:first-child {margin-top: 0;}
 .schedule-date {font-size:120%;font-weight: bold;border-bottom: 2px solid;}
 .ss-item {padding:1em 1.6em;font-size:80%;}
 .ss-item span {display:block;}
 .ss-item .initial-time {font-style: italic;}
 .ss-item .ss-ttl{font-weight: bold;}
 .session {display:flex;margin:1em 0;}
-.session-title {font-size: 130%;font-weight: bold;}
+.session-title {font-size: 130%;font-weight: bold;text-transform: uppercase;}
+.subsession-title, .event-title {font-size: 130%;font-weight: bold;}
 .session-time {width:18%;font-size:85%;margin-top:5px;font-style: italic;}
+.subsession-time {width:25%;font-size:85%;margin-top:5px;font-style: italic;border-bottom: 1px solid #ccc}
+.session-date {font-size:85%;font-style: italic;}
 .session-data {width:82%;border-bottom: 1px solid #ccc;padding-bottom: 1.2em;}
 .single-session .session-time,
 .single-session .session-data {width: auto;}
 .location {font-size:85%;}
-.presentation-list {margin-left:2em;}
+.presentation-list, .subsession-list {margin-left:2em;}
 .presentation {border-top:1px solid #eee}
 .presentation, .summary {margin:12px 0;}
-.presentation-title {margin:6px 0 0 0;font-size:120%;display: inline-block;width:75%;}
-.view-detail {display: inline-block;width:23%;vertical-align: top;margin-top: 10px;font-size: 80%;}
+.presentation-title {margin:6px 0 0 0;font-size:120%;display:inline-block;width:75%;}
+.view-detail {display: inline-block;vertical-align: top;margin-top: 10px;font-size: 80%;float: right;}
 .view-detail:hover {color:#007acc;}
-.view-detail:before {content:'| ';}
-.s-author {display: flex;}
+.s-author {display: flex;align-items: center;}
 .detail {margin-top: 12px;}
 .single-schedule .detail .author-pic,
 .single-schedule .detail .summary,
@@ -71,14 +74,15 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .detail.more-detail .s-tags {display:block;}
 .author-pic {width: 80px; margin: 0 6px 6px 0;}
 .author-pic img {width: 100%;}
+.author-data {margin-bottom: 5px;}
 .author-name {font-weight:bold;}
 .author-name a {color: #666;border-bottom: 1px dotted;}
 .author-name a:hover {border-bottom: none;color:#007acc;}
 .author-inst {font-size:80%;}
 .summary p {margin:0;font-size:85%;color:#686868;line-height: 1.7}
-.s-tags {margin:4px 0;}
+.s-tags {margin: 10px 0;}
 .s-tags span {display: inline-block; border-radius: 12px; background: #efefef; padding: 0 10px;margin:0 4px;font-size: 80%;}
-.s-links {font-size: 85%;margin:4px 0;}
+.s-links {font-size: 85%;margin: 5px 0;}
 .s-links span {margin-right: 8px;}
 
 .single-session .session {display: block;}
@@ -94,11 +98,9 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .single-participant aside ul {margin-top: 2.5em; list-style: none;}
 .single-participant aside ul li {margin-bottom: 1em;line-height: 1;}
 
+.entry-event {margin-bottom: 1em !important;}
 
-
-
-
-    #mask{  
+#mask{  
     position:absolute; /* important */  
     top:0px; /* start from top */  
     left:0px; /* start from left */  
