@@ -9,43 +9,63 @@
 
 get_header(); ?>
 
+<?php $obj = $post; ?>
+
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
-		<div class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">home</a> / <a href="/eventosbvs/reuniao-ABC/schedule/scientific-program/">Programa Científico</a> / <strong><?php single_post_title(); ?></strong></div>
-		
-		
-		
-		<!-- 
-		***** Necessita programação *****
-		criar loop que traga todos os posts do post type "session" que pertençam à "schedule = scientific program" 
-		-->
-		
+		<div class="breadcrumb">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">home</a> / <strong><?php single_post_title(); ?></strong>
+		</div>
 		<div class="detail">
 			<div class="author-profile">
 				<div class="s-author">
-					<div class="author-pic"><img src="/eventosbvs/reuniao-ABC/wp-content/uploads/sites/2/2016/02/boy-512.png" /></div>
+					<?php $picture = get_field( 'picture' ); ?>
+					<?php if ($picture) : ?>
+						<div class="author-pic"><img src="<?php echo $picture['url']; ?>" /></div>
+					<?php endif; ?>
 					<div class="autor-data">
-						<div class="author-name"><a href="">Joshua H. Reeve</a></div>
-						<div class="author-inst"><span class="job-title">Cargo</span> - <span class="affiliation">Instituição</span></div>
+						<div class="author-name"><?php single_post_title(); ?></div>
+						<div class="author-inst"><span class="job-title"><?php the_field( 'job_title' ); ?></span> - <span class="affiliation"><?php the_field( 'affiliation' ); ?></span></div>
 					</div>
 				</div>
-				<div class="short-bio">
-					<strong><?php _e( 'Curriculum Vitae Resumido','bvs-eventos' ); ?></strong>
-					<p>In at est tempor, aliquet orci vitae, lobortis elit. Integer condimentum molestie leo quis tincidunt. Proin et cursus orci, eget ultricies purus. Vestibulum augue tellus, commodo sed lacinia a, cursus eget est. Cras hendrerit dictum egestas. Cras non purus faucibus, vehicula lorem vel, aliquet augue. Nunc et dignissim mauris. Donec odio sapien, varius sed facilisis eu, hendrerit scelerisque velit. Nullam fermentum ultrices lorem, ut euismod tellus scelerisque ullamcorper. Cras eget tristique enim, in facilisis velit.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor metus, pulvinar vel sapien vulputate, dapibus vehicula justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam eu dolor sapien. Mauris eros dui, posuere nec risus vel, ultricies elementum libero. Nullam dictum enim ac finibus egestas. Curabitur dictum porta felis cursus ornare. Curabitur ac pretium metus, nec pretium odio. Nunc aliquam rhoncus rhoncus. Proin tempus nulla eget interdum scelerisque. Praesent bibendum faucibus pellentesque. Nunc imperdiet commodo lacinia. Vestibulum ac augue venenatis, rutrum tortor non, auctor turpis. Donec eget leo tincidunt, luctus enim quis, venenatis mi. Praesent rhoncus nulla eget mauris sollicitudin mattis. Pellentesque sagittis quis tortor eget tempor. Nullam purus tortor, feugiat quis sollicitudin in, tincidunt sit amet ex.</p>
-					<p>Donec vestibulum massa nisl, ut posuere augue interdum dignissim. Nullam consequat tristique ipsum, eu luctus felis cursus in. Vestibulum dignissim mi eget ultricies consectetur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vestibulum nulla id turpis imperdiet pretium. Morbi quis viverra felis, vel consectetur ante. Donec elementum orci id justo viverra, in sodales diam egestas. Duis vel feugiat turpis, id vulputate mauris. Etiam porttitor posuere enim, non vehicula arcu vehicula quis. Vivamus vitae sapien sapien. Duis non arcu in magna posuere imperdiet id elementum sapien. Pellentesque lobortis urna eget erat luctus, eu fringilla odio maximus. Pellentesque tempor augue et eros sollicitudin, sed mattis eros vulputate. Praesent lacinia lacus efficitur venenatis scelerisque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<div class="short-bio summary">
+					<?php
+						if ( $post->post_content ) {
+                            echo wpautop($post->post_content);
+                        } elseif ( get_the_excerpt() ) {
+                            the_excerpt();
+                        }
+                    ?>
 				</div>
-				<div class="related-content">
-					<!--
-					***** Necessita programação *****
-					-->
-					<?php _e( 'Veja também de','bvs-eventos' ); ?> <strong><?php single_post_title(); ?></strong>
-					<ul>
-						<li><a href="">Cras vitae magna sit amet nunc lobortis ultricies</a></li>
-						<li><a href="">In vitae odio at velit feugiat facilisis. Morbi finibus mattis arcu</a></li>
-						<li><a href="">Cras non purus faucibus, vehicula lorem vel, aliquet augue</a></li>
-					</ul>
-				</div>
+				<?php
+					$args = array(
+					    'post_type' => 'presentation',
+					    'post_status' => 'publish',
+					    'posts_per_page' => -1,
+					    'order'   => 'ASC',
+					    'meta_query' => array(
+					        array(
+					            'key' => 'author',
+					            'value' => serialize(strval($post->ID)),
+					            'compare' => 'LIKE'
+					        )
+					    )
+					);
+
+					$query = null;
+					$query = new WP_Query($args);
+				?>
+
+				<?php if( $query->have_posts() ) : // Presentations Loop ?>
+					<div class="related-content">
+						<?php _e( 'Veja também de','bvseventos' ); ?> <strong><?php single_post_title(); ?></strong>
+						<ul>
+							<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+							<?php endwhile; ?>
+						</ul>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</main><!-- .site-main -->
@@ -54,24 +74,36 @@ get_header(); ?>
 
 </div><!-- .content-area -->
 
+<?php $post = $obj; ?>
+
 <aside id="secondary" class="sidebar" role="complementary">
-	<!-- *****  Requer programação ***** -->
 	<ul class="social-links">
-		<li><strong><i class="fa fa-link"></i> Site</strong><br/>
-			<small><a href="#">http://author-website.com</a></small>
-		</li>
-		<li><strong><i class="fa fa-twitter"></i> Twitter</strong><br/>
-			<small><a href="#">http://author-website.com</a></small>
-		</li>
-		<li><strong><i class="fa fa-facebook"></i> Facebook</strong><br/>
-			<small><a href="#">http://author-website.com</a></small>
-		</li>
-		<li><strong><i class="fa fa-linkedin"></i> LinkedIn</strong><br/>
-			<small><a href="#">http://author-website.com</a></small>
-		</li>
-		<li><strong><i class="fa fa-mortar-board"></i> Curriculum Vitae</strong><br/>
-			<small><a href="#">http://author-website.com</a></small>
-		</li>
+		<? if ( get_field( 'site' ) ) { ?>
+			<li><strong><i class="fa fa-link"></i> <?php _e( 'Site', 'bvseventos' ); ?></strong><br/>
+				<small><a href="<?php the_field( 'site' ); ?>" target="_blank"><?php the_field( 'site' ); ?></a></small>
+			</li>
+		<? } ?>
+		<?php if ( get_field( 'twitter' ) ) { ?>
+			<li><strong><i class="fa fa-twitter"></i> <?php _e( 'Twitter', 'bvseventos' ); ?></strong><br/>
+				<small><a href="<?php the_field( 'twitter' ); ?>" target="_blank"><?php the_field( 'twitter' ); ?></a></small>
+			</li>
+		<? } ?>
+		<?php if ( get_field( 'facebook' ) ) { ?>
+			<li><strong><i class="fa fa-facebook"></i> <?php _e( 'Facebook', 'bvseventos' ); ?></strong><br/>
+				<small><a href="<?php the_field( 'facebook' ); ?>" target="_blank"><?php the_field( 'facebook' ); ?></a></small>
+			</li>
+		<? } ?>
+		<?php if ( get_field( 'linkedin' ) ) { ?>
+			<li><strong><i class="fa fa-linkedin"></i> <?php _e( 'LinkedIn', 'bvseventos' ); ?></strong><br/>
+				<small><a href="<?php the_field( 'linkedin' ); ?>" target="_blank"><?php the_field( 'linkedin' ); ?></a></small>
+			</li>
+		<? } ?>
+		<?php if ( get_field( 'curriculum_vitae' ) ) { ?>
+			<li><strong><i class="fa fa-mortar-board"></i> <?php _e( 'Curriculum Vitae', 'bvseventos' ); ?></strong><br/>
+				<small><a href="<?php the_field( 'curriculum_vitae' ); ?>" target="_blank"><?php the_field( 'curriculum_vitae' ); ?></a></small>
+			</li>
+		<? } ?>
 	</ul>
 </aside>
-<?php get_footer( 'schedule' ); ?>
+
+<?php get_footer(); ?>
