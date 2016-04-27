@@ -17,6 +17,7 @@ Tags: responsive, events, bvs, bireme
 
 /* Styles for the child theme
 -------------------------------------------------------------- */
+* { outline: none; }
 body {background: #fff;font-family: arial;line-height: 1.4;}
 .widget{border-top:none;}
 .site-content {padding: 0 3%;}
@@ -40,6 +41,7 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .sum-day .slider-wrapper {border-top:1px solid #d1d1d1;}
 .program-day {margin-top: 4em;}
 .program-day:first-child {margin-top: 0;}
+.single-session-date {font-size:120%;font-weight: bold;margin-bottom: 8px;}
 .schedule-date {font-size:120%;font-weight: bold;border-bottom: 2px solid;}
 .ss-item {padding:1em 1.6em;font-size:80%;}
 .ss-item span {display:block;}
@@ -47,13 +49,20 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .ss-item .ss-ttl{font-weight: bold;}
 .session {display:flex;margin:1em 0;}
 .session-title {font-size: 130%;font-weight: bold;text-transform: uppercase;}
+.session-venue {font-size: 80%;}
+.single-session-title {font-size: 130%;font-weight: bold;text-transform: uppercase;color: #007acc;}
 .subsession-title, .event-title {font-size: 130%;font-weight: bold;}
 .session-time {width:18%;font-size:85%;margin-top:5px;font-style: italic;}
 .subsession-time {width:25%;font-size:85%;margin-top:5px;font-style: italic;border-bottom: 1px solid #ccc}
-.session-date {font-size:85%;font-style: italic;}
+.session-date {font-size:80%;font-weight: bold;margin-top: 10px;}
+.session-date span {font-style: italic;font-weight: normal;}
 .session-data {width:82%;border-bottom: 1px solid #ccc;padding-bottom: 1.2em;}
 .single-session .session-time,
-.single-session .session-data {width: auto;}
+.single-session .session-data,
+.single-presentation .session-time,
+.single-presentation .session-data {width: auto;}
+.single-session .subsession-time {width:25%;font-size:85%;margin-top:5px;font-style: italic;border-bottom: 1px solid #ccc;}
+.single-presentation .presentation {border-top: 0;}
 .location {font-size:85%;}
 .presentation-list, .subsession-list {margin-left:2em;}
 .presentation {border-top:1px solid #eee}
@@ -68,7 +77,10 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .single-schedule .detail .s-tags {display:none;}
 .single-session .detail .author-pic,
 .single-session .detail .summary,
-.single-session .detail .s-tags {display:block;}
+.single-session .detail .s-tags {display:none;}
+.single-subsession .detail .author-pic,
+.single-subsession .detail .summary,
+.single-subsession .detail .s-tags {display:none;}
 .detail.more-detail .author-pic,
 .detail.more-detail .summary,
 .detail.more-detail .s-tags {display:block;}
@@ -84,10 +96,9 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .s-tags span {display: inline-block; border-radius: 12px; background: #efefef; padding: 0 10px;margin:0 4px;font-size: 80%;}
 .s-links {font-size: 85%;margin: 5px 0;}
 .s-links span {margin-right: 8px;}
-
-.single-session .session {display: block;}
-/*.single-session .session-time, 
-.single-session .session-data {width:auto;}*/
+.single-session .session,
+.single-subsession .session,
+.single-presentation .session {display: block;}
 .s-players {margin-top:1em;}
 .s-players * {font-family:arial;font-size: 85%;}
 .s-players ul {background: none; border-radius: 0px; border: none; border-bottom: 1px solid #aaa;}
@@ -97,8 +108,73 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .related-content li {margin-left: 2em;}
 .single-participant aside ul {margin-top: 2.5em; list-style: none;}
 .single-participant aside ul li {margin-bottom: 1em;line-height: 1;}
+.short-bio strong {display: block;margin: 10px 0;}
 
-.entry-event {margin-bottom: 1em !important;}
+.entry-event {
+    width: 600px;
+    background: rgb(245,245,245);
+    border: 1px solid rgb(223,223,223);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 1em !important;
+    color: rgb(102,102,102);
+}
+.entry-event .event-title {color: #333;}
+.entry-event .edit-link {display: block;clear: both;}
+.event-details {
+    padding: 3px 6px;
+    background: rgb(0,74,142);
+    font-size: 75%;
+    border-radius: 4px;
+    font-weight: bold;
+    float: left;
+    margin-top: 2em;
+}
+.event-details a {
+    color: rgb(255,255,255);
+    box-shadow: none;
+}
+.event-details a:hover {
+    color: rgb(0,153,255);
+}
+.event-tags {
+    clear: both;
+    margin-top: 5em;
+    font-size: 80%;
+}
+.event-page {
+    width: 100%;
+}
+.event-header {
+    font-family: Montserrat, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 3em 0 1em;
+    text-transform: uppercase
+}
+.event-location span { font-size: 80%; }
+.event-content { font-size: 13px; line-height: 1.6;  }
+
+#event-menu { margin-bottom: 2em; }
+#event-menu ul {
+    margin: 0;
+    padding: 0; 
+    list-style-type: none;
+    list-style-image: none;
+}
+#event-menu li { display: inline; }
+#event-menu ul li a {
+    text-decoration: none;
+    margin: 5px;
+    padding: 5px 20px 5px 20px;
+    /*padding: 10px 40px 10px 40px;*/
+    color: blue;
+    background: #e6e6fa; /* lavender */
+}
+#event-menu ul li a:hover {
+    background: #c0c0c0; /* silver */
+}
 
 #mask{  
     position:absolute; /* important */  
@@ -126,4 +202,34 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
     border:1px solid gray;  
     background: #246493;  
     color:black;  
-}  
+}
+
+#breadcrumbs{
+    list-style:none;
+    margin:10px 0;
+    overflow:hidden;
+}
+  
+#breadcrumbs li{
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:15px;
+}
+  
+#breadcrumbs .separator{
+    font-size:18px;
+    font-weight:100;
+    color:#ccc;
+}
+
+.acf-map {
+    width: 100%;
+    height: 400px;
+    border: #ccc solid 1px;
+    margin: 20px 0;
+}
+
+/* fixes potential theme css conflict */
+.acf-map img {
+   max-width: inherit !important;
+}
