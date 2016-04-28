@@ -46,7 +46,7 @@
 					<?php endif; ?>
 				</div><!-- .site-branding -->
 				<div class="top-slot">
-					<?php wp_nav_menu( top_menu ); ?>
+					<?php wp_nav_menu( 'top_menu' ); ?>
 				</div><!-- .top-slot -->
 			</div><!-- .site-header-main -->
 			<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>

@@ -163,7 +163,7 @@
     add_action("add_meta_boxes", "event_nav_menu_meta_box");
 
     function save_event_nav_menu_meta_box($post_id, $post, $update) {
-        if (!isset($_POST["event-nav-menu"]) || !wp_verify_nonce($_POST["event-nav-menu-nonce"], basename(__FILE__)))
+        if (!isset($_POST["event-nav-menu-nonce"]) || !wp_verify_nonce($_POST["event-nav-menu-nonce"], basename(__FILE__)))
             return $post_id;
 
         if(!current_user_can("edit_post", $post_id))
