@@ -78,10 +78,10 @@
                     <?php endif; ?>
                     <div class="s-links">
                     	<?php if ( $attachment ) : ?>
-                        	<span><i class="fa fa-cloud-download"></i> <a href="<?php echo $attachment['url']; ?>"><?php _e( 'Download Apresentação','bvseventos' ); ?></a></span>
+                        	<span><i class="fa fa-cloud-download"></i> <a href="<?php echo $attachment['url']; ?>" target="_blank"><?php _e( 'Download Apresentação','bvseventos' ); ?></a></span>
                         <?php endif; ?>
                         <?php if ( $video ) : ?>
-                        	<span><i class="fa fa-play-circle"></i> <a href="<?php echo $video; ?>"><?php _e( 'Ver Video','bvseventos' ); ?></a></span>
+                        	<span><i class="fa fa-play-circle"></i> <a href="<?php echo $video; ?>" target="_blank"><?php _e( 'Ver Video','bvseventos' ); ?></a></span>
                         <?php endif; ?>
                     </div>
                 </div>
