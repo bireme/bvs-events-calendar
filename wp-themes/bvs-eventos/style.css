@@ -1,7 +1,7 @@
 
 /*
-Theme Name: BVS Events
-Description: VHL Theme for events agenda 
+Theme Name: BVS Events Calendar
+Description: Tema destinado a publicação de agenda de eventos na BVS
 Author: BIREME/PAHO/WHO
 Author URI: https://github.com/bireme
 Template: twentysixteen
@@ -41,33 +41,32 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .sum-day .slider-wrapper {border-top:1px solid #d1d1d1;}
 .program-day {margin-top: 4em;}
 .program-day:first-child {margin-top: 0;}
-.single-session-date {font-size:120%;font-weight: bold;margin-bottom: 8px;}
-.schedule-date {font-size:120%;font-weight: bold;border-bottom: 2px solid;}
+.schedule-date,
+.single-session-date {margin-top: 1em;font-size:120%;font-weight: bold;border-bottom: 2px solid;}
 .ss-item {padding:1em 1.6em;font-size:80%;}
 .ss-item span {display:block;}
 .ss-item .initial-time {font-style: italic;}
 .ss-item .ss-ttl{font-weight: bold;}
 .session {display:flex;margin:1em 0;}
-.session-title {font-size: 130%;font-weight: bold;text-transform: uppercase;}
 .session-venue {font-size: 80%;}
+.session-title {font-size: 130%;font-weight: bold;text-transform: uppercase;}
 .single-session-title {font-size: 130%;font-weight: bold;text-transform: uppercase;color: #007acc;}
 .subsession-title, .event-title {font-size: 130%;font-weight: bold;}
+.single-subsession-title {font-size: 130%;font-weight: bold;color: #007acc;}
 .session-time {width:18%;font-size:85%;margin-top:5px;font-style: italic;}
 .subsession-time {width:25%;font-size:85%;margin-top:5px;font-style: italic;border-bottom: 1px solid #ccc}
 .session-date {font-size:80%;font-weight: bold;margin-top: 10px;}
 .session-date span {font-style: italic;font-weight: normal;}
 .session-data {width:82%;border-bottom: 1px solid #ccc;padding-bottom: 1.2em;}
-.single-session .session-time,
-.single-session .session-data,
-.single-presentation .session-time,
+.single-presentation .single-session-title { margin: 1em 0; }
 .single-presentation .session-data {width: auto;}
 .single-session .subsession-time {width:25%;font-size:85%;margin-top:5px;font-style: italic;border-bottom: 1px solid #ccc;}
-.single-presentation .presentation {border-top: 0;}
+.single-presentation .presentation {border-top: 0;border-bottom: 1px solid #ccc; padding-bottom: 1.2em;}
 .location {font-size:85%;}
 .presentation-list, .subsession-list {margin-left:2em;}
-.presentation {border-top:1px solid #eee}
-.presentation, .summary {margin:12px 0;}
+.presentation {border-top:1px solid #eee;margin:12px 0;}
 .presentation-title {margin:6px 0 0 0;font-size:120%;display:inline-block;width:75%;}
+.summary {margin:12px 0;}
 .view-detail {display: inline-block;vertical-align: top;margin-top: 10px;font-size: 80%;float: right;}
 .view-detail:hover {color:#007acc;}
 .s-author {display: flex;align-items: center;}
@@ -87,7 +86,7 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .author-pic {width: 80px; margin: 0 6px 6px 0;}
 .author-pic img {width: 100%;}
 .author-data {margin-bottom: 5px;}
-.author-name {font-weight:bold;}
+.author-name, .session-label {font-weight:bold;}
 .author-name a {color: #666;border-bottom: 1px dotted;}
 .author-name a:hover {border-bottom: none;color:#007acc;}
 .author-inst {font-size:80%;}
@@ -96,10 +95,9 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .s-tags span {display: inline-block; border-radius: 12px; background: #efefef; padding: 0 10px;margin:0 4px;font-size: 80%;}
 .s-links {font-size: 85%;margin: 5px 0;}
 .s-links span {margin-right: 8px;}
-.single-session .session,
-.single-subsession .session,
 .single-presentation .session {display: block;}
-.s-players {margin-top:1em;}
+.single-presentation .session-time { margin-top: 1em; }
+.s-players {margin: 1em 0 2em;}
 .s-players * {font-family:arial;font-size: 85%;}
 .s-players ul {background: none; border-radius: 0px; border: none; border-bottom: 1px solid #aaa;}
 .s-players #tabs {border-radius: 0px;padding:0;}
@@ -174,6 +172,15 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 }
 #event-menu ul li a:hover {
     background: #c0c0c0; /* silver */
+}
+.event-label {
+    line-height: 30px;
+    font-size: 26px;
+    font-weight: normal;
+    padding: 20px 0;
+    margin-bottom: 25px;
+    width: 600px;
+    border-bottom: 1px solid rgb(139,176,192);
 }
 
 #mask{  

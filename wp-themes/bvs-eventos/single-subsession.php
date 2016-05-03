@@ -20,12 +20,15 @@ get_header(); ?>
 	            $initial_datetime = strtotime(get_field( 'initial_time', $post->ID ));
 	        ?>
 	        <div class="program-day">
+	        	<div class="single-session-date">
+	                <?php echo date_i18n("d/F/Y - l", $initial_datetime); ?>
+	            </div>
 		        <div class="session" id="s<?php echo $post->ID; ?>">
-		            <div class="single-session-date">
-		                <?php echo date("d/F/Y - l", $initial_datetime) . ' | ' . date("H:i A", $initial_datetime) . ' - ' . date("H:i A", $end_datetime); ?>
-		            </div>
+		            <div class="session-time">
+                    	<?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
+                	</div>
 		            <div class="session-data">
-		                <div class="single-session-title"><?php the_title(); ?></div>
+		                <div class="single-subsession-title"><?php the_title(); ?></div>
 		                <div class="location"><?php the_field( 'location', $post->ID ); ?></div>
 		                <div class="author-list">
 		                    <?php $author_ids = get_post_meta( $post->ID, 'author' ); ?>
