@@ -42,7 +42,7 @@
                 <div class="presentation-title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                 </div>
-                <div class="view-detail "><?php _e( 'Details','bvseventos' ); ?> <i class="fa fa-eye"></i></div>
+                <div class="view-detail "><?php _e( 'Details','bvs-events-calendar' ); ?> <i class="fa fa-eye"></i></div>
                 <div class="detail">
                     <div class="author-list">
 	                    <?php if ( $author_ids[0] ) : // Participants Loop ?>
@@ -61,7 +61,7 @@
 	                    <?php endif; ?>
                     </div>
                     <div class="summary">
-                        <strong><?php _e( 'Summary','bvseventos' ); ?></strong>
+                        <strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
                         <?php
                             if ( get_the_excerpt() ) {
                                 the_excerpt();
@@ -78,10 +78,10 @@
                     <?php endif; ?>
                     <div class="s-links">
                     	<?php if ( $attachment ) : ?>
-                        	<span><i class="fa fa-cloud-download"></i> <a href="<?php echo $attachment['url']; ?>" target="_blank"><?php _e( 'Download Presentation','bvseventos' ); ?></a></span>
+                        	<span><i class="fa fa-cloud-download"></i> <a href="<?php echo $attachment['url']; ?>" target="_blank"><?php _e( 'Download Presentation','bvs-events-calendar' ); ?></a></span>
                         <?php endif; ?>
                         <?php if ( $video ) : ?>
-                        	<span><i class="fa fa-play-circle"></i> <a href="<?php echo $video; ?>" target="_blank"><?php _e( 'Watch Video','bvseventos' ); ?></a></span>
+                        	<span><i class="fa fa-play-circle"></i> <a href="<?php echo $video; ?>" target="_blank"><?php _e( 'Watch Video','bvs-events-calendar' ); ?></a></span>
                         <?php endif; ?>
                     </div>
                 </div>

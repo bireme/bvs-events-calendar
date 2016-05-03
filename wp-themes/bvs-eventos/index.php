@@ -26,7 +26,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header>
-				<h1 class="event-label"><?php _e( 'Next events', 'bvseventos' ); ?></h1>
+				<h1 class="event-label"><?php _e( 'Next events', 'bvs-events-calendar' ); ?></h1>
 			</header>
 
 			<?php
@@ -45,9 +45,9 @@ get_header(); ?>
 
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'bvseventos' ),
-				'next_text'          => __( 'Next page', 'bvseventos' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'bvseventos' ) . ' </span>',
+				'prev_text'          => __( 'Previous page', 'bvs-events-calendar' ),
+				'next_text'          => __( 'Next page', 'bvs-events-calendar' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'bvs-events-calendar' ) . ' </span>',
 			) );
 
 		// If no content, include the "No posts found" template.

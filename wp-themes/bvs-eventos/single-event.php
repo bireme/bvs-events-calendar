@@ -47,13 +47,13 @@ get_header(); ?>
 
 			<?php if ( ! empty( $start_date ) ) : ?>
 				<div id="date" class="event-date">
-					<h3 class="event-header"><?php _e( 'Date', 'bvseventos' ); ?></h3>
+					<h3 class="event-header"><?php _e( 'Date', 'bvs-events-calendar' ); ?></h3>
 					<?php echo $start_date . $end_date; ?>
 				</div>
 			<?php endif; ?>
 
 			<div id="event-content" class="event-content">
-				<h3 class="event-header"><?php _e( 'Description', 'bvseventos' ); ?></h3>
+				<h3 class="event-header"><?php _e( 'Description', 'bvs-events-calendar' ); ?></h3>
 				<?php
 					if ( $post->post_content ) {
                         echo wpautop($post->post_content);
@@ -65,14 +65,14 @@ get_header(); ?>
 
 			<?php if ( ! empty( $registrations ) ) : ?>
 				<div id="date" class="event-registrations">
-					<h3 class="event-header"><?php _e( 'Registrations', 'bvseventos' ); ?></h3>
+					<h3 class="event-header"><?php _e( 'Registrations', 'bvs-events-calendar' ); ?></h3>
 					<?php echo $registrations; ?>
 				</div>
 			<?php endif; ?>
 			
 			<?php if ( ! empty( $location ) ) : ?>
 				<div id="location" class="event-location">
-					<h3 class="event-header"><?php _e( 'Location', 'bvseventos' ); ?></h3>
+					<h3 class="event-header"><?php _e( 'Location', 'bvs-events-calendar' ); ?></h3>
 					<span>
 						<?php
 							if ( ! empty( $venue ) )

@@ -58,7 +58,7 @@ get_header(); ?>
 
 				<?php if( $query->have_posts() ) : // Presentations Loop ?>
 					<div class="related-content">
-						<?php _e( 'See also by','bvseventos' ); ?> <strong><?php single_post_title(); ?></strong>
+						<?php _e( 'See also by','bvs-events-calendar' ); ?> <strong><?php single_post_title(); ?></strong>
 						<ul>
 							<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
@@ -79,27 +79,27 @@ get_header(); ?>
 <aside id="secondary" class="sidebar" role="complementary">
 	<ul class="social-links">
 		<? if ( get_field( 'site' ) ) { ?>
-			<li><strong><i class="fa fa-link"></i> <?php _e( 'Site', 'bvseventos' ); ?></strong><br/>
+			<li><strong><i class="fa fa-link"></i> <?php _e( 'Site', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'site' ); ?>" target="_blank"><?php the_field( 'site' ); ?></a></small>
 			</li>
 		<? } ?>
 		<?php if ( get_field( 'twitter' ) ) { ?>
-			<li><strong><i class="fa fa-twitter"></i> <?php _e( 'Twitter', 'bvseventos' ); ?></strong><br/>
+			<li><strong><i class="fa fa-twitter"></i> <?php _e( 'Twitter', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'twitter' ); ?>" target="_blank"><?php the_field( 'twitter' ); ?></a></small>
 			</li>
 		<? } ?>
 		<?php if ( get_field( 'facebook' ) ) { ?>
-			<li><strong><i class="fa fa-facebook"></i> <?php _e( 'Facebook', 'bvseventos' ); ?></strong><br/>
+			<li><strong><i class="fa fa-facebook"></i> <?php _e( 'Facebook', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'facebook' ); ?>" target="_blank"><?php the_field( 'facebook' ); ?></a></small>
 			</li>
 		<? } ?>
 		<?php if ( get_field( 'linkedin' ) ) { ?>
-			<li><strong><i class="fa fa-linkedin"></i> <?php _e( 'LinkedIn', 'bvseventos' ); ?></strong><br/>
+			<li><strong><i class="fa fa-linkedin"></i> <?php _e( 'LinkedIn', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'linkedin' ); ?>" target="_blank"><?php the_field( 'linkedin' ); ?></a></small>
 			</li>
 		<? } ?>
 		<?php if ( get_field( 'curriculum_vitae' ) ) { ?>
-			<li><strong><i class="fa fa-mortar-board"></i> <?php _e( 'Curriculum Vitae', 'bvseventos' ); ?></strong><br/>
+			<li><strong><i class="fa fa-mortar-board"></i> <?php _e( 'Curriculum Vitae', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'curriculum_vitae' ); ?>" target="_blank"><?php the_field( 'curriculum_vitae' ); ?></a></small>
 			</li>
 		<? } ?>

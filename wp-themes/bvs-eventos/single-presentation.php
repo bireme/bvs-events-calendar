@@ -55,22 +55,22 @@ get_header(); ?>
 						<div id="tabs">
 							<ul>
 								<?php if ( $vt ) : ?>
-									<li><a href="#tabs-<?php echo $vt['type']; ?>"><i class="fa fa-<?php echo $vt['type']; ?>"></i> <?php _e( 'Video','bvseventos' ); ?></a></li>
+									<li><a href="#tabs-<?php echo $vt['type']; ?>"><i class="fa fa-<?php echo $vt['type']; ?>"></i> <?php _e( 'Video','bvs-events-calendar' ); ?></a></li>
 								<?php endif; ?>
 								<?php if ( $slideshare ) : ?>
-									<li><a href="#tabs-slideshare"><i class="fa fa-slideshare"></i> <?php _e( 'SlideShare','bvseventos' ); ?></a></li>
+									<li><a href="#tabs-slideshare"><i class="fa fa-slideshare"></i> <?php _e( 'SlideShare','bvs-events-calendar' ); ?></a></li>
 								<?php endif; ?>
 							</ul>
 							<?php if ( $vt ) : ?>
 								<div id="tabs-<?php echo $vt['type']; ?>">
-									<iframe title="<?php _e( 'Video','bvseventos' ); ?>" src="<?php echo $vt['embed']; ?>" width="700" height="350" allowfullscreen>
+									<iframe title="<?php _e( 'Video','bvs-events-calendar' ); ?>" src="<?php echo $vt['embed']; ?>" width="700" height="350" allowfullscreen>
 										<?php _e('Your reading system does not support inline frames or support has been disabled. Please follow'); ?> <a href="<?php echo $video; ?>"><?php _e('this link'); ?></a> <?php _e('to open the associated content.'); ?>
 									</iframe>
 								</div>
 							<?php endif; ?>
 							<?php if ( $slideshare ) : ?>
 								<div id="tabs-slideshare">
-									<iframe title="<?php _e( 'SlideShare','bvseventos' ); ?>" src="<?php echo slideshare_embed($slideshare); ?>" width="700" height="350" allowfullscreen>
+									<iframe title="<?php _e( 'SlideShare','bvs-events-calendar' ); ?>" src="<?php echo slideshare_embed($slideshare); ?>" width="700" height="350" allowfullscreen>
 										<?php _e('Your reading system does not support inline frames or support has been disabled. Please follow'); ?> <a href="<?php echo $slideshare; ?>"><?php _e('this link'); ?></a> <?php _e('to open the associated content.'); ?>
 									</iframe>
 								</div>
@@ -91,7 +91,7 @@ get_header(); ?>
     				<?php endif; ?>
 				</div>
 				<div class="summary">
-					<strong><?php _e( 'Summary','bvseventos' ); ?></strong>
+					<strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
 					<?php
 						if ( $post->post_content ) {
                             echo wpautop($post->post_content);
@@ -102,12 +102,12 @@ get_header(); ?>
 				</div>
 				<?php if( has_tag() ) : ?>
 					<div class="s-tags">
-						<strong><?php _e('Tags', 'bvseventos'); ?>:</strong>
+						<strong><?php _e('Tags', 'bvs-events-calendar'); ?>:</strong>
 						<?php the_tags( '<span>', '</span><span>', '</span>' ); ?>
 					</div>
 				<?php endif; ?>
 				<?php if ( $attachment ) : ?>
-					<div class="s-links"><span><i class="fa fa-cloud-download"></i> <a href="<?php echo $attachment['url']; ?>" target="_blank"><?php _e( 'Download Presentation','bvseventos' ); ?></a></span></div>
+					<div class="s-links"><span><i class="fa fa-cloud-download"></i> <a href="<?php echo $attachment['url']; ?>" target="_blank"><?php _e( 'Download Presentation','bvs-events-calendar' ); ?></a></span></div>
 				<?php endif; ?>
 			</div>
 		</div>

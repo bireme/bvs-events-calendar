@@ -26,13 +26,13 @@
 					$start_date = date("d/m/Y", strtotime(get_field('start_date')));
 					$end_date = (get_field('end_date') && get_field('start_date') != get_field('end_date')) ? ' - ' . date("d/m/Y", strtotime(get_field('end_date'))) : '';
 					
-					echo '<span>' . __( 'Date', 'bvseventos' ) . ': </span>' . $start_date . $end_date;
+					echo '<span>' . __( 'Date', 'bvs-events-calendar' ) . ': </span>' . $start_date . $end_date;
 				?>
 			</div>
 		<?php endif; ?>
 
 		<span class="event-details">
-			<a href="<?php the_permalink(); ?>"><?php _e('See more details', 'bvseventos'); ?></a>
+			<a href="<?php the_permalink(); ?>"><?php _e('See more details', 'bvs-events-calendar'); ?></a>
 		</span>
 
 		<?php if ( has_tag() ) : ?>
@@ -50,7 +50,7 @@
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
-					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'bvseventos' ),
+					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'bvs-events-calendar' ),
 					get_the_title()
 				),
 				'<span class="edit-link">',

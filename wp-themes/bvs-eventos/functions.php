@@ -8,29 +8,24 @@
 
     if ( function_exists('register_sidebar') ) {
     	register_sidebar( array(
-            'name' => __( 'Logo', 'bvseventos' ),
+            'name' => __( 'Logo', 'bvs-events-calendar' ),
             'id' => 'logo-sidebar',
-            'description' => __( 'Widget to upload image logo.', 'bvseventos' ),
+            'description' => __( 'Widget to upload image logo.', 'bvs-events-calendar' ),
             'before_widget' => '<div id="logo">',
     		'after_widget'  => '</div>',
     		
     	) );
 
     	register_sidebar( array(
-            'name' => __( 'Auxiliar Top', 'bvseventos' ),
+            'name' => __( 'Auxiliar Top', 'bvs-events-calendar' ),
             'id' => 'auxiliar-top',
-            'description' => __( 'Top bar auxiliar.', 'bvseventos' ),
+            'description' => __( 'Top bar auxiliar.', 'bvs-events-calendar' ),
             'before_widget' => '<span id="%1$s" class="widget %2$s">',
     		'after_widget'  => '</span>',
     		'before_title'  => '<h2 class="widgettitle">',
     		'after_title'   => '</h2>',
     	) );
     }
-
-    function events_translation(){
-        load_textdomain( 'bvseventos',  get_stylesheet_directory().'/languages/bvseventos-'.get_locale().'.mo' );
-    }
-    add_action( 'after_setup_theme', 'events_translation' );
 
     function get_days($end, $start) {
         $end_date   = strtotime($end);
@@ -62,7 +57,7 @@
 
     function custom_excerpt_more($more) {
         global $post;
-        return ' ... <a class="moretag" href="'. get_permalink($post->ID) . '">' . __( 'Continue reading', 'bvseventos' ) . '</a>';
+        return ' ... <a class="moretag" href="'. get_permalink($post->ID) . '">' . __( 'Continue reading', 'bvs-events-calendar' ) . '</a>';
     }
     add_filter('excerpt_more', 'custom_excerpt_more');
 
@@ -130,26 +125,13 @@
         }
     }
 
-    function add_theme_scripts() {
-        wp_enqueue_style( 'jquery-anyslider', get_stylesheet_directory_uri() . '/anyslider/jquery-anyslider.css' );
-        wp_enqueue_style( 'jquery-ui', '//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css', array(), '1.11.4' );
-        wp_enqueue_script( 'jquery-min', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', true );
-        wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.11.4/jquery-ui.js', array(), '1.11.4', true );
-        wp_enqueue_script( 'jquery-anyslider', get_stylesheet_directory_uri() . '/js/jquery.anyslider.js', array(), '2.1.0-beta', true );
-        wp_enqueue_script( 'jquery-easing', get_stylesheet_directory_uri() . '/js/jquery.easing.1.3.js', array(), '1.3', true );
-        wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '3', true );
-        wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), '0.1', true );
-        wp_enqueue_script( 'google-map-init', get_stylesheet_directory_uri() . '/js/google-maps.js', array('google-map', 'jquery'), '0.1', true );
-    }
-    add_action( 'wp_enqueue_scripts', 'add_theme_scripts', 20 );
-
     function event_nav_menu_meta_box_markup($obj) {
         wp_nonce_field(basename(__FILE__), "event-nav-menu-nonce");
 
         ?>
             <div>
-                <p><strong><?php _e( 'Menu', 'bvseventos' ); ?></strong></p>
-                <label class="screen-reader-text" for="event-nav-menu"><?php _e( 'Menu', 'bvseventos' ); ?></label>
+                <p><strong><?php _e( 'Menu', 'bvs-events-calendar' ); ?></strong></p>
+                <label class="screen-reader-text" for="event-nav-menu"><?php _e( 'Menu', 'bvs-events-calendar' ); ?></label>
                 <select name="event-nav-menu" id="event-nav-menu">
                     <?php 
                         $menus = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
@@ -174,7 +156,7 @@
     }
 
     function event_nav_menu_meta_box() {
-        add_meta_box("event-nav-menu-meta-box", __( "Navigation Menu", "bvseventos" ), "event_nav_menu_meta_box_markup", "event", "side", "high", null);
+        add_meta_box("event-nav-menu-meta-box", __( "Navigation Menu", "bvs-events-calendar" ), "event_nav_menu_meta_box_markup", "event", "side", "high", null);
     }
     add_action("add_meta_boxes", "event_nav_menu_meta_box");
 
@@ -239,16 +221,16 @@
             <div id="event-menu">
                 <ul>
                     <?php if ( $schedule ) : ?>
-                        <li><a href="<?php echo $schedule; ?>"><?php _e( 'Schedule', 'bvseventos' ); ?></a></li>
+                        <li><a href="<?php echo $schedule; ?>"><?php _e( 'Schedule', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                     <?php if ( $start_date ) : ?>
-                        <li><a href="#date"><?php _e( 'Date', 'bvseventos' ); ?></a></li>
+                        <li><a href="#date"><?php _e( 'Date', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                     <?php if ( $post->post_content || $post->post_excerpt ) : ?>
-                        <li><a href="#event-content"><?php _e( 'Description', 'bvseventos' ); ?></a></li>
+                        <li><a href="#event-content"><?php _e( 'Description', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                     <?php if ( $location ) : ?>
-                        <li><a href="#location"><?php _e( 'Location', 'bvseventos' ); ?></a></li>
+                        <li><a href="#location"><?php _e( 'Location', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                 </ul>
             </div>

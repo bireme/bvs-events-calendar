@@ -24,7 +24,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<div class="site-inner">
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'bvseventos' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'bvs-events-calendar' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-header-main">
@@ -49,7 +49,7 @@
 				</div><!-- .top-slot -->
 			</div><!-- .site-header-main -->
 			<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
-					<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'bvseventos' ); ?></button>
+					<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'bvs-events-calendar' ); ?></button>
 
 					<div id="site-header-menu" class="site-header-menu">
 						<?php if ( has_nav_menu( 'primary' ) ) : ?>
