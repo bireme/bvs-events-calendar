@@ -23,7 +23,7 @@ get_header(); ?>
 					<?php if ($picture) : ?>
 						<div class="author-pic"><img src="<?php echo $picture['url']; ?>" /></div>
 					<?php endif; ?>
-					<div class="autor-data">
+					<div class="author-data">
 						<div class="author-name"><?php single_post_title(); ?></div>
 						<div class="author-inst"><span class="job-title"><?php the_field( 'job_title' ); ?></span> - <span class="affiliation"><?php the_field( 'affiliation' ); ?></span></div>
 					</div>
@@ -42,7 +42,7 @@ get_header(); ?>
 					    'post_type' => 'presentation',
 					    'post_status' => 'publish',
 					    'posts_per_page' => -1,
-					    'order'   => 'ASC',
+					    'order'   => 'DESC',
 					    'meta_query' => array(
 					        array(
 					            'key' => 'author',
@@ -58,7 +58,7 @@ get_header(); ?>
 
 				<?php if( $query->have_posts() ) : // Presentations Loop ?>
 					<div class="related-content">
-						<?php _e( 'Veja também de','bvseventos' ); ?> <strong><?php single_post_title(); ?></strong>
+						<?php _e( 'See also by','bvseventos' ); ?> <strong><?php single_post_title(); ?></strong>
 						<ul>
 							<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>

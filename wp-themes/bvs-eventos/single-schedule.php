@@ -44,7 +44,7 @@ get_header(); ?>
             <div class="slider slider1">
                 <?php foreach ($dates as $key => $value) : ?>
                     <div class="sum-day">
-                        <strong><?php echo date("d/F/Y - l", strtotime($key) ); ?></strong>
+                        <strong><?php echo date_i18n("d/F/Y - l", strtotime($key) ); ?></strong>
                         <div class="slider-wrapper">
                             <div class="slider-s slider2">
                                 <div class="sum-sessions">
@@ -72,7 +72,7 @@ get_header(); ?>
                 ?>
                     <div class="program-day">
                         <div class="schedule-date">
-                            <?php echo date("d/F/Y - l", $initial_datetime ); ?>
+                            <?php echo date_i18n("d/F/Y - l", $initial_datetime ); ?>
                         </div>
                     </div>
                 <?php endif; ?>

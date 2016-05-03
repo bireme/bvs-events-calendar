@@ -10,8 +10,8 @@
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage BVS_Eventos
+ * @since BVS Eventos 1.0
  */
 
 global $wp_query;
@@ -25,11 +25,9 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+			<header>
+				<h1 class="event-label"><?php _e( 'Next events', 'bvseventos' ); ?></h1>
+			</header>
 
 			<?php
 			// Start the loop.
@@ -47,9 +45,9 @@ get_header(); ?>
 
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-				'next_text'          => __( 'Next page', 'twentysixteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+				'prev_text'          => __( 'Previous page', 'bvseventos' ),
+				'next_text'          => __( 'Next page', 'bvseventos' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'bvseventos' ) . ' </span>',
 			) );
 
 		// If no content, include the "No posts found" template.

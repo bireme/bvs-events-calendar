@@ -1,27 +1,36 @@
 <?php
+    
+    if ( function_exists('register_nav_menus') ) {
+    	register_nav_menus( array(
+    		'top_menu' => 'Top Menu',
+    	) );
+    }
 
-	register_nav_menus( array(
-		'top_menu' => 'Top Menu',
-	) );
+    if ( function_exists('register_sidebar') ) {
+    	register_sidebar( array(
+            'name' => __( 'Logo', 'bvseventos' ),
+            'id' => 'logo-sidebar',
+            'description' => __( 'Widget to upload image logo.', 'bvseventos' ),
+            'before_widget' => '<div id="logo">',
+    		'after_widget'  => '</div>',
+    		
+    	) );
 
-	register_sidebar( array(
-        'name' => __( 'Logo', 'bvs-eventos' ),
-        'id' => 'logo-sidebar',
-        'description' => __( 'Widget to upload image logo.', 'bvs-eventos' ),
-        'before_widget' => '<div id="logo">',
-		'after_widget'  => '</div>',
-		
-	) );
+    	register_sidebar( array(
+            'name' => __( 'Auxiliar Top', 'bvseventos' ),
+            'id' => 'auxiliar-top',
+            'description' => __( 'Top bar auxiliar.', 'bvseventos' ),
+            'before_widget' => '<span id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</span>',
+    		'before_title'  => '<h2 class="widgettitle">',
+    		'after_title'   => '</h2>',
+    	) );
+    }
 
-	register_sidebar( array(
-        'name' => __( 'Auxiliar top', 'bvs-eventos' ),
-        'id' => 'auxiliar-top',
-        'description' => __( 'Top bar auxiliar.', 'bvs-eventos' ),
-        'before_widget' => '<span id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</span>',
-		'before_title'  => '<h2 class="widgettitle">',
-		'after_title'   => '</h2>',
-	) );
+    function events_translation(){
+        load_textdomain( 'bvseventos',  get_stylesheet_directory().'/languages/bvseventos-'.get_locale().'.mo' );
+    }
+    add_action( 'after_setup_theme', 'events_translation' );
 
     function get_days($end, $start) {
         $end_date   = strtotime($end);
@@ -122,10 +131,17 @@
     }
 
     function add_theme_scripts() {
+        wp_enqueue_style( 'jquery-anyslider', get_stylesheet_directory_uri() . '/anyslider/jquery-anyslider.css' );
+        wp_enqueue_style( 'jquery-ui', '//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css', array(), '1.11.4' );
+        wp_enqueue_script( 'jquery-min', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), '1.11.3', true );
+        wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.11.4/jquery-ui.js', array(), '1.11.4', true );
+        wp_enqueue_script( 'jquery-anyslider', get_stylesheet_directory_uri() . '/js/jquery.anyslider.js', array(), '2.1.0-beta', true );
+        wp_enqueue_script( 'jquery-easing', get_stylesheet_directory_uri() . '/js/jquery.easing.1.3.js', array(), '1.3', true );
         wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '3', true );
+        wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), '0.1', true );
         wp_enqueue_script( 'google-map-init', get_stylesheet_directory_uri() . '/js/google-maps.js', array('google-map', 'jquery'), '0.1', true );
     }
-    add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
+    add_action( 'wp_enqueue_scripts', 'add_theme_scripts', 20 );
 
     function event_nav_menu_meta_box_markup($obj) {
         wp_nonce_field(basename(__FILE__), "event-nav-menu-nonce");
@@ -222,7 +238,6 @@
 
             <div id="event-menu">
                 <ul>
-                    <li><a href="<?php echo get_settings('home'); ?>">Home</a></li>
                     <?php if ( $schedule ) : ?>
                         <li><a href="<?php echo $schedule; ?>"><?php _e( 'Schedule', 'bvseventos' ); ?></a></li>
                     <?php endif; ?>

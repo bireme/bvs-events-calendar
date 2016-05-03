@@ -19,13 +19,12 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
-	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/anyslider/jquery-anyslider.css" />
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<div class="site-inner">
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'bvseventos' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-header-main">
@@ -50,7 +49,7 @@
 				</div><!-- .top-slot -->
 			</div><!-- .site-header-main -->
 			<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
-					<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'twentysixteen' ); ?></button>
+					<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'bvseventos' ); ?></button>
 
 					<div id="site-header-menu" class="site-header-menu">
 						<?php if ( has_nav_menu( 'primary' ) ) : ?>

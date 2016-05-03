@@ -1,10 +1,10 @@
 <?php
 /**
- * The template part for displaying single posts
+ * The template for displaying all single events
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage BVS_Eventos
+ * @since BVS Eventos 1.0
  */
 ?>
 
@@ -26,7 +26,7 @@
 					$start_date = date("d/m/Y", strtotime(get_field('start_date')));
 					$end_date = (get_field('end_date') && get_field('start_date') != get_field('end_date')) ? ' - ' . date("d/m/Y", strtotime(get_field('end_date'))) : '';
 					
-					echo '<span>' . __( 'Data', 'bvseventos' ) . ': </span>' . $start_date . $end_date;
+					echo '<span>' . __( 'Date', 'bvseventos' ) . ': </span>' . $start_date . $end_date;
 				?>
 			</div>
 		<?php endif; ?>
@@ -50,7 +50,7 @@
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
-					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'twentysixteen' ),
+					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'bvseventos' ),
 					get_the_title()
 				),
 				'<span class="edit-link">',
