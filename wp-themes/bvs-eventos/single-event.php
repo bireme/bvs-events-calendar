@@ -1,10 +1,10 @@
 <?php
 /**
- * The template for displaying all single posts and attachments
+ * The template part for displaying single events
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage BVS_Eventos
+ * @since BVS Eventos 1.0
  */
 
 get_header(); ?>
@@ -34,6 +34,7 @@ get_header(); ?>
 			<?php
 				$venue = get_field('venue');
 				$location = get_field('location');
+				$registrations = get_field('registrations');
 				$start_date = date("d/m/Y", strtotime(get_field('start_date')));
 				$end_date = (get_field('end_date') && get_field('start_date') != get_field('end_date')) ? ' - ' . date("d/m/Y", strtotime(get_field('end_date'))) : '';
 			?>
@@ -61,6 +62,13 @@ get_header(); ?>
                     }
                 ?>
 			</div>
+
+			<?php if ( ! empty( $registrations ) ) : ?>
+				<div id="date" class="event-registrations">
+					<h3 class="event-header"><?php _e( 'Registrations', 'bvseventos' ); ?></h3>
+					<?php echo $registrations; ?>
+				</div>
+			<?php endif; ?>
 			
 			<?php if ( ! empty( $location ) ) : ?>
 				<div id="location" class="event-location">
@@ -93,7 +101,5 @@ get_header(); ?>
 	<?php get_sidebar( 'content-bottom' ); ?>
 
 </div><!-- .content-area -->
-
-<?php //if ( ! $homepage ) { get_sidebar(); } ?>
 
 <?php get_footer(); ?>
