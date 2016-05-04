@@ -196,6 +196,7 @@
 
             $schedule   = '';
             $location   = get_field('location');
+            $registrations = get_field('registrations');
             $start_date = date("d/m/Y", strtotime(get_field('start_date')));
 
             $args = array(
@@ -229,6 +230,9 @@
                     <?php if ( $post->post_content || $post->post_excerpt ) : ?>
                         <li><a href="#event-content"><?php _e( 'Description', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
+                    <?php if ( $registrations ) : ?>
+                        <li><a href="#registrations"><?php _e( 'Registrations', 'bvs-events-calendar' ); ?></a></li>
+                    <?php endif; ?>
                     <?php if ( $location ) : ?>
                         <li><a href="#location"><?php _e( 'Location', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
@@ -236,6 +240,52 @@
             </div>
 
         <?php endif;
+    }
+
+    function event_breadcrumb() {
+        global $post;
+        $post_title = get_the_title();
+
+        if ( function_exists( 'pll_current_language' ) ) {
+            $current_lang = pll_current_language();
+            $default_lang = pll_default_language();
+            $lang = $current_lang != $default_lang ? $current_lang : '';
+        } else {
+            $lang = '';
+        }
+
+        $fields = array(
+            'event' => 'event',
+            'schedule' => 'schedule',
+            'session' => 'session',
+            'subsession' => 'subsession',
+        );
+
+        $breadcrumb = array();
+        $before_bc = '<div class="breadcrumb"><a href="' . esc_url( home_url( "/".( $lang )."/" ) ) . '">home</a> / ';
+        $after_bc = (strlen($post_title) > 50) ? '<strong>' . substr($post_title, 0, 50) . "...</strong>" : '<strong>' . $post_title . '</strong>';
+        $after_bc .= '</div>';
+
+        $meta = get_post_meta( $post->ID );
+        $related = array_intersect_key( $meta, $fields );
+
+        while ( !empty($related) && count($related) == 1 ) {
+            $key = key($related);
+            $value = unserialize($related[$key][0]);            
+            $title = get_the_title( $value[0] );
+            
+            if (strlen($title) > 50)
+                $title = substr($title, 0, 50) . "...";
+            
+            $breadcrumb[] = '<a href="' . get_permalink( $value[0] ) .'">' . $title . '</a> / ';
+
+            $meta = get_post_meta( $value[0] );
+            $related = array_intersect_key( $meta, $fields );
+        }
+
+        $breadcrumb = implode('', array_reverse($breadcrumb));
+
+        echo $before_bc . $breadcrumb . $after_bc;
     }
 
 ?>

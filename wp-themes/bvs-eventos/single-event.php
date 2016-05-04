@@ -64,7 +64,7 @@ get_header(); ?>
 			</div>
 
 			<?php if ( ! empty( $registrations ) ) : ?>
-				<div id="date" class="event-registrations">
+				<div id="registrations" class="event-registrations">
 					<h3 class="event-header"><?php _e( 'Registrations', 'bvs-events-calendar' ); ?></h3>
 					<?php echo $registrations; ?>
 				</div>

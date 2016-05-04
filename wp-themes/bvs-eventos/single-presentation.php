@@ -18,14 +18,13 @@ get_header(); ?>
     $slideshare = get_field( 'slideshare', $post->ID );
     $session = get_post_meta( $post->ID, 'session' );
     $meta = get_post_meta( $session[0][0] );
-    //echo "<pre>"; print_r($meta); echo "</pre>";
 ?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
-		<div class="breadcrumb">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">home</a> / <strong><?php single_post_title(); ?></strong>
-		</div>
+
+		<?php event_breadcrumb(); ?>
+
 		<?php if ( $session ) : ?>
 			<?php
 				if ( 'session' == get_post_type( $session[0][0] ) ) {
