@@ -45,7 +45,11 @@
 					<?php endif; ?>
 				</div><!-- .site-branding -->
 				<div class="top-slot">
-					<?php wp_nav_menu( 'top_menu' ); ?>
+					<?php if ( has_nav_menu( 'top_menu' ) ) : ?>
+						<nav id="top-navigation" class="top-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentysixteen' ); ?>">
+							<?php wp_nav_menu( 'top_menu' ); ?>
+						</nav><!-- .top-navigation -->
+					<?php endif; ?>
 				</div><!-- .top-slot -->
 			</div><!-- .site-header-main -->
 			<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>

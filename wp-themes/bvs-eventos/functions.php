@@ -242,9 +242,9 @@
         <?php endif;
     }
 
-    function event_breadcrumb() {
-        global $post;
-        $post_title = get_the_title();
+    function event_breadcrumb($post_id) {
+        $post_title = get_the_title( $post_id );
+        $related_meta = array();
 
         if ( function_exists( 'pll_current_language' ) ) {
             $current_lang = pll_current_language();
@@ -261,31 +261,126 @@
             'subsession' => 'subsession',
         );
 
-        $breadcrumb = array();
-        $before_bc = '<div class="breadcrumb"><a href="' . esc_url( home_url( "/".( $lang )."/" ) ) . '">home</a> / ';
-        $after_bc = (strlen($post_title) > 50) ? '<strong>' . substr($post_title, 0, 50) . "...</strong>" : '<strong>' . $post_title . '</strong>';
-        $after_bc .= '</div>';
+        $related_meta[] = array(
+            'id' => $post_id,
+            'title' => $post_title,
+            'permalink' => get_permalink( $post_id )
+        );
 
-        $meta = get_post_meta( $post->ID );
+        $meta = get_post_meta( $post_id );
         $related = array_intersect_key( $meta, $fields );
 
         while ( !empty($related) && count($related) == 1 ) {
             $key = key($related);
             $value = unserialize($related[$key][0]);            
             $title = get_the_title( $value[0] );
-            
-            if (strlen($title) > 50)
-                $title = substr($title, 0, 50) . "...";
-            
-            $breadcrumb[] = '<a href="' . get_permalink( $value[0] ) .'">' . $title . '</a> / ';
+
+            $related_meta[] = array(
+                'id' => $value[0],
+                'title' => $title,
+                'permalink' => get_permalink( $value[0] )
+            );
 
             $meta = get_post_meta( $value[0] );
             $related = array_intersect_key( $meta, $fields );
         }
 
+        $related_meta[] = array(
+            'id' => 0,
+            'title' => 'Home',
+            'permalink' => esc_url( home_url( "/".( $lang )."/" ) )
+        );
+
+        echo event_breadcrumb_html( $related_meta );
+    }
+
+    function event_breadcrumb_html($meta) {
+        global $post;
+        $breadcrumb = array();
+        $meta = event_breadcrumb_shortener($meta);
+
+        foreach ($meta as $key => $value) {
+            if ( $key == count($meta)-1 ) {
+                $breadcrumb[] = '<div id="breadcrumb"><ul class="crumbs"><li class="first"><a href="' . $value['permalink'] . '" style="z-index:'. $key .';"><span></span>' . $value['title'] . '</a></li>';
+            }
+            elseif ( $key == 0 ) {
+                $post_type = get_post_type();
+
+                if ( $post_type == 'participant' && $value['id'] != $post->ID ) {
+                    $breadcrumb[] = '<li><a href="' . $value['permalink'] .'" style="z-index:' . $key . ';">' . $value['title'] . '</a></li></ul></div>';
+                }
+                else {
+                    $breadcrumb[] = '<li><a href="javascript:void(0);"><strong>' . $value['title'] . '</strong></a></li></ul></div>';
+                }
+            }
+            else {
+                $breadcrumb[] = '<li><a href="' . $value['permalink'] .'" style="z-index:' . $key . ';">' . $value['title'] . '</a></li>';
+            }
+        }
+
         $breadcrumb = implode('', array_reverse($breadcrumb));
 
-        echo $before_bc . $breadcrumb . $after_bc;
+        return $breadcrumb;
+    }
+
+    function event_breadcrumb_shortener($meta) {
+        $sizes = array(
+            2 => 100,
+            3 => 50,
+            4 => 33,
+            5 => 25,
+            6 => 20
+        );
+
+        $size = $sizes[count($meta)] ? $sizes[count($meta)] : 2;
+
+        foreach ($meta as $key => $value) {
+            if (strlen(utf8_decode($value['title'])) > $size) {
+                $title = substr(utf8_decode($value['title']), 0, $size-3) . "...";
+                $meta[$key]['title'] = utf8_encode($title);
+            }            
+        }
+
+        return $meta;
+    }
+
+    add_action('get_header', 'referer_setcookie');
+    function referer_setcookie() {
+        global $id;
+        global $post;
+
+        if ( 'participant' == get_post_type() ) {
+            $home = home_url();
+            $referer = $_SERVER['HTTP_REFERER'];
+            
+            if (strpos($referer, $home) !== false) {
+                if ( defined( 'POLYLANG_VERSION' ) ) {
+                    global $polylang;
+                    $lang = pll_current_language();
+
+                    if ( !isset($_COOKIE['referer_id']) ) {
+                        $id = url_to_postid( $referer );
+                        setcookie( 'referer_id', $id, time()+3600*24, COOKIEPATH, COOKIE_DOMAIN );
+                    } else {
+                        $id = $_COOKIE['referer_id'];
+                    }
+
+                    $post_type = get_post_type( $id );
+                    $related_ids = $polylang->model->get_translations($post_type, $id);
+                    $id = $related_ids[$lang];
+                } else {
+                    $id = url_to_postid( $referer );
+                }
+            }
+            else {
+                $id = $post->ID;
+                unset($_COOKIE['referer_id']);
+                setcookie('referer_id', null, -1, COOKIEPATH);
+            }
+        } else {
+            unset($_COOKIE['referer_id']);
+            setcookie('referer_id', null, -1, COOKIEPATH);
+        }
     }
 
 ?>

@@ -13,9 +13,9 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
-		<div class="breadcrumb">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">home</a> / <strong><?php single_post_title(); ?></strong>
-		</div>
+	
+		<?php event_breadcrumb( $id ); ?>
+
 		<div class="detail">
 			<div class="author-profile">
 				<div class="s-author">

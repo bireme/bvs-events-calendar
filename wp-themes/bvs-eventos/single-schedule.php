@@ -12,7 +12,7 @@ get_header(); ?>
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
-    <?php event_breadcrumb(); ?>
+    <?php event_breadcrumb($post->ID); ?>
 
     <?php        
         $args = array(
