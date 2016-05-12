@@ -404,4 +404,65 @@
         }
     }
 
+    function suggest_event_meta_box_markup($obj) {
+        ?>
+            <div>
+                <p><?php _e( 'Suggest this event to the VHL Portal', 'bvs-events-calendar' ); ?></p>
+                <p>
+                    <label class="screen-reader-text" for="suggest-event"><?php _e( 'Send event', 'bvs-events-calendar' ); ?></label>
+                    <button name="suggest-event" id="suggest-event" class="button button-primary"><?php _e( 'Send event', 'bvs-events-calendar' ); ?></button>
+                </p>
+            </div>
+            <script type="text/javascript">
+                jQuery(document).ready(function($){
+                    $('#suggest-event').click(function() {                        
+                        var title = document.forms["post"]["post_title"].value;
+                        var start_date = $('#acf-start_date').attr('data-field_key');
+                        var start_date_format = document.forms["post"]["fields["+start_date+"]"].value;
+                        var end_date = $('#acf-end_date').attr('data-field_key');
+                        var end_date_format = document.forms["post"]["fields["+end_date+"]"].value;
+
+                        document.forms["suggest-event-form"]["title"].value = title;
+                        document.forms["suggest-event-form"]["start_day"].value = start_date_format.substring(6,8);
+                        document.forms["suggest-event-form"]["start_month"].value = start_date_format.substring(4,6);
+                        document.forms["suggest-event-form"]["start_year"].value = start_date_format.substring(0,4);
+                        document.forms["suggest-event-form"]["end_day"].value = end_date_format.substring(6,8);
+                        document.forms["suggest-event-form"]["end_month"].value = end_date_format.substring(4,6);
+                        document.forms["suggest-event-form"]["end_year"].value = end_date_format.substring(0,4);
+
+                        $('.suggest-event-form').submit();
+
+                        return false;
+                    });
+                });
+            </script>
+        <?php  
+    }
+
+    function suggest_event_meta_box() {
+        add_meta_box("suggest-event-meta-box", __( "Suggest Event", "bvs-events-calendar" ), "suggest_event_meta_box_markup", "event", "side", "high", null);
+    }
+    add_action("add_meta_boxes", "suggest_event_meta_box");
+
+    function suggest_event_form() {
+        global $pagenow;
+        $post_type = $_GET['post_type'] ? $_GET['post_type'] : get_post_type( $_GET['post'] );
+
+        if (is_admin() &&  $post_type == 'event' && ($pagenow == 'post-new.php' || $pagenow == 'post.php')) {
+        ?>
+            <form name="suggest-event-form" class="suggest-event-form" target="_blank" method="post" action="http://bvsalud.org/direve/suggest-event/">
+                <input type="hidden" name="title" value="">
+                <input type="hidden" name="start_day" value="">
+                <input type="hidden" name="start_month" value="">
+                <input type="hidden" name="start_year" value="">
+                <input type="hidden" name="end_day" value="">
+                <input type="hidden" name="end_month" value="">
+                <input type="hidden" name="end_year" value="">
+                <input type="hidden" name="site" value="<?php echo home_url( '/' ); ?>">
+            </form>
+        <?php
+        }
+    }
+    add_action('admin_footer', 'suggest_event_form');
+
 ?>
