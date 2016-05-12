@@ -344,6 +344,27 @@
         return $meta;
     }
 
+    add_filter('pll_the_language_link', 'pll_home_language_switcher', 10, 2);
+    function pll_home_language_switcher($url, $slug) {
+        global $wp;
+        $home = untrailingslashit(pll_home_url());
+        $current_url = home_url(add_query_arg(array(),$wp->request));
+
+        $is_index = $home == $current_url ? true : false;
+
+        if ( $is_index ) {
+            $posts = get_posts(array(
+                'post_type' => 'event',
+                'lang' => $slug,
+                'showposts' => 1
+            ));
+
+            $url = ( !$posts || $url === null ) ? null : $url;
+        }
+
+        return $url;
+    }
+
     add_action('get_header', 'referer_setcookie');
     function referer_setcookie() {
         global $id;
