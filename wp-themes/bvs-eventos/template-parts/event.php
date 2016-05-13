@@ -8,15 +8,21 @@
  */
 ?>
 
+<?php
+    $venue = get_field('venue');
+    $location = get_field('location');
+    $address = $venue ? $venue : $location['address'];
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-event' ); ?>>
 	<header class="entry-header">
 		<?php the_title( '<span class="event-title">', '</span>' ); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php if ( get_field('venue') ) : ?>
+		<?php if ( ! empty( $address ) ) : ?>
 			<div class="session-venue">
-				<?php echo strip_tags(get_field('venue')); ?>
+				<?php echo $address; ?>
 			</div>
 		<?php endif; ?>
 

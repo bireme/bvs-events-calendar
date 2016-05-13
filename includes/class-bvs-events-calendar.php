@@ -119,6 +119,16 @@ class BVS_Events_Calendar {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bvs-events-calendar-public.php';
 
+		/**
+		 * Incorpora o plugin ACF no plugin BVS Agenda de Eventos.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/advanced-custom-fields/acf.php';
+
+		/**
+		 * Registra os custom fields do plugin ACF no plugin BVS Agenda de Eventos.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/custom-fields-groups.php';
+
 		$this->loader = new BVS_Events_Calendar_Loader();
 
 	}
@@ -151,9 +161,16 @@ class BVS_Events_Calendar {
 
 		$plugin_admin = new BVS_Events_Calendar_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles', 1 );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts', 1 );
 
+		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_event' );
+		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_schedule' );
+		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_session' );
+		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_subsession' );
+		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_presentation' );
+		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_participant' );
+		
 	}
 
 	/**

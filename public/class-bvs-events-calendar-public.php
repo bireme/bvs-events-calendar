@@ -114,7 +114,8 @@ class BVS_Events_Calendar_Public {
 	 * @since     1.0.0
 	 */
 	public function events_calendar_register_theme() {
-		register_theme_directory( WP_PLUGIN_DIR . '/' . $this->plugin_name . '/wp-themes' );
+		$path = WP_PLUGIN_DIR . '/' . $this->plugin_name . '/wp-themes';
+		register_theme_directory( $path );
 	}
 
 }
