@@ -107,22 +107,22 @@ class BVS_Events_Calendar_Admin {
 	 */
 	public function cptui_register_cpts_event() {
 		$labels = array(
-			"name" => "Events",
-			"singular_name" => "Event",
-			"menu_name" => "Events",
-			"all_items" => "Events",
-			"add_new" => "Add New",
-			"add_new_item" => "Add New Event",
-			"edit" => "Edit",
-			"edit_item" => "Edit Event",
-			"new_item" => "New Event",
-			"view" => "View",
-			"view_item" => "View Event",
-			"search_items" => "Search Event",
-			"not_found" => "No Events found",
-			"not_found_in_trash" => "No Events found in Trash",
-			"parent" => "Parent Event",
-			);
+            "name" => __("Events", 'bvs-events-calendar'),
+            "singular_name" => __("Event", 'bvs-events-calendar'),
+            "menu_name" => __("Events", 'bvs-events-calendar'),
+            "all_items" => __("All Events", 'bvs-events-calendar'),
+            "add_new" => __("Add Event", 'bvs-events-calendar'),
+            "add_new_item" => __("Add New Event", 'bvs-events-calendar'),
+            "edit" => __("Edit", 'bvs-events-calendar'),
+            "edit_item" => __("Edit Event", 'bvs-events-calendar'),
+            "new_item" => __("New Event", 'bvs-events-calendar'),
+            "view" => __("View", 'bvs-events-calendar'),
+            "view_item" => __("View Event", 'bvs-events-calendar'),
+            "search_items" => __("Search Event", 'bvs-events-calendar'),
+            "not_found" => __("No Events found", 'bvs-events-calendar'),
+            "not_found_in_trash" => __("No Events found in Trash", 'bvs-events-calendar'),
+            "parent" => __("Parent Event", 'bvs-events-calendar'),
+        );
 
 		$args = array(
 			"labels" => $labels,
@@ -130,7 +130,7 @@ class BVS_Events_Calendar_Admin {
 			"public" => true,
 			"show_ui" => true,
 			"show_in_rest" => false,
-			"has_archive" => true,
+			"has_archive" => false,
 			"show_in_menu" => true,
 			"exclude_from_search" => false,
 			"capability_type" => "post",
@@ -154,22 +154,22 @@ class BVS_Events_Calendar_Admin {
 	 */
 	public function cptui_register_cpts_schedule() {
 		$labels = array(
-			"name" => "Schedules",
-			"singular_name" => "Schedule",
-			"menu_name" => "Schedules",
-			"all_items" => "All Schedules",
-			"add_new" => "Add New",
-			"add_new_item" => "Add New Schedule",
-			"edit" => "Edit",
-			"edit_item" => "Edit Schedule",
-			"new_item" => "New Schedule",
-			"view" => "View",
-			"view_item" => "View Schedule",
-			"search_items" => "Search Schedule",
-			"not_found" => "No Schedule found",
-			"not_found_in_trash" => "No Schedule found in trash",
-			"parent" => "Parent Schedule",
-			);
+            "name" => __("Schedules", 'bvs-events-calendar'),
+            "singular_name" => __("Schedule", 'bvs-events-calendar'),
+            "menu_name" => __("Schedules", 'bvs-events-calendar'),
+            "all_items" => __("All Schedules", 'bvs-events-calendar'),
+            "add_new" => __("Add Schedule", 'bvs-events-calendar'),
+            "add_new_item" => __("Add New Schedule", 'bvs-events-calendar'),
+            "edit" => __("Edit", 'bvs-events-calendar'),
+            "edit_item" => __("Edit Schedule", 'bvs-events-calendar'),
+            "new_item" => __("New Schedule", 'bvs-events-calendar'),
+            "view" => __("View", 'bvs-events-calendar'),
+            "view_item" => __("View Schedule", 'bvs-events-calendar'),
+            "search_items" => __("Search Schedule", 'bvs-events-calendar'),
+            "not_found" => __("No Schedules found", 'bvs-events-calendar'),
+            "not_found_in_trash" => __("No Schedules found in Trash", 'bvs-events-calendar'),
+            "parent" => __("Parent Schedule", 'bvs-events-calendar'),
+        );
 
 		$args = array(
 			"labels" => $labels,
@@ -201,22 +201,22 @@ class BVS_Events_Calendar_Admin {
 	 */
 	public function cptui_register_cpts_session() {
 		$labels = array(
-			"name" => "Sessions",
-			"singular_name" => "Session",
-			"menu_name" => "Sessions",
-			"all_items" => "All Sessions",
-			"add_new" => "Add New",
-			"add_new_item" => "Add New Sessions",
-			"edit" => "Edit",
-			"edit_item" => "Edit Session",
-			"new_item" => "New Session",
-			"view" => "View",
-			"view_item" => "View Session",
-			"search_items" => "Search Session",
-			"not_found" => "No Sessions found",
-			"not_found_in_trash" => "No Sessions found in Trash",
-			"parent" => "Parent Session",
-			);
+            "name" => __("Sessions", 'bvs-events-calendar'),
+            "singular_name" => __("Session", 'bvs-events-calendar'),
+            "menu_name" => __("Sessions", 'bvs-events-calendar'),
+            "all_items" => __("All Sessions", 'bvs-events-calendar'),
+            "add_new" => __("Add Session", 'bvs-events-calendar'),
+            "add_new_item" => __("Add New Session", 'bvs-events-calendar'),
+            "edit" => __("Edit", 'bvs-events-calendar'),
+            "edit_item" => __("Edit Session", 'bvs-events-calendar'),
+            "new_item" => __("New Session", 'bvs-events-calendar'),
+            "view" => __("View", 'bvs-events-calendar'),
+            "view_item" => __("View Session", 'bvs-events-calendar'),
+            "search_items" => __("Search Session", 'bvs-events-calendar'),
+            "not_found" => __("No Sessions found", 'bvs-events-calendar'),
+            "not_found_in_trash" => __("No Sessions found in Trash", 'bvs-events-calendar'),
+            "parent" => __("Parent Session", 'bvs-events-calendar'),
+        );
 
 		$args = array(
 			"labels" => $labels,
@@ -248,22 +248,22 @@ class BVS_Events_Calendar_Admin {
 	 */
 	public function cptui_register_cpts_subsession() {
 		$labels = array(
-			"name" => "Subsessions",
-			"singular_name" => "Subsession",
-			"menu_name" => "Subsessions",
-			"all_items" => "All Subsessions",
-			"add_new" => "Add New",
-			"add_new_item" => "Add New Subsession",
-			"edit" => "Edit",
-			"edit_item" => "Edit Subsession",
-			"new_item" => "New Subsession",
-			"view" => "View",
-			"view_item" => "View Subsession",
-			"search_items" => "Search Subsession",
-			"not_found" => "No Subsessions found",
-			"not_found_in_trash" => "No Subsessions found in Trash",
-			"parent" => "Parent Subsession",
-			);
+            "name" => __("Subsessions", 'bvs-events-calendar'),
+            "singular_name" => __("Subsession", 'bvs-events-calendar'),
+            "menu_name" => __("Subsessions", 'bvs-events-calendar'),
+            "all_items" => __("All Subsessions", 'bvs-events-calendar'),
+            "add_new" => __("Add Subsession", 'bvs-events-calendar'),
+            "add_new_item" => __("Add New Subsession", 'bvs-events-calendar'),
+            "edit" => __("Edit", 'bvs-events-calendar'),
+            "edit_item" => __("Edit Subsession", 'bvs-events-calendar'),
+            "new_item" => __("New Subsession", 'bvs-events-calendar'),
+            "view" => __("View", 'bvs-events-calendar'),
+            "view_item" => __("View Subsession", 'bvs-events-calendar'),
+            "search_items" => __("Search Subsession", 'bvs-events-calendar'),
+            "not_found" => __("No Subsessions found", 'bvs-events-calendar'),
+            "not_found_in_trash" => __("No Subsessions found in Trash", 'bvs-events-calendar'),
+            "parent" => __("Parent Subsession", 'bvs-events-calendar'),
+        );
 
 		$args = array(
 			"labels" => $labels,
@@ -295,22 +295,22 @@ class BVS_Events_Calendar_Admin {
 	 */
 	public function cptui_register_cpts_presentation() {
 		$labels = array(
-			"name" => "Presentations",
-			"singular_name" => "Presentation",
-			"menu_name" => "Presentations",
-			"all_items" => "All Presentations",
-			"add_new" => "Add New",
-			"add_new_item" => "Add New Presentation",
-			"edit" => "Edit",
-			"edit_item" => "Edit Presentation",
-			"new_item" => "New Presentation",
-			"view" => "View",
-			"view_item" => "View Presentation",
-			"search_items" => "Search Presentation",
-			"not_found" => "No Presentations found",
-			"not_found_in_trash" => "No Presentations found in Trash",
-			"parent" => "Parent Presentation",
-			);
+            "name" => __("Presentations", 'bvs-events-calendar'),
+            "singular_name" => __("Presentation", 'bvs-events-calendar'),
+            "menu_name" => __("Presentations", 'bvs-events-calendar'),
+            "all_items" => __("All Presentations", 'bvs-events-calendar'),
+            "add_new" => __("Add Presentation", 'bvs-events-calendar'),
+            "add_new_item" => __("Add New Presentation", 'bvs-events-calendar'),
+            "edit" => __("Edit", 'bvs-events-calendar'),
+            "edit_item" => __("Edit Presentation", 'bvs-events-calendar'),
+            "new_item" => __("New Presentation", 'bvs-events-calendar'),
+            "view" => __("View", 'bvs-events-calendar'),
+            "view_item" => __("View Presentation", 'bvs-events-calendar'),
+            "search_items" => __("Search Presentation", 'bvs-events-calendar'),
+            "not_found" => __("No Presentations found", 'bvs-events-calendar'),
+            "not_found_in_trash" => __("No Presentations found in Trash", 'bvs-events-calendar'),
+            "parent" => __("Parent Presentation", 'bvs-events-calendar'),
+        );
 
 		$args = array(
 			"labels" => $labels,
@@ -342,22 +342,22 @@ class BVS_Events_Calendar_Admin {
 	 */
 	public function cptui_register_cpts_participant() {
 		$labels = array(
-			"name" => "Participants",
-			"singular_name" => "Participants",
-			"menu_name" => "Participants",
-			"all_items" => "All Participants",
-			"add_new" => "Add New",
-			"add_new_item" => "Add New Participants",
-			"edit" => "Edit",
-			"edit_item" => "Edit Participant",
-			"new_item" => "New Participant",
-			"view" => "View",
-			"view_item" => "View Participant",
-			"search_items" => "Search Participant",
-			"not_found" => "No Participants found",
-			"not_found_in_trash" => "No Participants found in Trash",
-			"parent" => "Parent Participant",
-			);
+            "name" => __("Participants", 'bvs-events-calendar'),
+            "singular_name" => __("Participant", 'bvs-events-calendar'),
+            "menu_name" => __("Participants", 'bvs-events-calendar'),
+            "all_items" => __("All Participants", 'bvs-events-calendar'),
+            "add_new" => __("Add Participant", 'bvs-events-calendar'),
+            "add_new_item" => __("Add New Participant", 'bvs-events-calendar'),
+            "edit" => __("Edit", 'bvs-events-calendar'),
+            "edit_item" => __("Edit Participant", 'bvs-events-calendar'),
+            "new_item" => __("New Participant", 'bvs-events-calendar'),
+            "view" => __("View", 'bvs-events-calendar'),
+            "view_item" => __("View Participant", 'bvs-events-calendar'),
+            "search_items" => __("Search Participant", 'bvs-events-calendar'),
+            "not_found" => __("No Participants found", 'bvs-events-calendar'),
+            "not_found_in_trash" => __("No Participants found in Trash", 'bvs-events-calendar'),
+            "parent" => __("Parent Participant", 'bvs-events-calendar'),
+        );
 
 		$args = array(
 			"labels" => $labels,

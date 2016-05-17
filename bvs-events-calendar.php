@@ -19,8 +19,8 @@
  * Version:           1.0.0
  * Author:            BIREME/OPAS/OMS
  * Author URI:        http://reddes.bvsalud.org/
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:           LGPL
+ * License URI:       http://www.gnu.org/licenses/lgpl.html
  * Text Domain:       bvs-events-calendar
  * Domain Path:       /languages
  */
