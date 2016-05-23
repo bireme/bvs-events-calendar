@@ -125,6 +125,11 @@ class BVS_Events_Calendar {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/advanced-custom-fields/acf.php';
 
 		/**
+		 * Incorpora o plugin ACF: Date and Time Picker no plugin BVS Agenda de Eventos.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/acf-field-date-time-picker/acf-date_time_picker.php';
+
+		/**
 		 * Registra os custom fields do plugin ACF no plugin BVS Agenda de Eventos.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/custom-fields-groups.php';
