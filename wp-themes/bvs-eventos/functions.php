@@ -409,8 +409,8 @@
             <div>
                 <p><?php _e( 'Suggest this event to the VHL Portal', 'bvs-events-calendar' ); ?></p>
                 <p>
-                    <label class="screen-reader-text" for="suggest-event"><?php _e( 'Send event', 'bvs-events-calendar' ); ?></label>
-                    <button name="suggest-event" id="suggest-event" class="button button-primary"><?php _e( 'Send event', 'bvs-events-calendar' ); ?></button>
+                    <label class="screen-reader-text" for="suggest-event"><?php _e( 'Send Event', 'bvs-events-calendar' ); ?></label>
+                    <button name="suggest-event" id="suggest-event" class="button button-primary"><?php _e( 'Send Event', 'bvs-events-calendar' ); ?></button>
                 </p>
             </div>
             <script type="text/javascript">
