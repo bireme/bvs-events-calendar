@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plugin BVS Agenda de Eventos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 16:13-0300\n"
-"PO-Revision-Date: 2016-05-25 16:13-0300\n"
+"POT-Creation-Date: 2016-05-31 17:26-0300\n"
+"PO-Revision-Date: 2016-05-31 17:26-0300\n"
 "Last-Translator: Wilson Moura <mourawil@paho.org>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -46,7 +46,8 @@ msgid "Navigation Menu"
 msgstr "Menu de Navegação"
 
 #: functions.php:225
-#: class-bvs-events-calendar-admin.php:158
+#: class-bvs-events-calendar-admin.php:172
+#: custom-fields-groups.php:404
 msgid "Schedule"
 msgstr "Programa"
 
@@ -66,9 +67,12 @@ msgid "Registrations"
 msgstr "Inscrições"
 
 #: functions.php:237
+#: custom-fields-groups.php:61
+#: custom-fields-groups.php:451
+#: custom-fields-groups.php:556
 #: single-event.php:74
 msgid "Location"
-msgstr "Localização"
+msgstr "Geolocalização"
 
 #: functions.php:410
 msgid "Suggest this event to the VHL Portal"
@@ -83,313 +87,413 @@ msgstr "Enviar Evento"
 msgid "Suggest Event"
 msgstr "Sugerir Evento"
 
-#: class-bvs-events-calendar-admin.php:110
-#: class-bvs-events-calendar-admin.php:112
+#: class-bvs-events-calendar-admin.php:124
+#: class-bvs-events-calendar-admin.php:126
 msgid "Events"
 msgstr "Eventos"
 
-#: class-bvs-events-calendar-admin.php:111
+#: class-bvs-events-calendar-admin.php:125
+#: custom-fields-groups.php:359
 msgid "Event"
 msgstr "Evento"
 
-#: class-bvs-events-calendar-admin.php:113
+#: class-bvs-events-calendar-admin.php:127
 msgid "All Events"
 msgstr "Todos os Eventos"
 
-#: class-bvs-events-calendar-admin.php:114
+#: class-bvs-events-calendar-admin.php:128
 msgid "Add Event"
 msgstr "Adicionar Evento"
 
-#: class-bvs-events-calendar-admin.php:115
+#: class-bvs-events-calendar-admin.php:129
 msgid "Add New Event"
 msgstr "Adicionar Novo Evento"
 
-#: class-bvs-events-calendar-admin.php:116
-#: class-bvs-events-calendar-admin.php:163
-#: class-bvs-events-calendar-admin.php:210
-#: class-bvs-events-calendar-admin.php:257
-#: class-bvs-events-calendar-admin.php:304
-#: class-bvs-events-calendar-admin.php:351
+#: class-bvs-events-calendar-admin.php:130
+#: class-bvs-events-calendar-admin.php:177
+#: class-bvs-events-calendar-admin.php:224
+#: class-bvs-events-calendar-admin.php:271
+#: class-bvs-events-calendar-admin.php:318
+#: class-bvs-events-calendar-admin.php:365
 msgid "Edit"
 msgstr "Editar"
 
-#: class-bvs-events-calendar-admin.php:117
+#: class-bvs-events-calendar-admin.php:131
 msgid "Edit Event"
 msgstr "Editar Evento"
 
-#: class-bvs-events-calendar-admin.php:118
+#: class-bvs-events-calendar-admin.php:132
 msgid "New Event"
 msgstr "Novo Evento"
 
-#: class-bvs-events-calendar-admin.php:119
-#: class-bvs-events-calendar-admin.php:166
-#: class-bvs-events-calendar-admin.php:213
-#: class-bvs-events-calendar-admin.php:260
-#: class-bvs-events-calendar-admin.php:307
-#: class-bvs-events-calendar-admin.php:354
+#: class-bvs-events-calendar-admin.php:133
+#: class-bvs-events-calendar-admin.php:180
+#: class-bvs-events-calendar-admin.php:227
+#: class-bvs-events-calendar-admin.php:274
+#: class-bvs-events-calendar-admin.php:321
+#: class-bvs-events-calendar-admin.php:368
 msgid "View"
 msgstr "Ver"
 
-#: class-bvs-events-calendar-admin.php:120
+#: class-bvs-events-calendar-admin.php:134
 msgid "View Event"
 msgstr "Ver Evento"
 
-#: class-bvs-events-calendar-admin.php:121
+#: class-bvs-events-calendar-admin.php:135
 msgid "Search Event"
 msgstr "Pesquisar Evento"
 
-#: class-bvs-events-calendar-admin.php:122
+#: class-bvs-events-calendar-admin.php:136
 msgid "No Events found"
 msgstr "Nenhum Evento encontrado"
 
-#: class-bvs-events-calendar-admin.php:123
+#: class-bvs-events-calendar-admin.php:137
 msgid "No Events found in Trash"
 msgstr "Nenhum Evento encontrado na Lixeira"
 
-#: class-bvs-events-calendar-admin.php:124
+#: class-bvs-events-calendar-admin.php:138
 msgid "Parent Event"
 msgstr "Evento-Pai"
 
-#: class-bvs-events-calendar-admin.php:157
-#: class-bvs-events-calendar-admin.php:159
+#: class-bvs-events-calendar-admin.php:171
+#: class-bvs-events-calendar-admin.php:173
 msgid "Schedules"
 msgstr "Programas"
 
-#: class-bvs-events-calendar-admin.php:160
+#: class-bvs-events-calendar-admin.php:174
 msgid "All Schedules"
 msgstr "Todos os Programas"
 
-#: class-bvs-events-calendar-admin.php:161
+#: class-bvs-events-calendar-admin.php:175
 msgid "Add Schedule"
 msgstr "Adicionar Programa"
 
-#: class-bvs-events-calendar-admin.php:162
+#: class-bvs-events-calendar-admin.php:176
 msgid "Add New Schedule"
 msgstr "Adicionar Novo Programa"
 
-#: class-bvs-events-calendar-admin.php:164
+#: class-bvs-events-calendar-admin.php:178
 msgid "Edit Schedule"
 msgstr "Editar Programa"
 
-#: class-bvs-events-calendar-admin.php:165
+#: class-bvs-events-calendar-admin.php:179
 msgid "New Schedule"
 msgstr "Novo Programa"
 
-#: class-bvs-events-calendar-admin.php:167
+#: class-bvs-events-calendar-admin.php:181
 msgid "View Schedule"
 msgstr "Ver Programa"
 
-#: class-bvs-events-calendar-admin.php:168
+#: class-bvs-events-calendar-admin.php:182
 msgid "Search Schedule"
 msgstr "Pesquisar Programa"
 
-#: class-bvs-events-calendar-admin.php:169
+#: class-bvs-events-calendar-admin.php:183
 msgid "No Schedules found"
 msgstr "Nenhum Programa encontrado"
 
-#: class-bvs-events-calendar-admin.php:170
+#: class-bvs-events-calendar-admin.php:184
 msgid "No Schedules found in Trash"
 msgstr "Nenhum Programa encontrado na Lixeira"
 
-#: class-bvs-events-calendar-admin.php:171
+#: class-bvs-events-calendar-admin.php:185
 msgid "Parent Schedule"
 msgstr "Programa-Pai"
 
-#: class-bvs-events-calendar-admin.php:204
-#: class-bvs-events-calendar-admin.php:206
+#: class-bvs-events-calendar-admin.php:218
+#: class-bvs-events-calendar-admin.php:220
 msgid "Sessions"
 msgstr "Seções"
 
-#: class-bvs-events-calendar-admin.php:205
+#: class-bvs-events-calendar-admin.php:219
+#: custom-fields-groups.php:260
+#: custom-fields-groups.php:534
 msgid "Session"
 msgstr "Seção"
 
-#: class-bvs-events-calendar-admin.php:207
+#: class-bvs-events-calendar-admin.php:221
 msgid "All Sessions"
 msgstr "Todas as Seções"
 
-#: class-bvs-events-calendar-admin.php:208
+#: class-bvs-events-calendar-admin.php:222
 msgid "Add Session"
 msgstr "Adicionar Seção"
 
-#: class-bvs-events-calendar-admin.php:209
+#: class-bvs-events-calendar-admin.php:223
 msgid "Add New Session"
 msgstr "Adicionar Nova Seção"
 
-#: class-bvs-events-calendar-admin.php:211
+#: class-bvs-events-calendar-admin.php:225
 msgid "Edit Session"
 msgstr "Editar Seção"
 
-#: class-bvs-events-calendar-admin.php:212
+#: class-bvs-events-calendar-admin.php:226
 msgid "New Session"
 msgstr "Nova Seção"
 
-#: class-bvs-events-calendar-admin.php:214
+#: class-bvs-events-calendar-admin.php:228
 msgid "View Session"
 msgstr "Ver Seção"
 
-#: class-bvs-events-calendar-admin.php:215
+#: class-bvs-events-calendar-admin.php:229
 msgid "Search Session"
 msgstr "Pesquisar Seção"
 
-#: class-bvs-events-calendar-admin.php:216
+#: class-bvs-events-calendar-admin.php:230
 msgid "No Sessions found"
 msgstr "Nenhuma Seção encontrada"
 
-#: class-bvs-events-calendar-admin.php:217
+#: class-bvs-events-calendar-admin.php:231
 msgid "No Sessions found in Trash"
 msgstr "Nenhuma Seção encontrada na Lixeira"
 
-#: class-bvs-events-calendar-admin.php:218
+#: class-bvs-events-calendar-admin.php:232
 msgid "Parent Session"
 msgstr "Seção-Pai"
 
-#: class-bvs-events-calendar-admin.php:251
-#: class-bvs-events-calendar-admin.php:253
+#: class-bvs-events-calendar-admin.php:265
+#: class-bvs-events-calendar-admin.php:267
 msgid "Subsessions"
 msgstr "Subseções"
 
-#: class-bvs-events-calendar-admin.php:252
+#: class-bvs-events-calendar-admin.php:266
 msgid "Subsession"
 msgstr "Subseção"
 
-#: class-bvs-events-calendar-admin.php:254
+#: class-bvs-events-calendar-admin.php:268
 msgid "All Subsessions"
 msgstr "Todas as Subseções"
 
-#: class-bvs-events-calendar-admin.php:255
+#: class-bvs-events-calendar-admin.php:269
 msgid "Add Subsession"
 msgstr "Adicionar Subseção"
 
-#: class-bvs-events-calendar-admin.php:256
+#: class-bvs-events-calendar-admin.php:270
 msgid "Add New Subsession"
 msgstr "Adicionar Nova Subseção"
 
-#: class-bvs-events-calendar-admin.php:258
+#: class-bvs-events-calendar-admin.php:272
 msgid "Edit Subsession"
 msgstr "Editar Subseção"
 
-#: class-bvs-events-calendar-admin.php:259
+#: class-bvs-events-calendar-admin.php:273
 msgid "New Subsession"
 msgstr "Nova Subseção"
 
-#: class-bvs-events-calendar-admin.php:261
+#: class-bvs-events-calendar-admin.php:275
 msgid "View Subsession"
 msgstr "Ver Subseção"
 
-#: class-bvs-events-calendar-admin.php:262
+#: class-bvs-events-calendar-admin.php:276
 msgid "Search Subsession"
 msgstr "Pesquisar Subseção"
 
-#: class-bvs-events-calendar-admin.php:263
+#: class-bvs-events-calendar-admin.php:277
 msgid "No Subsessions found"
 msgstr "Nenhuma Subseção encontrada"
 
-#: class-bvs-events-calendar-admin.php:264
+#: class-bvs-events-calendar-admin.php:278
 msgid "No Subsessions found in Trash"
 msgstr "Nenhuma Subseção encontrada na Lixeira"
 
-#: class-bvs-events-calendar-admin.php:265
+#: class-bvs-events-calendar-admin.php:279
 msgid "Parent Subsession"
 msgstr "Subseção-Pai"
 
-#: class-bvs-events-calendar-admin.php:298
-#: class-bvs-events-calendar-admin.php:300
+#: class-bvs-events-calendar-admin.php:312
+#: class-bvs-events-calendar-admin.php:314
 msgid "Presentations"
 msgstr "Apresentações"
 
-#: class-bvs-events-calendar-admin.php:299
+#: class-bvs-events-calendar-admin.php:313
 msgid "Presentation"
 msgstr "Apresentação"
 
-#: class-bvs-events-calendar-admin.php:301
+#: class-bvs-events-calendar-admin.php:315
 msgid "All Presentations"
 msgstr "Todas as Apresentação"
 
-#: class-bvs-events-calendar-admin.php:302
+#: class-bvs-events-calendar-admin.php:316
 msgid "Add Presentation"
 msgstr "Adicionar Apresentação"
 
-#: class-bvs-events-calendar-admin.php:303
+#: class-bvs-events-calendar-admin.php:317
 msgid "Add New Presentation"
 msgstr "Adicionar Nova Apresentação"
 
-#: class-bvs-events-calendar-admin.php:305
+#: class-bvs-events-calendar-admin.php:319
 msgid "Edit Presentation"
 msgstr "Editar Apresentação"
 
-#: class-bvs-events-calendar-admin.php:306
+#: class-bvs-events-calendar-admin.php:320
 msgid "New Presentation"
 msgstr "Nova Apresentação"
 
-#: class-bvs-events-calendar-admin.php:308
+#: class-bvs-events-calendar-admin.php:322
 msgid "View Presentation"
 msgstr "Ver Apresentação"
 
-#: class-bvs-events-calendar-admin.php:309
+#: class-bvs-events-calendar-admin.php:323
 msgid "Search Presentation"
 msgstr "Pesquisar Apresentação"
 
-#: class-bvs-events-calendar-admin.php:310
+#: class-bvs-events-calendar-admin.php:324
 msgid "No Presentations found"
 msgstr "Nenhuma Apresentação encontrada"
 
-#: class-bvs-events-calendar-admin.php:311
+#: class-bvs-events-calendar-admin.php:325
 msgid "No Presentations found in Trash"
 msgstr "Nenhuma Apresentação encontrada na Lixeira "
 
-#: class-bvs-events-calendar-admin.php:312
+#: class-bvs-events-calendar-admin.php:326
 msgid "Parent Presentation"
 msgstr "Apresentação-Pai"
 
-#: class-bvs-events-calendar-admin.php:345
-#: class-bvs-events-calendar-admin.php:347
+#: class-bvs-events-calendar-admin.php:359
+#: class-bvs-events-calendar-admin.php:361
 msgid "Participants"
 msgstr "Participantes"
 
-#: class-bvs-events-calendar-admin.php:346
+#: class-bvs-events-calendar-admin.php:360
 msgid "Participant"
 msgstr "Participante"
 
-#: class-bvs-events-calendar-admin.php:348
+#: class-bvs-events-calendar-admin.php:362
 msgid "All Participants"
 msgstr "Todos os Participantes"
 
-#: class-bvs-events-calendar-admin.php:349
+#: class-bvs-events-calendar-admin.php:363
 msgid "Add Participant"
 msgstr "Adiconar Participante"
 
-#: class-bvs-events-calendar-admin.php:350
+#: class-bvs-events-calendar-admin.php:364
 msgid "Add New Participant"
 msgstr "Adiconar Novo Participante"
 
-#: class-bvs-events-calendar-admin.php:352
+#: class-bvs-events-calendar-admin.php:366
 msgid "Edit Participant"
 msgstr "Editar Participante"
 
-#: class-bvs-events-calendar-admin.php:353
+#: class-bvs-events-calendar-admin.php:367
 msgid "New Participant"
 msgstr "Novo Participante"
 
-#: class-bvs-events-calendar-admin.php:355
+#: class-bvs-events-calendar-admin.php:369
 msgid "View Participant"
 msgstr "Ver Participante"
 
-#: class-bvs-events-calendar-admin.php:356
+#: class-bvs-events-calendar-admin.php:370
 msgid "Search Participant"
 msgstr "Pesquisar Participante"
 
-#: class-bvs-events-calendar-admin.php:357
+#: class-bvs-events-calendar-admin.php:371
 msgid "No Participants found"
 msgstr "Nenhum Participante encontrado"
 
-#: class-bvs-events-calendar-admin.php:358
+#: class-bvs-events-calendar-admin.php:372
 msgid "No Participants found in Trash"
 msgstr "Nenhum Participante encontrado na Lixeira"
 
-#: class-bvs-events-calendar-admin.php:359
+#: class-bvs-events-calendar-admin.php:373
 msgid "Parent Participant"
 msgstr "Participante-Pai"
+
+#: custom-fields-groups.php:31
+msgid "Start Date"
+msgstr "Data Inicial"
+
+#: custom-fields-groups.php:40
+msgid "End Date"
+msgstr "Data Final"
+
+#: custom-fields-groups.php:49
+msgid "Venue"
+msgstr "Localização"
+
+#: custom-fields-groups.php:71
+msgid "Registrations Message"
+msgstr "Mensagem de Inscrição"
+
+#: custom-fields-groups.php:80
+msgid "Homepage"
+msgstr "Página Principal"
+
+#: custom-fields-groups.php:132
+msgid "Job Title"
+msgstr "Cargo"
+
+#: custom-fields-groups.php:144
+msgid "Affiliation"
+msgstr "Afiliação"
+
+#: custom-fields-groups.php:156
+msgid "Email"
+msgstr "E-mail"
+
+#: custom-fields-groups.php:166
+msgid "Picture"
+msgstr "Foto"
+
+#: custom-fields-groups.php:175
+#: single-participant.php:102
+msgid "Curriculum Vitae"
+msgstr "Currículo Vitae"
+
+#: custom-fields-groups.php:188
+#: single-participant.php:82
+msgid "Site"
+msgstr "Site"
+
+#: custom-fields-groups.php:200
+#: single-participant.php:87
+msgid "Twitter"
+msgstr "Twitter"
+
+#: custom-fields-groups.php:212
+#: single-participant.php:92
+msgid "Facebook"
+msgstr "Facebook"
+
+#: custom-fields-groups.php:224
+#: single-participant.php:97
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: custom-fields-groups.php:282
+#: custom-fields-groups.php:463
+#: custom-fields-groups.php:568
+msgid "Author"
+msgstr "Autor"
+
+#: custom-fields-groups.php:303
+msgid "Attachments"
+msgstr "Anexo"
+
+#: custom-fields-groups.php:311
+#: single-presentation.php:57
+#: single-presentation.php:65
+msgid "Video"
+msgstr "Video"
+
+#: custom-fields-groups.php:323
+msgid "Slideshare"
+msgstr "SlideShare"
+
+#: custom-fields-groups.php:425
+msgid "Initial Date and Time"
+msgstr "Data e Hora Inicial"
+
+#: custom-fields-groups.php:438
+msgid "End Date and Time"
+msgstr "Data e Hora Final"
+
+#: custom-fields-groups.php:508
+msgid "Initial Time"
+msgstr "Data e Hora Inicial"
+
+#: custom-fields-groups.php:521
+msgid "End Time"
+msgstr "Data e Hora Final"
 
 #: header.php:27
 msgid "Skip to content"
@@ -420,11 +524,6 @@ msgstr "Próxima página"
 #: template-parts/content-page.php:32
 msgid "Page"
 msgstr "Página"
-
-#: single-presentation.php:57
-#: single-presentation.php:65
-msgid "Video"
-msgstr "Video"
 
 #: single-presentation.php:60
 #: single-presentation.php:72
@@ -464,26 +563,6 @@ msgstr "Download Apresentação"
 #: single-participant.php:61
 msgid "See also by"
 msgstr "Veja também de"
-
-#: single-participant.php:82
-msgid "Site"
-msgstr "Site"
-
-#: single-participant.php:87
-msgid "Twitter"
-msgstr "Twitter"
-
-#: single-participant.php:92
-msgid "Facebook"
-msgstr "Facebook"
-
-#: single-participant.php:97
-msgid "LinkedIn"
-msgstr "LinkedIn"
-
-#: single-participant.php:102
-msgid "Curriculum Vitae"
-msgstr "Currículo Vitae"
 
 #: template-parts/presentation.php:45
 msgid "Details"
@@ -534,9 +613,6 @@ msgstr "Ver mais detalhes"
 
 #~ msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 #~ msgstr "Continuar lendo<span class=\"screen-reader-text\"> \"%s\"</span>"
-
-#~ msgid "Author:"
-#~ msgstr "Autor:"
 
 #~ msgid "View all posts by %s"
 #~ msgstr "Ver todos os posts de %s"

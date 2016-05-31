@@ -28,7 +28,7 @@ if(function_exists("register_field_group"))
         'fields' => array (
             array (
                 'key' => 'field_569e420193ef9',
-                'label' => 'Start Date',
+                'label' => __('Start Date', 'bvs-events-calendar'),
                 'name' => 'start_date',
                 'type' => 'date_picker',
                 'date_format' => 'yymmdd',
@@ -37,7 +37,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e425293efa',
-                'label' => 'End Date',
+                'label' => __('End Date', 'bvs-events-calendar'),
                 'name' => 'end_date',
                 'type' => 'date_picker',
                 'date_format' => 'yymmdd',
@@ -46,7 +46,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e42ca0fa1c',
-                'label' => 'Venue',
+                'label' => __('Venue', 'bvs-events-calendar'),
                 'name' => 'venue',
                 'type' => 'text',
                 'default_value' => '',
@@ -58,7 +58,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e42f40fa1d',
-                'label' => 'Location',
+                'label' => __('Location', 'bvs-events-calendar'),
                 'name' => 'location',
                 'type' => 'google_map',
                 'center_lat' => '',
@@ -68,7 +68,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_5727bbd00952c',
-                'label' => 'Registrations Message',
+                'label' => __('Registrations Message', 'bvs-events-calendar'),
                 'name' => 'registrations',
                 'type' => 'wysiwyg',
                 'default_value' => '',
@@ -77,7 +77,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_56a10cde54fb5',
-                'label' => 'Homepage',
+                'label' => __('Homepage', 'bvs-events-calendar'),
                 'name' => 'homepage',
                 'type' => 'relationship',
                 'return_format' => 'object',
@@ -129,7 +129,7 @@ if(function_exists("register_field_group"))
         'fields' => array (
             array (
                 'key' => 'field_569e875f5143e',
-                'label' => 'Job Title',
+                'label' => __('Job Title', 'bvs-events-calendar'),
                 'name' => 'job_title',
                 'type' => 'text',
                 'default_value' => '',
@@ -141,7 +141,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e881c5143f',
-                'label' => 'Affiliation',
+                'label' => __('Affiliation', 'bvs-events-calendar'),
                 'name' => 'affiliation',
                 'type' => 'text',
                 'default_value' => '',
@@ -153,7 +153,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e89f051440',
-                'label' => 'Email',
+                'label' => __('Email', 'bvs-events-calendar'),
                 'name' => 'email',
                 'type' => 'email',
                 'default_value' => '',
@@ -163,7 +163,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_56a0bceefc99b',
-                'label' => 'Picture',
+                'label' => __('Picture', 'bvs-events-calendar'),
                 'name' => 'picture',
                 'type' => 'image',
                 'save_format' => 'object',
@@ -172,7 +172,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_56a0bd02aeb73',
-                'label' => 'Curriculum Vitae',
+                'label' => __('Curriculum Vitae', 'bvs-events-calendar'),
                 'name' => 'curriculum_vitae',
                 'type' => 'text',
                 'instructions' => 'Short Bio Page/URL',
@@ -185,7 +185,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_5717b81989eb6',
-                'label' => 'Site',
+                'label' => __('Site', 'bvs-events-calendar'),
                 'name' => 'site',
                 'type' => 'text',
                 'default_value' => '',
@@ -197,7 +197,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_5717b83e89eb7',
-                'label' => 'Twitter',
+                'label' => __('Twitter', 'bvs-events-calendar'),
                 'name' => 'twitter',
                 'type' => 'text',
                 'default_value' => '',
@@ -209,7 +209,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_5717b84a89eb8',
-                'label' => 'Facebook',
+                'label' => __('Facebook', 'bvs-events-calendar'),
                 'name' => 'facebook',
                 'type' => 'text',
                 'default_value' => '',
@@ -221,7 +221,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_5717b87789eb9',
-                'label' => 'LinkedIn',
+                'label' => __('LinkedIn', 'bvs-events-calendar'),
                 'name' => 'linkedin',
                 'type' => 'text',
                 'default_value' => '',
@@ -257,7 +257,7 @@ if(function_exists("register_field_group"))
         'fields' => array (
             array (
                 'key' => 'field_56a10c10dda31',
-                'label' => 'Session',
+                'label' => __('Session', 'bvs-events-calendar'),
                 'name' => 'session',
                 'type' => 'relationship',
                 'return_format' => 'object',
@@ -279,7 +279,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_56a0c4cefd68b',
-                'label' => 'Author',
+                'label' => __('Author', 'bvs-events-calendar'),
                 'name' => 'author',
                 'type' => 'relationship',
                 'return_format' => 'object',
@@ -300,7 +300,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_56a0c4f20a8ee',
-                'label' => 'Attachments',
+                'label' => __('Attachments', 'bvs-events-calendar'),
                 'name' => 'attachments',
                 'type' => 'file',
                 'save_format' => 'object',
@@ -308,7 +308,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_5711073d63085',
-                'label' => 'Video',
+                'label' => __('Video', 'bvs-events-calendar'),
                 'name' => 'video',
                 'type' => 'text',
                 'default_value' => '',
@@ -320,7 +320,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_57179c8e617cb',
-                'label' => 'Slideshare',
+                'label' => __('Slideshare', 'bvs-events-calendar'),
                 'name' => 'slideshare',
                 'type' => 'text',
                 'default_value' => '',
@@ -356,7 +356,7 @@ if(function_exists("register_field_group"))
         'fields' => array (
             array (
                 'key' => 'field_569e43b5a98da',
-                'label' => 'Event',
+                'label' => __('Event', 'bvs-events-calendar'),
                 'name' => 'event',
                 'type' => 'relationship',
                 'return_format' => 'object',
@@ -401,7 +401,7 @@ if(function_exists("register_field_group"))
         'fields' => array (
             array (
                 'key' => 'field_569e4ce4a1fe3',
-                'label' => 'Schedule',
+                'label' => __('Schedule', 'bvs-events-calendar'),
                 'name' => 'schedule',
                 'type' => 'relationship',
                 'return_format' => 'object',
@@ -422,7 +422,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e4efafcc96',
-                'label' => 'Initial Date and Time',
+                'label' => __('Initial Date and Time', 'bvs-events-calendar'),
                 'name' => 'initial_date_and_time',
                 'type' => 'date_time_picker',
                 'show_date' => 'true',
@@ -435,7 +435,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e4f4dfcc97',
-                'label' => 'End Date and Time',
+                'label' => __('End Date and Time', 'bvs-events-calendar'),
                 'name' => 'end_date_and_time',
                 'type' => 'date_time_picker',
                 'show_date' => 'true',
@@ -448,7 +448,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_571103722fc68',
-                'label' => 'Location',
+                'label' => __('Location', 'bvs-events-calendar'),
                 'name' => 'location',
                 'type' => 'text',
                 'default_value' => '',
@@ -460,7 +460,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_571103eee22cd',
-                'label' => 'Author',
+                'label' => __('Author', 'bvs-events-calendar'),
                 'name' => 'author',
                 'type' => 'relationship',
                 'return_format' => 'object',
@@ -505,7 +505,7 @@ if(function_exists("register_field_group"))
         'fields' => array (
             array (
                 'key' => 'field_569e515b5d833',
-                'label' => 'Initial time',
+                'label' => __('Initial Time', 'bvs-events-calendar'),
                 'name' => 'initial_time',
                 'type' => 'date_time_picker',
                 'show_date' => 'true',
@@ -518,7 +518,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e517e5d834',
-                'label' => 'End Time',
+                'label' => __('End Time', 'bvs-events-calendar'),
                 'name' => 'end_time',
                 'type' => 'date_time_picker',
                 'show_date' => 'true',
@@ -531,7 +531,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e804d50029',
-                'label' => 'Session',
+                'label' => __('Session', 'bvs-events-calendar'),
                 'name' => 'session',
                 'type' => 'relationship',
                 'required' => 1,
@@ -553,7 +553,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_571106e111988',
-                'label' => 'Location',
+                'label' => __('Location', 'bvs-events-calendar'),
                 'name' => 'location',
                 'type' => 'text',
                 'default_value' => '',
@@ -565,7 +565,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_571106ed11989',
-                'label' => 'Author',
+                'label' => __('Author', 'bvs-events-calendar'),
                 'name' => 'author',
                 'type' => 'relationship',
                 'return_format' => 'object',
