@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plugin BVS Agenda de Eventos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 15:37-0300\n"
-"PO-Revision-Date: 2016-06-01 15:37-0300\n"
+"POT-Creation-Date: 2016-06-01 15:50-0300\n"
+"PO-Revision-Date: 2016-06-01 15:51-0300\n"
 "Last-Translator: Wilson Moura <mourawil@paho.org>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -89,6 +89,7 @@ msgstr "Sugerir Evento"
 
 #: class-bvs-events-calendar-admin.php:110
 #: class-bvs-events-calendar-admin.php:112
+#: custom-fields-groups.php:27
 msgid "Events"
 msgstr "Eventos"
 
@@ -157,6 +158,7 @@ msgstr "Evento-Pai"
 
 #: class-bvs-events-calendar-admin.php:157
 #: class-bvs-events-calendar-admin.php:159
+#: custom-fields-groups.php:355
 msgid "Schedules"
 msgstr "Programas"
 
@@ -207,6 +209,7 @@ msgstr "Sessões"
 
 #: class-bvs-events-calendar-admin.php:205
 #: custom-fields-groups.php:260
+#: custom-fields-groups.php:400
 #: custom-fields-groups.php:534
 msgid "Session"
 msgstr "Sessão"
@@ -257,6 +260,7 @@ msgid "Subsessions"
 msgstr "Subsessões"
 
 #: class-bvs-events-calendar-admin.php:252
+#: custom-fields-groups.php:504
 msgid "Subsession"
 msgstr "Subsessão"
 
@@ -306,6 +310,7 @@ msgid "Presentations"
 msgstr "Apresentações"
 
 #: class-bvs-events-calendar-admin.php:299
+#: custom-fields-groups.php:256
 msgid "Presentation"
 msgstr "Apresentação"
 
@@ -355,6 +360,7 @@ msgid "Participants"
 msgstr "Participantes"
 
 #: class-bvs-events-calendar-admin.php:346
+#: custom-fields-groups.php:128
 msgid "Participant"
 msgstr "Participante"
 

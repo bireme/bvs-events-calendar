@@ -24,7 +24,7 @@ if(function_exists("register_field_group"))
 {
     register_field_group(array (
         'id' => 'acf_events',
-        'title' => 'Events',
+        'title' => __('Events', 'bvs-events-calendar'),
         'fields' => array (
             array (
                 'key' => 'field_569e420193ef9',
@@ -125,7 +125,7 @@ if(function_exists("register_field_group"))
     ));
     register_field_group(array (
         'id' => 'acf_participant',
-        'title' => 'Participant',
+        'title' => __('Participant', 'bvs-events-calendar'),
         'fields' => array (
             array (
                 'key' => 'field_569e875f5143e',
@@ -253,7 +253,7 @@ if(function_exists("register_field_group"))
     ));
     register_field_group(array (
         'id' => 'acf_presentation',
-        'title' => 'Presentation',
+        'title' => __('Presentation', 'bvs-events-calendar'),
         'fields' => array (
             array (
                 'key' => 'field_56a10c10dda31',
@@ -352,7 +352,7 @@ if(function_exists("register_field_group"))
     ));
     register_field_group(array (
         'id' => 'acf_schedules',
-        'title' => 'Schedules',
+        'title' => __('Schedules', 'bvs-events-calendar'),
         'fields' => array (
             array (
                 'key' => 'field_569e43b5a98da',
@@ -397,7 +397,7 @@ if(function_exists("register_field_group"))
     ));
     register_field_group(array (
         'id' => 'acf_session',
-        'title' => 'Session',
+        'title' => __('Session', 'bvs-events-calendar'),
         'fields' => array (
             array (
                 'key' => 'field_569e4ce4a1fe3',
@@ -501,7 +501,7 @@ if(function_exists("register_field_group"))
     ));
     register_field_group(array (
         'id' => 'acf_subsession',
-        'title' => 'Subsession',
+        'title' => __('Subsession', 'bvs-events-calendar'),
         'fields' => array (
             array (
                 'key' => 'field_569e515b5d833',
