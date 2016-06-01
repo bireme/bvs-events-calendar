@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plugin BVS Agenda de Eventos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-31 18:03-0300\n"
-"PO-Revision-Date: 2016-05-31 18:03-0300\n"
+"POT-Creation-Date: 2016-06-01 15:37-0300\n"
+"PO-Revision-Date: 2016-06-01 15:37-0300\n"
 "Last-Translator: Wilson Moura <mourawil@paho.org>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -72,7 +72,7 @@ msgstr "Inscrições"
 #: custom-fields-groups.php:556
 #: single-event.php:74
 msgid "Location"
-msgstr "Geolocalização"
+msgstr "Localização"
 
 #: functions.php:410
 msgid "Suggest this event to the VHL Portal"
@@ -203,102 +203,102 @@ msgstr "Programa-Pai"
 #: class-bvs-events-calendar-admin.php:204
 #: class-bvs-events-calendar-admin.php:206
 msgid "Sessions"
-msgstr "Seções"
+msgstr "Sessões"
 
 #: class-bvs-events-calendar-admin.php:205
 #: custom-fields-groups.php:260
 #: custom-fields-groups.php:534
 msgid "Session"
-msgstr "Seção"
+msgstr "Sessão"
 
 #: class-bvs-events-calendar-admin.php:207
 msgid "All Sessions"
-msgstr "Todas as Seções"
+msgstr "Todas as Sessões"
 
 #: class-bvs-events-calendar-admin.php:208
 msgid "Add Session"
-msgstr "Adicionar Seção"
+msgstr "Adicionar Sessão"
 
 #: class-bvs-events-calendar-admin.php:209
 msgid "Add New Session"
-msgstr "Adicionar Nova Seção"
+msgstr "Adicionar Nova Sessão"
 
 #: class-bvs-events-calendar-admin.php:211
 msgid "Edit Session"
-msgstr "Editar Seção"
+msgstr "Editar Sessão"
 
 #: class-bvs-events-calendar-admin.php:212
 msgid "New Session"
-msgstr "Nova Seção"
+msgstr "Nova Sessão"
 
 #: class-bvs-events-calendar-admin.php:214
 msgid "View Session"
-msgstr "Ver Seção"
+msgstr "Ver Sessão"
 
 #: class-bvs-events-calendar-admin.php:215
 msgid "Search Session"
-msgstr "Pesquisar Seção"
+msgstr "Pesquisar Sessão"
 
 #: class-bvs-events-calendar-admin.php:216
 msgid "No Sessions found"
-msgstr "Nenhuma Seção encontrada"
+msgstr "Nenhuma Sessão encontrada"
 
 #: class-bvs-events-calendar-admin.php:217
 msgid "No Sessions found in Trash"
-msgstr "Nenhuma Seção encontrada na Lixeira"
+msgstr "Nenhuma Sessão encontrada na Lixeira"
 
 #: class-bvs-events-calendar-admin.php:218
 msgid "Parent Session"
-msgstr "Seção-Pai"
+msgstr "Sessão-Pai"
 
 #: class-bvs-events-calendar-admin.php:251
 #: class-bvs-events-calendar-admin.php:253
 msgid "Subsessions"
-msgstr "Subseções"
+msgstr "Subsessões"
 
 #: class-bvs-events-calendar-admin.php:252
 msgid "Subsession"
-msgstr "Subseção"
+msgstr "Subsessão"
 
 #: class-bvs-events-calendar-admin.php:254
 msgid "All Subsessions"
-msgstr "Todas as Subseções"
+msgstr "Todas as Subsessões"
 
 #: class-bvs-events-calendar-admin.php:255
 msgid "Add Subsession"
-msgstr "Adicionar Subseção"
+msgstr "Adicionar Subsessão"
 
 #: class-bvs-events-calendar-admin.php:256
 msgid "Add New Subsession"
-msgstr "Adicionar Nova Subseção"
+msgstr "Adicionar Nova Subsessão"
 
 #: class-bvs-events-calendar-admin.php:258
 msgid "Edit Subsession"
-msgstr "Editar Subseção"
+msgstr "Editar Subsessão"
 
 #: class-bvs-events-calendar-admin.php:259
 msgid "New Subsession"
-msgstr "Nova Subseção"
+msgstr "Nova Subsessão"
 
 #: class-bvs-events-calendar-admin.php:261
 msgid "View Subsession"
-msgstr "Ver Subseção"
+msgstr "Ver Subsessão"
 
 #: class-bvs-events-calendar-admin.php:262
 msgid "Search Subsession"
-msgstr "Pesquisar Subseção"
+msgstr "Pesquisar Subsessão"
 
 #: class-bvs-events-calendar-admin.php:263
 msgid "No Subsessions found"
-msgstr "Nenhuma Subseção encontrada"
+msgstr "Nenhuma Subsessão encontrada"
 
 #: class-bvs-events-calendar-admin.php:264
 msgid "No Subsessions found in Trash"
-msgstr "Nenhuma Subseção encontrada na Lixeira"
+msgstr "Nenhuma Subsessão encontrada na Lixeira"
 
 #: class-bvs-events-calendar-admin.php:265
 msgid "Parent Subsession"
-msgstr "Subseção-Pai"
+msgstr "Subsessão-Pai"
 
 #: class-bvs-events-calendar-admin.php:298
 #: class-bvs-events-calendar-admin.php:300
@@ -364,11 +364,11 @@ msgstr "Todos os Participantes"
 
 #: class-bvs-events-calendar-admin.php:349
 msgid "Add Participant"
-msgstr "Adiconar Participante"
+msgstr "Adicionar Participante"
 
 #: class-bvs-events-calendar-admin.php:350
 msgid "Add New Participant"
-msgstr "Adiconar Novo Participante"
+msgstr "Adicionar Novo Participante"
 
 #: class-bvs-events-calendar-admin.php:352
 msgid "Edit Participant"
@@ -408,7 +408,7 @@ msgstr "Data Final"
 
 #: custom-fields-groups.php:49
 msgid "Venue"
-msgstr "Localização"
+msgstr "Endereço"
 
 #: custom-fields-groups.php:71
 msgid "Registrations Message"
