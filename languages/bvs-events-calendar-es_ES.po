@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Plugin BVS Agenda de Eventos\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-01 15:51-0300\n"
-"PO-Revision-Date: 2016-06-14 17:43-0300\n"
+"PO-Revision-Date: 2016-06-15 09:51-0300\n"
 "Last-Translator: Marcos Luis Mori <morimarc@paho.org>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -43,7 +43,7 @@ msgstr "Menú"
 
 #: functions.php:159
 msgid "Navigation Menu"
-msgstr "Menu de Navegación"
+msgstr "Menú de Navegación"
 
 #: functions.php:225
 #: class-bvs-events-calendar-admin.php:158
@@ -366,7 +366,7 @@ msgstr "Participante"
 
 #: class-bvs-events-calendar-admin.php:348
 msgid "All Participants"
-msgstr "Todos los participantes"
+msgstr "Todos participantes"
 
 #: class-bvs-events-calendar-admin.php:349
 msgid "Add Participant"
@@ -374,7 +374,7 @@ msgstr "Añadir Participante"
 
 #: class-bvs-events-calendar-admin.php:350
 msgid "Add New Participant"
-msgstr "Añadir Nuevo participante"
+msgstr "Añadir Nuevo Participante"
 
 #: class-bvs-events-calendar-admin.php:352
 msgid "Edit Participant"
@@ -473,7 +473,7 @@ msgstr "Autor"
 
 #: custom-fields-groups.php:303
 msgid "Attachments"
-msgstr "Adjunto"
+msgstr "Adjuntos"
 
 #: custom-fields-groups.php:311
 #: single-presentation.php:57
@@ -549,7 +549,7 @@ msgstr "Esto Enlace"
 #: single-presentation.php:66
 #: single-presentation.php:73
 msgid "to open the associated content."
-msgstr "Para Abrir el Contenido Asociado"
+msgstr "para Abrir el Contenido Asociado"
 
 #: single-presentation.php:93
 #: template-parts/presentation.php:64
@@ -564,7 +564,7 @@ msgstr "Etiquetas"
 #: single-presentation.php:109
 #: template-parts/presentation.php:81
 msgid "Download Presentation"
-msgstr "Bajar la Presentación"
+msgstr "Bajar Presentación"
 
 #: single-participant.php:61
 msgid "See also by"
