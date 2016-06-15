@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Plugin BVS Agenda de Eventos\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-01 15:51-0300\n"
-"PO-Revision-Date: 2016-06-15 09:51-0300\n"
+"PO-Revision-Date: 2016-06-15 10:04-0300\n"
 "Last-Translator: Marcos Luis Mori <morimarc@paho.org>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -100,7 +100,7 @@ msgstr "Evento"
 
 #: class-bvs-events-calendar-admin.php:113
 msgid "All Events"
-msgstr "Todos Eventos"
+msgstr "Todos los Eventos"
 
 #: class-bvs-events-calendar-admin.php:114
 msgid "Add Event"
@@ -142,7 +142,7 @@ msgstr "Ver Evento"
 
 #: class-bvs-events-calendar-admin.php:121
 msgid "Search Event"
-msgstr "Buscar el Evento"
+msgstr "Buscar  Evento"
 
 #: class-bvs-events-calendar-admin.php:122
 msgid "No Events found"
@@ -164,7 +164,7 @@ msgstr "Programas"
 
 #: class-bvs-events-calendar-admin.php:160
 msgid "All Schedules"
-msgstr "Todos Programas"
+msgstr "Todos los Programas"
 
 #: class-bvs-events-calendar-admin.php:161
 msgid "Add Schedule"
@@ -366,7 +366,7 @@ msgstr "Participante"
 
 #: class-bvs-events-calendar-admin.php:348
 msgid "All Participants"
-msgstr "Todos participantes"
+msgstr "Todos los Participantes"
 
 #: class-bvs-events-calendar-admin.php:349
 msgid "Add Participant"
@@ -487,19 +487,19 @@ msgstr "Slideshare"
 
 #: custom-fields-groups.php:425
 msgid "Initial Date and Time"
-msgstr "Fecha de Inicio y Duración"
+msgstr "Fecha y Hora de Inicio"
 
 #: custom-fields-groups.php:438
 msgid "End Date and Time"
-msgstr "Fecha Final y Duración"
+msgstr "Fecha y Hora Final"
 
 #: custom-fields-groups.php:508
 msgid "Initial Time"
-msgstr "Tiempo Inicial"
+msgstr "Fecha y Hora  Inicial"
 
 #: custom-fields-groups.php:521
 msgid "End Time"
-msgstr "Tiempo Final"
+msgstr "Fecha y Hora Final"
 
 #: header.php:27
 msgid "Skip to content"
