@@ -118,4 +118,20 @@ class BVS_Events_Calendar_Public {
 		register_theme_directory( $path );
 	}
 
+	/**
+     * Change homepage template to display unique event/program registered.
+     *
+     * @since     1.0.0
+     */
+    public function static_home_template($template = '') {
+        global $wp_query;
+        $args = array_merge( $wp_query->query_vars, array( 'post_type' => 'event' ) );
+        $query = query_posts($args);
+
+        if ( 1 == count( $query ) )
+            $template = get_query_template( 'single-event' );
+        
+        return $template;
+    }
+
 }

@@ -10,6 +10,8 @@
 get_header(); ?>
 
 <?php
+	global $wp_query;
+	$post = $wp_query->post;
 	$homepage   = get_field( 'homepage' );
 	$event_menu = get_field( 'event_nav_menu' );
 ?>

@@ -14,10 +14,6 @@
  * @since BVS Eventos 1.0
  */
 
-global $wp_query;
-$args = array_merge( $wp_query->query_vars, array( 'post_type' => 'event' ) );
-query_posts($args);
-
 get_header(); ?>
 
 	<div id="primary" class="content-area">
