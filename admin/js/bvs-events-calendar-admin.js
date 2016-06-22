@@ -29,4 +29,29 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	$(document).on('keyup', '.acf_relationship input.relationship_search', function( e ){
+
+		e.stopImmediatePropagation();
+
+        // vars
+        var val = $(this).val().toLowerCase(),
+            $el = $(this).closest('.relationship_left').find('.relationship_list');
+
+        $el.find('li a').each(function() {
+            var text = $(this)
+            	.clone()    //clone the element
+			    .children() //select all the children
+			    .remove()   //remove all the children
+			    .end()      //again go back to selected element
+			    .text()
+			    .toLowerCase();
+
+            if ( text.indexOf(val) == -1 )
+                $(this).parent().addClass('hide_relationship_item');
+            else
+            	$(this).parent().removeClass('hide_relationship_item');
+        });
+
+	});
+
 })( jQuery );

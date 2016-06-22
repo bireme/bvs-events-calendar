@@ -382,4 +382,266 @@ class BVS_Events_Calendar_Admin {
 	// End of cptui_register_cpts_participant()
 	}
 
+    /**
+     * Modify the result (text) displayed for each post in the relationship field list.
+     *
+     * @since     1.0.0
+     */
+    public function custom_relationship_result( $title, $post, $field, $post_id ) {
+
+        $events = get_field( 'event_hidden_field', $post->ID );
+        $post_type = get_post_type( $post->ID );
+        $initial_date = '';
+
+        if ( $post_type == 'session' )
+            $initial_date = get_field( 'initial_date_and_time', $post->ID );
+        elseif ( $post_type == 'subsession' )
+            $initial_date = get_field( 'initial_time', $post->ID );
+
+        if ( ! empty( $initial_date ) )
+            $initial_date = ' - ' . date("d/m/Y g:i a", strtotime($initial_date) );
+                        
+        if ( ! empty($events) )
+            $title .= ' [' . get_the_title( $events[0] ) .  ']';
+        
+        return $title . $initial_date;
+
+    }
+
+    /**
+     * Modify the $args array which is used to query 
+     * the posts shown in the the relationship field list.
+     *
+     * @since     1.0.0
+     */
+    public function custom_relationship_query( $args, $field, $post_id ) {
+
+        $url = wp_get_referer();
+        $parts = parse_url($url);
+        parse_str($parts['query'], $q);
+        $post_type = isset( $q['post'] ) ? get_post_type( $q['post'] ) : '';
+        $args['posts_per_page'] = -1;
+
+        if ( isset( $q['event'] ) ) {
+            $args['meta_query'] = array();
+            $args['meta_query'][] = array(
+                'key' => 'event_hidden_field',
+                'value' => serialize(strval($q['event'])),
+                'compare' => 'LIKE'
+            );
+        }
+        
+        return $args;
+        
+    }
+
+    /**
+     * Add event query argument to all links displayed on the post list
+     *
+     * @since     1.0.0
+     */
+    public function add_event_query_arg() {
+        $event = $_GET['event'] ? $_GET['event'] : '';
+
+        if ( ! empty( $event ) ) {
+            ?>
+            <script type="text/javascript">
+                $ = jQuery;
+                $('table.wp-list-table a.row-title').each(function() {
+                   var _href = $(this).attr('href'); 
+                   $(this).attr('href', _href + '&event=<?php echo $event; ?>');
+                });
+            </script>
+            <?php
+        }
+    }
+
+    /**
+     * Display a event filter dropdown in admin
+     *
+     * @since     1.0.0
+     */
+    public function filter_post_type_by_event() {
+        global $typenow;
+        $fields = array( 'schedule', 'session', 'subsession', 'presentation' );
+
+        if ( in_array( $typenow, $fields ) ) {
+            $args = array(
+                'post_type' => 'event',
+                'post_status' => 'any',
+                'posts_per_page' => -1,
+            );
+
+            $query = null;
+            $query = new WP_Query($args);
+
+            if( $query->have_posts() ) {
+                echo '<select name="event" id="event" class="postform">';
+                echo '<option value="">Show All Events</option>';
+                while ( $query->have_posts() ) : $query->the_post();
+                    echo '<option value='. get_the_ID(), $_GET['event'] == get_the_ID() ? ' selected="selected"' : '','>' . get_the_title() . '</option>';
+                endwhile;
+                echo "</select>";
+            }
+
+            wp_reset_query();
+        }
+    }
+
+    /**
+     * Filter posts by event in admin
+     *
+     * @since     1.0.0
+     */
+    public function event_parse_query($query) {
+        global $pagenow;
+        $q_vars = &$query->query_vars;
+        $fields = array( 'schedule', 'session', 'subsession', 'presentation' );
+
+        if ( $pagenow == 'edit.php' && isset( $q_vars['event'] ) && ! empty( $q_vars['event'] ) && isset( $q_vars['post_type'] ) && in_array( $q_vars['post_type'], $fields ) ) {
+
+            // Parse meta query
+            $q_vars['name'] = '';
+            $q_vars['meta_query'] = array();
+            $q_vars['meta_query'][] = array(
+                'key' => 'event_hidden_field',
+                'value' => serialize(strval($q_vars['event'])),
+                'compare' => 'LIKE'
+            );
+
+        }
+    }
+
+    /**
+     * Save event related data in postmeta.
+     *
+     * @since     1.0.0
+     */
+    public function save_event_hidden_field( $post_id ) {
+        $post_type = get_post_type( $post_id );
+
+        $fields = array(
+            'event' => 'event',
+            'schedule' => 'schedule',
+            'session' => 'session',
+            'subsession' => 'subsession',
+            'presentation' => 'presentation',
+        );
+
+        if( ! current_user_can( 'edit_post', $post_id ) )
+            return $post_id;
+
+        if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+            return $post_id;
+
+        if ( ! in_array( $post_type, $fields ) || $post_type == 'event' )
+            return $post_id;
+
+        $meta = get_post_meta( $post_id );
+        $related = array_intersect_key( $meta, $fields );
+
+        if ( ! empty($related) ) {
+            $key = key($related);
+            $handle = unserialize($related[$key][0]);
+
+            while ( ! empty( $handle ) && $key != 'event' ) {
+                $ids = array();
+                $merge = array();
+
+                foreach ( $handle as $h ) {
+                    $meta = get_post_meta( $h );
+                    $related = array_intersect_key( $meta, $fields );
+
+                    if ( ! empty($related) ) {
+                        $key = key($related);
+                        $value = unserialize($related[$key][0]);
+                        $ids[] = $value;
+                    }
+                }
+                
+                $ids = array_filter( $ids );
+                //$ids = array_slice( $ids, 0 );
+
+                if ( ! empty( $ids ) ) {
+                    foreach ($ids as $k => $v) {
+                        $merge = array_merge( $merge, $ids[$k] );
+                    }
+                }
+
+                $handle = array_unique( array_filter( $merge ) );                
+            }
+        }
+
+        update_post_meta( $post_id, 'event_hidden_field', $handle );
+    }
+
+    /**
+     * Save event related data in postmeta in all related content recursively.
+     *
+     * @since     1.0.0
+     */
+    public function recursive_save_event_hidden_field( $post_id ) {
+        $ids = array( $post_id );
+        $post_type = get_post_type( $post_id );
+        $fields = array( 'schedule', 'session', 'subsession' );
+
+        $relationships = array(
+            'schedule' => 'session',
+            'session' => 'subsession',
+            'subsession' => 'presentation',
+        );
+
+        if ( ! in_array( $post_type, array( 'event', 'participant' ) ) )
+            $this->save_event_hidden_field( $post_id );
+
+        if ( in_array( $post_type, $fields ) ) {
+            while ( in_array( $post_type, $fields ) ) {
+                $merge = array();
+                $related = $relationships[$post_type];
+                $post_type = ( $post_type == 'subsession' ) ? 'session' : $post_type;
+
+                foreach ( $ids as $id ) {                    
+                    $args = array(
+                        'post_type' => $related,
+                        'post_status' => 'any',
+                        'posts_per_page' => -1,
+                        'meta_query' => array(
+                            array(
+                                'key' => $post_type,
+                                'value' => serialize(strval($id)),
+                                'compare' => 'LIKE'
+                            )
+                        )
+                    );
+
+                    if ( $related == 'subsession' )
+                        $args['post_type'] = array( $related, 'presentation' );
+
+                    $query = null;
+                    $query = new WP_Query($args);
+
+                    if ( $query->have_posts() ) {
+                        $list = wp_list_pluck( $query->posts, 'ID' );
+                        $merge = array_unique( array_merge( $merge, $list ) );
+                    
+                        foreach ( $list as $item )
+                            $this->save_event_hidden_field( $item );
+
+                        if ( $related == 'subsession' ) {
+                            $list = wp_list_pluck( $query->posts, 'post_type', 'ID' );
+                            $list = array_keys( $list, 'subsession' );
+                        }
+                    }
+                }
+
+                if ( ! empty( $merge ) ) {
+                    $ids = $merge;
+                    $post_type = $related;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
 }

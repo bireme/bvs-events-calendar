@@ -175,7 +175,20 @@ class BVS_Events_Calendar {
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_subsession' );
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_presentation' );
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_participant' );
-		
+		$this->loader->add_action( 'admin_footer-edit.php', $plugin_admin, 'add_event_query_arg' );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'recursive_save_event_hidden_field' );
+		$this->loader->add_action( 'restrict_manage_posts', $plugin_admin, 'filter_post_type_by_event' );
+
+		$this->loader->add_filter( 'parse_query', $plugin_admin, 'event_parse_query' );
+
+		// filter result and query for session field in Subsession
+		$this->loader->add_filter( 'acf/fields/relationship/result/key=field_569e804d50029', $plugin_admin, 'custom_relationship_result', 10, 4 );
+		$this->loader->add_filter( 'acf/fields/relationship/query/key=field_569e804d50029', $plugin_admin, 'custom_relationship_query', 10, 3 );
+
+		// filter result and query for session field in Presentation
+		$this->loader->add_filter( 'acf/fields/relationship/result/key=field_56a10c10dda31', $plugin_admin, 'custom_relationship_result', 10, 4 );
+		$this->loader->add_filter( 'acf/fields/relationship/query/key=field_56a10c10dda31', $plugin_admin, 'custom_relationship_query', 10, 3 );
+
 	}
 
 	/**
@@ -192,6 +205,7 @@ class BVS_Events_Calendar {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 20 );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts', 20 );
 
+		$this->loader->add_action( 'home_template', $plugin_public, 'static_home_template' );
 		$this->loader->add_action( 'plugins_loaded', $plugin_public, 'events_calendar_register_theme' );
 
 	}
