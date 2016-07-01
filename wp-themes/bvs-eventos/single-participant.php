@@ -9,7 +9,10 @@
 
 get_header(); ?>
 
-<?php $obj = $post; ?>
+<?php
+	global $id;
+	$obj = $post;
+?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
@@ -78,31 +81,31 @@ get_header(); ?>
 
 <aside id="secondary" class="sidebar" role="complementary">
 	<ul class="social-links">
-		<? if ( get_field( 'site' ) ) { ?>
+		<?php if ( get_field( 'site' ) ) { ?>
 			<li><strong><i class="fa fa-link"></i> <?php _e( 'Site', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'site' ); ?>" target="_blank"><?php the_field( 'site' ); ?></a></small>
 			</li>
-		<? } ?>
+		<?php } ?>
 		<?php if ( get_field( 'twitter' ) ) { ?>
 			<li><strong><i class="fa fa-twitter"></i> <?php _e( 'Twitter', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'twitter' ); ?>" target="_blank"><?php the_field( 'twitter' ); ?></a></small>
 			</li>
-		<? } ?>
+		<?php } ?>
 		<?php if ( get_field( 'facebook' ) ) { ?>
 			<li><strong><i class="fa fa-facebook"></i> <?php _e( 'Facebook', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'facebook' ); ?>" target="_blank"><?php the_field( 'facebook' ); ?></a></small>
 			</li>
-		<? } ?>
+		<?php } ?>
 		<?php if ( get_field( 'linkedin' ) ) { ?>
 			<li><strong><i class="fa fa-linkedin"></i> <?php _e( 'LinkedIn', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'linkedin' ); ?>" target="_blank"><?php the_field( 'linkedin' ); ?></a></small>
 			</li>
-		<? } ?>
+		<?php } ?>
 		<?php if ( get_field( 'curriculum_vitae' ) ) { ?>
 			<li><strong><i class="fa fa-mortar-board"></i> <?php _e( 'Curriculum Vitae', 'bvs-events-calendar' ); ?></strong><br/>
 				<small><a href="<?php the_field( 'curriculum_vitae' ); ?>" target="_blank"><?php the_field( 'curriculum_vitae' ); ?></a></small>
 			</li>
-		<? } ?>
+		<?php } ?>
 	</ul>
 </aside>
 

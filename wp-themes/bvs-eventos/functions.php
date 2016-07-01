@@ -79,7 +79,7 @@
             return $args;
         } elseif (strpos($url, 'vimeo') > 0) {
             $parts = parse_url($url);
-            $id  = end(split('/', $parts['path']));
+            $id  = end(explode('/', $parts['path']));
             $args['embed'] = "https://player.vimeo.com/video/" . $id;
             $args['type']  = 'vimeo';
             $args['id']    = $id;
@@ -263,6 +263,7 @@
 
         $related_meta[] = array(
             'id' => $post_id,
+            'pt' => get_post_type( $post_id ),
             'title' => $post_title,
             'permalink' => get_permalink( $post_id )
         );
@@ -277,6 +278,7 @@
 
             $related_meta[] = array(
                 'id' => $value[0],
+                'pt' => get_post_type( $value[0] ),
                 'title' => $title,
                 'permalink' => get_permalink( $value[0] )
             );
@@ -287,6 +289,7 @@
 
         $related_meta[] = array(
             'id' => 0,
+            'pt' => '',
             'title' => 'Home',
             'permalink' => esc_url( home_url( "/".( $lang )."/" ) )
         );
@@ -298,29 +301,43 @@
         global $post;
         $breadcrumb = array();
         $meta = event_breadcrumb_shortener($meta);
+        $lang = ( defined( 'POLYLANG_VERSION' ) ) ? pll_current_language() : '';
+        $posts = get_posts( array( 'post_type' => 'event', 'lang' => $lang ) );
 
-        foreach ($meta as $key => $value) {
-            if ( $key == count($meta)-1 ) {
-                $breadcrumb[] = '<div id="breadcrumb"><ul class="crumbs"><li class="first"><a href="' . $value['permalink'] . '" style="z-index:'. $key .';"><span></span>' . $value['title'] . '</a></li>';
-            }
-            elseif ( $key == 0 ) {
-                $post_type = get_post_type();
-
-                if ( $post_type == 'participant' && $value['id'] != $post->ID ) {
-                    $breadcrumb[] = '<li><a href="' . $value['permalink'] .'" style="z-index:' . $key . ';">' . $value['title'] . '</a></li></ul></div>';
+        if ( 1 == count( $posts ) ) {
+            foreach ($meta as $key => $value) {
+                if ( $value['pt'] == 'event' ) {
+                    unset($meta[$key]);
+                    $meta = array_slice( $meta, 0 );
+                    break;
                 }
-                else {
-                    $breadcrumb[] = '<li><a href="javascript:void(0);"><strong>' . $value['title'] . '</strong></a></li></ul></div>';
-                }
-            }
-            else {
-                $breadcrumb[] = '<li><a href="' . $value['permalink'] .'" style="z-index:' . $key . ';">' . $value['title'] . '</a></li>';
             }
         }
 
-        $breadcrumb = implode('', array_reverse($breadcrumb));
+        if ( 1 < count( $meta ) ) {
+            foreach ($meta as $key => $value) {
+                if ( $key == count($meta)-1 ) {
+                    $breadcrumb[] = '<div id="breadcrumb"><ul class="crumbs"><li class="first"><a href="' . $value['permalink'] . '" style="z-index:'. $key .';"><span></span>' . $value['title'] . '</a></li>';
+                }
+                elseif ( $key == 0 ) {
+                    $post_type = get_post_type();
 
-        return $breadcrumb;
+                    if ( $post_type == 'participant' && $value['id'] != $post->ID ) {
+                        $breadcrumb[] = '<li><a href="' . $value['permalink'] .'" style="z-index:' . $key . ';">' . $value['title'] . '</a></li></ul></div>';
+                    }
+                    else {
+                        $breadcrumb[] = '<li><a href="javascript:void(0);"><strong>' . $value['title'] . '</strong></a></li></ul></div>';
+                    }
+                }
+                else {
+                    $breadcrumb[] = '<li><a href="' . $value['permalink'] .'" style="z-index:' . $key . ';">' . $value['title'] . '</a></li>';
+                }
+            }
+
+            $breadcrumb = implode('', array_reverse($breadcrumb));
+
+            return $breadcrumb;
+        }
     }
 
     function event_breadcrumb_shortener($meta) {
