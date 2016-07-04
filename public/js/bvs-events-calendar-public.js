@@ -40,7 +40,7 @@
 
 	$(function () {
 		$('.view-detail').click(function() {
-		    $(this).next().toggleClass('more-detail');
+		    $(this).nextAll('.detail:first').toggleClass('more-detail');
 		});
 	});
 

@@ -83,6 +83,7 @@ get_header(); ?>
                         <?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
                     </div>
                     <div class="session-data">
+                        <div class="view-detail "><?php _e( 'Details','bvs-events-calendar' ); ?> <i class="fa fa-eye"></i></div>
                         <div class="session-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
                         <div class="location"><?php the_field( 'location', $post->ID ); ?></div>
                         <div class="author-list">
@@ -97,6 +98,16 @@ get_header(); ?>
                                     </div>
                                 <?php endforeach; ?>
                             <?php endif; ?>
+                        </div>
+                        <div class="detail s-summary summary">
+                            <strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
+                            <?php
+                                if ( get_the_excerpt() ) {
+                                    the_excerpt();
+                                } elseif ( get_the_content() ) {
+                                    the_content();
+                                }
+                            ?>
                         </div>
 
                         <?php get_template_part( 'template-parts/subsession' ); ?>

@@ -63,23 +63,31 @@ body {background: #fff;font-family: arial;line-height: 1.4;}
 .single-session .subsession-time {width:25%;font-size:85%;margin-top:5px;font-style: italic;border-bottom: 1px solid #ccc;}
 .single-presentation .presentation {border-top: 0;border-bottom: 1px solid #ccc; padding-bottom: 1.2em;}
 .location {font-size:85%;}
-.presentation-list, .subsession-list {margin-left:2em;}
 .presentation {border-top:1px solid #eee;margin:12px 0;}
+.presentation-list, .subsession-list {margin-left:2em;}
 .presentation-title {margin:6px 0 0 0;font-size:120%;display:inline-block;width:75%;}
+.presentation .session-time {width: 30%; margin-top: 10px;}
 .summary {margin:12px 0;}
 .view-detail {display: inline-block;vertical-align: top;margin-top: 10px;font-size: 80%;float: right;}
 .view-detail:hover {color:#007acc;}
 .s-author {display: flex;align-items: center;}
 .detail {margin-top: 12px;}
+.single-schedule .s-summary,
+.single-schedule .ss-summary,
 .single-schedule .detail .author-pic,
 .single-schedule .detail .summary,
 .single-schedule .detail .s-tags {display:none;}
+.single-session .s-summary,
+.single-session .ss-summary,
 .single-session .detail .author-pic,
 .single-session .detail .summary,
 .single-session .detail .s-tags {display:none;}
+.single-subsession .ss-summary,
 .single-subsession .detail .author-pic,
 .single-subsession .detail .summary,
 .single-subsession .detail .s-tags {display:none;}
+.detail.more-detail.s-summary,
+.detail.more-detail.ss-summary,
 .detail.more-detail .author-pic,
 .detail.more-detail .summary,
 .detail.more-detail .s-tags {display:block;}
