@@ -33,12 +33,17 @@
 <?php if( $presentation_query->have_posts() ) : // Presentations Loop ?>
     <?php while ( $presentation_query->have_posts() ) : $presentation_query->the_post(); ?>
         <?php
+            $end_datetime = strtotime(get_field( 'end_date', $post->ID ));
+            $initial_datetime = strtotime(get_field( 'initial_date', $post->ID ));
             $author_ids = get_post_meta( $post->ID, 'author' );
             $attachment = get_field( 'attachments', $post->ID );
             $video = get_field( 'video', $post->ID );
         ?>
         <div class="presentation-list">
             <div class="presentation">
+                <div class="session-time">
+                    <?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
+                </div>
                 <div class="presentation-title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                 </div>

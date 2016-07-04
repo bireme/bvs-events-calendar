@@ -17,7 +17,8 @@ get_header(); ?>
     $vt = get_video_data($video);
     $slideshare = get_field( 'slideshare', $post->ID );
     $session = get_post_meta( $post->ID, 'session' );
-    $meta = get_post_meta( $session[0][0] );
+    $end_datetime = strtotime(get_field( 'end_date', $post->ID ));
+	$initial_datetime = strtotime(get_field( 'initial_date', $post->ID ));
 ?>
 
 <div id="primary" class="content-area">
@@ -25,27 +26,18 @@ get_header(); ?>
 
 		<?php event_breadcrumb($post->ID); ?>
 
-		<?php if ( $session ) : ?>
-			<?php
-				if ( 'session' == get_post_type( $session[0][0] ) ) {
-				    $end_datetime = strtotime(get_field( 'end_date_and_time', $session[0][0] ));
-				    $initial_datetime = strtotime(get_field( 'initial_date_and_time', $session[0][0] ));
-				} elseif ( 'subsession' == get_post_type( $session[0][0] ) ) {
-					$end_datetime = strtotime(get_field( 'end_time', $session[0][0] ));
-				    $initial_datetime = strtotime(get_field( 'initial_time', $session[0][0] ));
-				}
-			?>
-			<div class="session">
-				<div class="single-session-date">
-		            <?php echo date_i18n("d/F/Y - l", $initial_datetime); ?>
-		        </div>
-		        <div class="session-time">
-		        	<?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
-		    	</div>
+		<div class="session">
+			<div class="single-session-date">
+	            <?php echo date_i18n("d/F/Y - l", $initial_datetime); ?>
+	        </div>
+	        <div class="session-time">
+	        	<?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
+	    	</div>
+	    	<?php if ( $session ) : ?>
 		    	<div class="session-label"><?php echo get_the_title( $session[0][0] ); ?></div>
 		    	<div class="location"><?php the_field( 'location', $session[0][0] ); ?></div>
-		    </div>
-		<?php endif; ?>
+		    <?php endif; ?>
+	    </div>
 		<div class="single-session-title"><?php single_post_title(); ?></div>
 		<div class="presentation">
 			<div class="detail">

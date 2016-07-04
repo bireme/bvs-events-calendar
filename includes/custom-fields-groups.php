@@ -256,6 +256,32 @@ if(function_exists("register_field_group"))
         'title' => __('Presentation', 'bvs-events-calendar'),
         'fields' => array (
             array (
+                'key' => 'field_5776d6a48af52',
+                'label' => __('Initial Date and Time', 'bvs-events-calendar'),
+                'name' => 'initial_date',
+                'type' => 'date_time_picker',
+                'show_date' => 'true',
+                'date_format' => 'm/d/y',
+                'time_format' => 'h:mm tt',
+                'show_week_number' => 'false',
+                'picker' => 'slider',
+                'save_as_timestamp' => 'true',
+                'get_as_timestamp' => 'false',
+            ),
+            array (
+                'key' => 'field_5776d6d38485d',
+                'label' => __('End Date and Time', 'bvs-events-calendar'),
+                'name' => 'end_date',
+                'type' => 'date_time_picker',
+                'show_date' => 'true',
+                'date_format' => 'm/d/y',
+                'time_format' => 'h:mm tt',
+                'show_week_number' => 'false',
+                'picker' => 'slider',
+                'save_as_timestamp' => 'true',
+                'get_as_timestamp' => 'false',
+            ),
+            array (
                 'key' => 'field_56a10c10dda31',
                 'label' => __('Session', 'bvs-events-calendar'),
                 'name' => 'session',
@@ -505,7 +531,7 @@ if(function_exists("register_field_group"))
         'fields' => array (
             array (
                 'key' => 'field_569e515b5d833',
-                'label' => __('Initial Time', 'bvs-events-calendar'),
+                'label' => __('Initial Date and Time', 'bvs-events-calendar'),
                 'name' => 'initial_time',
                 'type' => 'date_time_picker',
                 'show_date' => 'true',
@@ -518,7 +544,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e517e5d834',
-                'label' => __('End Time', 'bvs-events-calendar'),
+                'label' => __('End date and Time', 'bvs-events-calendar'),
                 'name' => 'end_time',
                 'type' => 'date_time_picker',
                 'show_date' => 'true',
