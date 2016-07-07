@@ -41,7 +41,9 @@
                 <?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
             </div>
             <div class="session-data">
-                <div class="view-detail "><?php _e( 'Details','bvs-events-calendar' ); ?> <i class="fa fa-eye"></i></div>
+                <?php if ( get_the_excerpt() ) : ?>
+                    <div class="view-detail "><?php _e( 'Details','bvs-events-calendar' ); ?> <i class="fa fa-eye"></i></div>
+                <?php endif; ?>
                 <div class="subsession-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
                 <div class="location"><?php the_field( 'location', $post->ID ); ?></div>
                 <div class="author-list">
@@ -57,16 +59,12 @@
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
-                <div class="detail ss-summary summary">
-                    <strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
-                    <?php
-                        if ( get_the_excerpt() ) {
-                            the_excerpt();
-                        } elseif ( get_the_content() ) {
-                            the_content();
-                        }
-                    ?>
-                </div>
+                <?php if ( get_the_excerpt() ) : ?>
+                    <div class="detail ss-summary summary">
+                        <strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
+                        <?php the_excerpt(); ?>
+                    </div>
+                <?php endif; ?>
 
                 <?php get_template_part( 'template-parts/presentation' ); ?>
 

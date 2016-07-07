@@ -237,7 +237,7 @@ class BVS_Events_Calendar_Admin {
 			"rewrite" => array( "slug" => "session", "with_front" => true ),
 			"query_var" => true,
 			"menu_icon" => "dashicons-exerpt-view",		
-			"supports" => array( "title", "editor", "excerpt", "custom-fields", "revisions", "author" ),		
+			"supports" => array( "title", "excerpt", "custom-fields", "revisions", "author" ),		
 			"taxonomies" => array( "category", "post_tag", "language" ),		
 		);
 		register_post_type( "session", $args );
@@ -284,7 +284,7 @@ class BVS_Events_Calendar_Admin {
 			"rewrite" => array( "slug" => "subsession", "with_front" => true ),
 			"query_var" => true,
 			"menu_icon" => "dashicons-list-view",		
-			"supports" => array( "title", "editor", "excerpt", "custom-fields", "revisions", "author" ),		
+			"supports" => array( "title", "excerpt", "custom-fields", "revisions", "author" ),		
 			"taxonomies" => array( "category", "post_tag", "language" ),		
 		);
 		register_post_type( "subsession", $args );
