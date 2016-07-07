@@ -75,6 +75,8 @@ class BVS_Events_Calendar_Admin {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/bvs-events-calendar-admin.css', array(), $this->version, 'all' );
 
+        wp_enqueue_style( 'thickbox' );
+
 	}
 
 	/**
@@ -97,6 +99,8 @@ class BVS_Events_Calendar_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/bvs-events-calendar-admin.js', array( 'jquery' ), $this->version, false );
+
+        wp_enqueue_script( 'thickbox' );
 
 	}
 
@@ -381,6 +385,45 @@ class BVS_Events_Calendar_Admin {
 
 	// End of cptui_register_cpts_participant()
 	}
+
+    public function theme_options_menu() {
+        add_theme_page( __( 'Theme Options', 'bvs-events-calendar' ), __( 'Theme Options', 'bvs-events-calendar' ), 'edit_theme_options', 'theme-options', array( &$this, 'theme_options_page' ) );
+    }
+
+    public function theme_options_page() {
+        global $pagenow;
+        $settings = get_option( "events_theme_options" );
+        ?>
+        <div class="wrap">
+            <h2><?php echo __('Theme Options','bvs-events-calendar'); ?></h2>
+            <?php
+                if( isset($_POST['theme-options-submit']) && $_POST['theme-options-submit'] == 'Y' ) {
+                    $settings['header'] = $_POST['header'];
+                    update_option( "events_theme_options", $settings );
+
+                    echo '<div class="updated notice is-dismissible" ><p><strong>' . __('Theme options updated','bvs-events-calendar') . '</strong></p></div>';
+                }
+            ?>
+            <div id="poststuff">
+                <form method="post" action="<?php admin_url( 'themes.php?page=theme-options' ); ?>">
+                    <?php
+                        if ( $pagenow == 'themes.php' && $_GET['page'] == 'theme-options' ){
+                            $path = WP_PLUGIN_DIR . '/' . $this->plugin_name . '/includes';
+                            
+                            echo '<table class="form-table">';
+                                include( $path . "/theme-options.php");
+                            echo '</table>';
+                        }
+                    ?>
+                    <p class="submit">
+                        <input type="hidden" name="theme-options-submit" value="Y" />
+                        <input type="submit" name="submit"  class="button-primary" value="<?php echo __('Update'); ?>" />
+                    </p>
+                </form>
+            </div>
+        </div>
+        <?php
+    }
 
     /**
      * Modify the result (text) displayed for each post in the relationship field list.

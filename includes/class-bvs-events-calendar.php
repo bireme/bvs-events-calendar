@@ -175,6 +175,7 @@ class BVS_Events_Calendar {
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_subsession' );
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_presentation' );
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_participant' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'theme_options_menu' );
 		$this->loader->add_action( 'admin_footer-edit.php', $plugin_admin, 'add_event_query_arg' );
 		$this->loader->add_action( 'save_post', $plugin_admin, 'recursive_save_event_hidden_field' );
 		$this->loader->add_action( 'restrict_manage_posts', $plugin_admin, 'filter_post_type_by_event' );
@@ -205,6 +206,7 @@ class BVS_Events_Calendar {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 20 );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts', 20 );
 
+		$this->loader->add_action( 'wp_head', $plugin_public, 'theme_options_init' );
 		$this->loader->add_action( 'home_template', $plugin_public, 'static_home_template' );
 		$this->loader->add_action( 'plugins_loaded', $plugin_public, 'events_calendar_register_theme' );
 

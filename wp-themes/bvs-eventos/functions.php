@@ -8,18 +8,9 @@
 
     if ( function_exists('register_sidebar') ) {
     	register_sidebar( array(
-            'name' => __( 'Logo', 'bvs-events-calendar' ),
-            'id' => 'logo-sidebar',
-            'description' => __( 'Widget to upload image logo.', 'bvs-events-calendar' ),
-            'before_widget' => '<div id="logo">',
-    		'after_widget'  => '</div>',
-    		
-    	) );
-
-    	register_sidebar( array(
-            'name' => __( 'Auxiliar Top', 'bvs-events-calendar' ),
-            'id' => 'auxiliar-top',
-            'description' => __( 'Top bar auxiliar.', 'bvs-events-calendar' ),
+            'name' => __( 'Header', 'bvs-events-calendar' ),
+            'id' => 'header',
+            'description' => __( 'Header sidebar.', 'bvs-events-calendar' ),
             'before_widget' => '<span id="%1$s" class="widget %2$s">',
     		'after_widget'  => '</span>',
     		'before_title'  => '<h2 class="widgettitle">',

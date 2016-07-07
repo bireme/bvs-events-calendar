@@ -19,13 +19,16 @@ Tags: responsive, events, bvs, bireme
 -------------------------------------------------------------- */
 *, a, a:link { outline: none; }
 body {background: #fff;font-family: arial;line-height: 1.4;}
+body::before { content: normal !important; }
 .widget{border-top:none;}
+.top-slot { margin: 20px; }
+.site { margin-top: 0; }
 .site-content {padding: 0 3%;}
 .site-header{padding:0;}
 .home article .entry-header {display: none;}
 .flex-direction-nav li a {box-shadow:none !important;}
 .page-template-page-full-width .content-area {width:100%;margin-right:0;}
-.site-branding {display:flex;margin:0 auto 0.875em 0;}
+.site-branding {display:flex;margin:10px auto 0.875em 10px;}
 .site-branding .site-name {margin-left: 1em;}
 .site-header-menu {display: flex;justify-content:space-between;margin: 0 0 2em 0;border-bottom: 2px solid;}
 .site-header-menu .widget_search {border-top:none; margin:0;padding:0;}

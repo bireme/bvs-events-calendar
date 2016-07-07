@@ -4,3 +4,5 @@
  */
 
 .hide_relationship_item { display: none !important; }
+.full-width { width: 100%; }
+.centralize { text-align: center !important; }
