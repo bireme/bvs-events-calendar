@@ -10,6 +10,7 @@
 get_header(); ?>
 
 <?php
+	$description = '';
     $author_ids = get_post_meta( $post->ID, 'author' );
     $attachment = get_field( 'attachments', $post->ID );
     $video = get_field( 'video', $post->ID );
@@ -82,13 +83,17 @@ get_header(); ?>
     				<?php endif; ?>
 				</div>
 				<div class="summary">
-					<strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
-					<?php
+					<?php						
 						if ( $post->post_content ) {
-                            echo wpautop($post->post_content);
+                            $description = wpautop($post->post_content);
                         } elseif ( get_the_excerpt() ) {
-                            the_excerpt();
+                            $description = get_the_excerpt();
                         }
+
+                        if ( ! empty($description) ) : ?>
+                        	<strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
+                        	<?php echo $description; ?>
+                        <?php endif;
                     ?>
 				</div>
 				<?php if( has_tag() ) : ?>
