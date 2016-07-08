@@ -386,7 +386,7 @@ class BVS_Events_Calendar_Admin {
 	// End of cptui_register_cpts_participant()
 	}
 
-    public function edit_form_title_label( $post ) {
+    public function edit_form_desc_label( $post ) {
         if ( ! in_array( $post->post_type, array( 'session', 'subsession' ) ) )
             echo '<h2 class="title-label">' . __( 'Description', 'bvs-events-calendar' ) . '</h2>';
     }
