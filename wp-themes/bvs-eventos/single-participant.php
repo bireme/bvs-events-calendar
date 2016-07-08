@@ -22,13 +22,20 @@ get_header(); ?>
 		<div class="detail">
 			<div class="author-profile">
 				<div class="s-author">
-					<?php $picture = get_field( 'picture' ); ?>
+					<?php
+						$picture = get_field( 'picture' );
+                        $job_title = get_field( 'job_title' );
+                        $affiliation = get_field( 'affiliation' );
+                        $separator = ( $job_title && $affiliation ) ? ' - ' : '';
+                    ?>
 					<?php if ($picture) : ?>
 						<div class="author-pic"><img src="<?php echo $picture['url']; ?>" /></div>
 					<?php endif; ?>
 					<div class="author-data">
 						<div class="author-name"><?php single_post_title(); ?></div>
-						<div class="author-inst"><span class="job-title"><?php the_field( 'job_title' ); ?></span> - <span class="affiliation"><?php the_field( 'affiliation' ); ?></span></div>
+						<div class="author-inst">
+							<span class="job-title"><?php echo $job_title; ?></span><?php echo $separator; ?><span class="affiliation"><?php echo $affiliation; ?></span>
+						</div>
 					</div>
 				</div>
 				<div class="short-bio summary">

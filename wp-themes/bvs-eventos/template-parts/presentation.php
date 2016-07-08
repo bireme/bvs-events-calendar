@@ -52,14 +52,23 @@
                     <div class="author-list">
 	                    <?php if ( $author_ids[0] ) : // Participants Loop ?>
 	                        <?php foreach ($author_ids[0] as $id) : ?>
-	                            <?php $picture = get_field( 'picture', $id ); ?>
+	                            <?php
+                                    $picture = get_field( 'picture', $id );
+                                    $job_title = get_field( 'job_title', $id );
+                                    $affiliation = get_field( 'affiliation', $id );
+                                    $separator = ( $job_title && $affiliation ) ? ' - ' : '';
+                                ?>
 	                            <div class="s-author">
 	                                <?php if ($picture) : ?>
 	                                    <div class="author-pic"><img src="<?php echo $picture['url']; ?>" /></div>
 	                                <?php endif; ?>
 	                                <div class="author-data">
-	                                    <div class="author-name"><a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a></div>
-	                                    <div class="author-inst"><span class="job-title"><?php the_field( 'job_title', $id ); ?></span> - <span class="affiliation"><?php the_field( 'affiliation', $id ); ?></span></div>
+	                                    <div class="author-name">
+                                            <a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a>
+                                        </div>
+	                                    <div class="author-inst">
+                                            <span class="job-title"><?php echo $job_title; ?></span><?php echo $separator; ?><span class="affiliation"><?php echo $affiliation; ?></span>
+                                        </div>
 	                                </div>
 	                            </div>
 	                        <?php endforeach; ?>
