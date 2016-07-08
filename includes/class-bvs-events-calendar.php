@@ -175,6 +175,7 @@ class BVS_Events_Calendar {
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_subsession' );
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_presentation' );
 		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_participant' );
+		$this->loader->add_action( 'edit_form_after_title', $plugin_admin, 'edit_form_title_label' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'theme_options_menu' );
 		$this->loader->add_action( 'admin_footer-edit.php', $plugin_admin, 'add_event_query_arg' );
 		$this->loader->add_action( 'save_post', $plugin_admin, 'recursive_save_event_hidden_field' );

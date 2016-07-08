@@ -386,6 +386,11 @@ class BVS_Events_Calendar_Admin {
 	// End of cptui_register_cpts_participant()
 	}
 
+    public function edit_form_title_label( $post ) {
+        if ( ! in_array( $post->post_type, array( 'session', 'subsession' ) ) )
+            echo '<h2 class="title-label">' . __( 'Description', 'bvs-events-calendar' ) . '</h2>';
+    }
+
     public function theme_options_menu() {
         add_theme_page( __( 'Theme Options', 'bvs-events-calendar' ), __( 'Theme Options', 'bvs-events-calendar' ), 'edit_theme_options', 'theme-options', array( &$this, 'theme_options_page' ) );
     }

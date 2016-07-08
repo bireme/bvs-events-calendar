@@ -6,3 +6,8 @@
 .hide_relationship_item { display: none !important; }
 .full-width { width: 100%; }
 .centralize { text-align: center !important; }
+.title-label {
+    padding: 1em 0 0 0 !important;
+    margin-top: 1em !important;
+    border-top: 1px solid #ccc;
+}
