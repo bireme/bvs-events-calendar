@@ -577,7 +577,7 @@ if(function_exists("register_field_group"))
             ),
             array (
                 'key' => 'field_569e517e5d834',
-                'label' => __('End date and Time', 'bvs-events-calendar'),
+                'label' => __('End Date and Time', 'bvs-events-calendar'),
                 'name' => 'end_time',
                 'type' => 'date_time_picker',
                 'show_date' => 'true',
