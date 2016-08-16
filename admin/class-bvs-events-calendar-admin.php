@@ -692,4 +692,29 @@ class BVS_Events_Calendar_Admin {
         }
     }
 
+    /**
+     * Registra os temas do plugin BVS Agenda de Eventos
+     *
+     * @since     1.0.0
+     */
+    public function events_calendar_register_theme() {
+
+        $path = WP_PLUGIN_DIR . '/' . $this->plugin_name . '/wp-themes';
+        register_theme_directory( $path );
+        
+    }
+
+    public function events_calendar_admin_notices() {
+
+        if ( 'bvs-eventos' != get_stylesheet() && is_plugin_active( 'bvs-events-calendar/bvs-events-calendar.php' ) ) {
+
+            if ( is_multisite() )
+                echo "<div class='notice notice-error'><p>" .  __( 'For the correct operation of the <b>VHL Events Calendar plugin</b>, activate the <b>VHL Events Calendar theme</b> in the network and then activate the theme on this site.', 'bvs-noticias' ) . "</p></div>";
+            else
+                echo "<div class='notice notice-error'><p>" .  __( 'For the correct operation of the <b>VHL Events Calendar plugin</b>, activate the <b>VHL Events Calendar theme</b>.', 'bvs-noticias' ) . "</p></div>";
+
+        }
+
+    }
+
 }

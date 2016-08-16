@@ -23,6 +23,7 @@
  * License URI:       http://www.gnu.org/licenses/lgpl.html
  * Text Domain:       bvs-events-calendar
  * Domain Path:       /languages
+ * Network:           true
  */
 
 // If this file is called directly, abort.

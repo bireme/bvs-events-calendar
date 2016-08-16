@@ -109,29 +109,24 @@ class BVS_Events_Calendar_Public {
     }
 
     /**
-     * Registra os temas do plugin BVS Agenda de Eventos
-     *
-     * @since     1.0.0
-     */
-    public function events_calendar_register_theme() {
-        $path = WP_PLUGIN_DIR . '/' . $this->plugin_name . '/wp-themes';
-        register_theme_directory( $path );
-    }
-
-    /**
      * Change homepage template to display unique event/program registered.
      *
      * @since     1.0.0
      */
     public function static_home_template($template = '') {
-        global $wp_query;
-        $args = array_merge( $wp_query->query_vars, array( 'post_type' => 'event' ) );
-        $query = query_posts($args);
-
-        if ( 1 == count( $query ) )
-            $template = get_query_template( 'single-event' );
         
-        return $template;
+        if ( 'bvs-eventos' == get_stylesheet() ) {
+
+            global $wp_query;
+            $args = array_merge( $wp_query->query_vars, array( 'post_type' => 'event' ) );
+            $query = query_posts($args);
+
+            if ( 1 == count( $query ) )
+                $template = get_query_template( 'single-event' );
+            
+            return $template;
+
+        }
     }
 
     /**
@@ -141,36 +136,40 @@ class BVS_Events_Calendar_Public {
      */
     public function theme_options_init() {
 
-        global $header;
-        global $logo;
-        global $logoLink;
-        global $banner;
-        global $bannerLink;
-        global $settings;
-        global $current_language;
-        global $site_lang;
+        if ( 'bvs-eventos' == get_stylesheet() ) {
 
-        $current_language = strtolower(get_bloginfo('language'));
-        $site_lang = substr($current_language, 0,2);
-        $settings = get_option( "events_theme_options");
+            global $header;
+            global $logo;
+            global $logoLink;
+            global $banner;
+            global $bannerLink;
+            global $settings;
+            global $current_language;
+            global $site_lang;
 
-        if ( ! empty( $settings ) ) {
-            $header = $settings['header'];
-            $logo = $header['logo-'.$site_lang];
-            $logoLink = $header['logoLink-'.$site_lang];
-            $banner = $header['banner-'.$site_lang];
-            $bannerLink = $header['bannerLink-'.$site_lang];
-        }
+            $current_language = strtolower(get_bloginfo('language'));
+            $site_lang = substr($current_language, 0,2);
+            $settings = get_option( "events_theme_options");
 
-        if ( $banner ) : ?>
-
-        <style>
-            .site {
-                background: url(<?php echo $banner;?>) top left no-repeat;
+            if ( ! empty( $settings ) ) {
+                $header = $settings['header'];
+                $logo = $header['logo-'.$site_lang];
+                $logoLink = $header['logoLink-'.$site_lang];
+                $banner = $header['banner-'.$site_lang];
+                $bannerLink = $header['bannerLink-'.$site_lang];
             }
-        </style>
 
-        <?php endif;
+            if ( $banner ) : ?>
+
+            <style>
+                .site {
+                    background: url(<?php echo $banner;?>) top left no-repeat;
+                }
+            </style>
+
+            <?php endif;
+
+        }
 
     }
 

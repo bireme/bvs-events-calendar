@@ -75,6 +75,9 @@ class BVS_Events_Calendar {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->load_acf(); // Custom Fields
+		$this->load_cpt(); // Custom Post Types
+		$this->load_theme_options(); // Theme Options
 
 	}
 
@@ -119,21 +122,6 @@ class BVS_Events_Calendar {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bvs-events-calendar-public.php';
 
-		/**
-		 * Incorpora o plugin ACF no plugin BVS Agenda de Eventos.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/advanced-custom-fields/acf.php';
-
-		/**
-		 * Incorpora o plugin ACF: Date and Time Picker no plugin BVS Agenda de Eventos.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/acf-field-date-time-picker/acf-date_time_picker.php';
-
-		/**
-		 * Registra os custom fields do plugin ACF no plugin BVS Agenda de Eventos.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/custom-fields-groups.php';
-
 		$this->loader = new BVS_Events_Calendar_Loader();
 
 	}
@@ -168,15 +156,10 @@ class BVS_Events_Calendar {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles', 1 );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts', 1 );
-
-		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_event' );
-		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_schedule' );
-		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_session' );
-		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_subsession' );
-		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_presentation' );
-		$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_participant' );
+		
+		$this->loader->add_action( 'plugins_loaded', $plugin_admin, 'events_calendar_register_theme' );
+		$this->loader->add_action( 'admin_notices', $plugin_admin, 'events_calendar_admin_notices' );
 		$this->loader->add_action( 'edit_form_after_title', $plugin_admin, 'edit_form_desc_label' );
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'theme_options_menu' );
 		$this->loader->add_action( 'admin_footer-edit.php', $plugin_admin, 'add_event_query_arg' );
 		$this->loader->add_action( 'save_post', $plugin_admin, 'recursive_save_event_hidden_field' );
 		$this->loader->add_action( 'restrict_manage_posts', $plugin_admin, 'filter_post_type_by_event' );
@@ -209,7 +192,76 @@ class BVS_Events_Calendar {
 
 		$this->loader->add_action( 'wp_head', $plugin_public, 'theme_options_init' );
 		$this->loader->add_action( 'home_template', $plugin_public, 'static_home_template' );
-		$this->loader->add_action( 'plugins_loaded', $plugin_public, 'events_calendar_register_theme' );
+
+	}
+
+	/**
+	 * Register custom fields
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function load_acf() {
+
+        if ( 'bvs-eventos' == get_stylesheet() ) {
+
+			/**
+			 * Incorpora o plugin ACF no plugin BVS Agenda de Eventos.
+			 */
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/advanced-custom-fields/acf.php';
+
+			/**
+			 * Incorpora o plugin ACF: Date and Time Picker no plugin BVS Agenda de Eventos.
+			 */
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/acf-field-date-time-picker/acf-date_time_picker.php';
+
+			/**
+			 * Registra os custom fields do plugin ACF no plugin BVS Agenda de Eventos.
+			 */
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/custom-fields-groups.php';
+
+		}
+
+	}
+
+	/**
+	 * Register custom post types and taxonomies
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function load_cpt() {
+
+        if ( 'bvs-eventos' == get_stylesheet() ) {
+        	
+        	$plugin_admin = new BVS_Events_Calendar_Admin( $this->get_plugin_name(), $this->get_version() );
+
+			$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_event' );
+			$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_schedule' );
+			$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_session' );
+			$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_subsession' );
+			$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_presentation' );
+			$this->loader->add_action( 'init', $plugin_admin, 'cptui_register_cpts_participant' );
+
+		}
+
+	}
+
+	/**
+	 * Load theme options
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function load_theme_options() {
+
+        if ( 'bvs-eventos' == get_stylesheet() ) {
+
+        	$plugin_admin = new BVS_Events_Calendar_Admin( $this->get_plugin_name(), $this->get_version() );
+
+			$this->loader->add_action( 'admin_menu', $plugin_admin, 'theme_options_menu' );
+
+		}
 
 	}
 
