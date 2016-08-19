@@ -162,10 +162,13 @@ class BVS_Events_Calendar_Public {
             if ( $banner ) : ?>
 
             <style>
-                .site {
+                .site-header-main {
                     background: url(<?php echo $banner;?>) top left no-repeat;
                 }
             </style>
+            
+            <!-- block custom header -->
+            <?php echo stripslashes( $header['custom'] ); ?>
 
             <?php endif;
 
