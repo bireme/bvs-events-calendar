@@ -333,7 +333,7 @@
 
     function event_breadcrumb_shortener($meta) {
         $sizes = array(
-            2 => 100,
+            2 => 70,
             3 => 50,
             4 => 33,
             5 => 25,

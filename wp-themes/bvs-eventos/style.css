@@ -24,7 +24,8 @@ body::before { content: normal !important; }
 .top-slot { margin: 20px; }
 .site { margin-top: 0; }
 .site-content {padding: 0 3%;}
-.site-header{padding:0;}
+.site-header{padding: 0;}
+.site-header-main{height: 120px;}
 .home article .entry-header {display: none;}
 .flex-direction-nav li a {box-shadow:none !important;}
 .page-template-page-full-width .content-area {width:100%;margin-right:0;}
