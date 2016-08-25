@@ -17,6 +17,8 @@
         'post_status' => 'publish',
         'posts_per_page' => -1,
         'order' => 'ASC',
+        'orderby' => 'meta_value',
+        'meta_key' => 'initial_date',
         'meta_query' => array(
             array(
                 'key' => 'session',
