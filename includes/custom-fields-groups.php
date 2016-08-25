@@ -318,27 +318,6 @@ if(function_exists("register_field_group"))
                 'max' => '',
             ),
             array (
-                'key' => 'field_56a0c4cefd68b',
-                'label' => __('Author', 'bvs-events-calendar'),
-                'name' => 'author',
-                'type' => 'relationship',
-                'return_format' => 'object',
-                'post_type' => array (
-                    0 => 'participant',
-                ),
-                'taxonomy' => array (
-                    0 => 'all',
-                ),
-                'filters' => array (
-                    0 => 'search',
-                ),
-                'result_elements' => array (
-                    0 => 'post_type',
-                    1 => 'post_title',
-                ),
-                'max' => '',
-            ),
-            array (
                 'key' => 'field_56a0c4f20a8ee',
                 'label' => __('Attachments', 'bvs-events-calendar'),
                 'name' => 'attachments',
@@ -518,27 +497,6 @@ if(function_exists("register_field_group"))
                 'formatting' => 'html',
                 'maxlength' => '',
             ),
-            array (
-                'key' => 'field_571103eee22cd',
-                'label' => __('Author', 'bvs-events-calendar'),
-                'name' => 'author',
-                'type' => 'relationship',
-                'return_format' => 'object',
-                'post_type' => array (
-                    0 => 'participant',
-                ),
-                'taxonomy' => array (
-                    0 => 'all',
-                ),
-                'filters' => array (
-                    0 => 'search',
-                ),
-                'result_elements' => array (
-                    0 => 'post_type',
-                    1 => 'post_title',
-                ),
-                'max' => '',
-            ),
         ),
         'location' => array (
             array (
@@ -632,27 +590,6 @@ if(function_exists("register_field_group"))
                 'append' => '',
                 'formatting' => 'html',
                 'maxlength' => '',
-            ),
-            array (
-                'key' => 'field_571106ed11989',
-                'label' => __('Author', 'bvs-events-calendar'),
-                'name' => 'author',
-                'type' => 'relationship',
-                'return_format' => 'object',
-                'post_type' => array (
-                    0 => 'participant',
-                ),
-                'taxonomy' => array (
-                    0 => 'all',
-                ),
-                'filters' => array (
-                    0 => 'search',
-                ),
-                'result_elements' => array (
-                    0 => 'post_type',
-                    1 => 'post_title',
-                ),
-                'max' => '',
             ),
         ),
         'location' => array (
