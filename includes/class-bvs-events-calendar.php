@@ -174,6 +174,8 @@ class BVS_Events_Calendar {
 		$this->loader->add_filter( 'acf/fields/relationship/result/key=field_56a10c10dda31', $plugin_admin, 'custom_relationship_result', 10, 4 );
 		$this->loader->add_filter( 'acf/fields/relationship/query/key=field_56a10c10dda31', $plugin_admin, 'custom_relationship_query', 10, 3 );
 
+		$this->loader->add_action( 'p2p_init', $plugin_admin, 'events_calendar_connection_types' );
+
 	}
 
 	/**

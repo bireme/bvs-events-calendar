@@ -11,7 +11,6 @@ get_header(); ?>
 
 <?php
 	$description = '';
-    $author_ids = get_post_meta( $post->ID, 'author' );
     $attachment = get_field( 'attachments', $post->ID );
     $video = get_field( 'video', $post->ID );
     $ext = pathinfo($attachment['url'], PATHINFO_EXTENSION);
@@ -20,8 +19,15 @@ get_header(); ?>
     $session = get_post_meta( $post->ID, 'session' );
     $end_datetime = strtotime(get_field( 'end_date', $post->ID ));
 	$initial_datetime = strtotime(get_field( 'initial_date', $post->ID ));
-?>
 
+    // Find connected participants
+    $connected = new WP_Query( array(
+        'connected_type' => 'presentations_to_participants',
+        'connected_items' => $post,
+        'nopaging' => true
+    ) );
+?>
+    
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
 
@@ -71,24 +77,27 @@ get_header(); ?>
 					</div>
 				<?php endif; ?>
 				<div class="author-list">
-					<?php if ( $author_ids[0] ) : // Participants Loop ?>
-                        <?php foreach ($author_ids[0] as $id) : ?>
+                    <?php if ( $connected->have_posts() ) : // Display connected participants ?>
+                        <?php while( $connected->have_posts() ) : $connected->the_post(); ?>
                             <?php
+                                $id = get_the_ID();
                                 $job_title = get_field( 'job_title', $id );
                                 $affiliation = get_field( 'affiliation', $id );
                                 $separator = ( $job_title && $affiliation ) ? ' - ' : '';
+                                $role = p2p_get_meta( get_post()->p2p_id, 'role', true );
+                                $comma = $role ? ', ' : '';
                             ?>
 							<div class="s-author">
 								<div class="author-data">
 									<div class="author-name">
-                                        <a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a>
+                                        <a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a><span class="author-role"><?php echo $comma . $role; ?></span>
                                     </div>
 									<div class="author-inst">
                                         <span class="job-title"><?php echo $job_title; ?></span><?php echo $separator; ?><span class="affiliation"><?php echo $affiliation; ?></span>
                                     </div>
 								</div>
 							</div>
-						<?php endforeach; ?>
+						<?php endwhile; ?>
     				<?php endif; ?>
 				</div>
 				<div class="summary">

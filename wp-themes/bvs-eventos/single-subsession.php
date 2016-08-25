@@ -16,6 +16,7 @@ get_header(); ?>
 		
 	    <div class="program">
 	        <?php
+	        	$obj = $post;
 	            $end_datetime = strtotime(get_field( 'end_time', $post->ID ));
 	            $initial_datetime = strtotime(get_field( 'initial_time', $post->ID ));
 	        ?>
@@ -34,25 +35,35 @@ get_header(); ?>
 		                <div class="single-subsession-title"><?php the_title(); ?></div>
 		                <div class="location"><?php the_field( 'location', $post->ID ); ?></div>
 		                <div class="author-list">
-		                    <?php $author_ids = get_post_meta( $post->ID, 'author' ); ?>
-		                    <?php if ( $author_ids[0] ) : // Participants Loop ?>
-		                        <?php foreach ($author_ids[0] as $id) : ?>
+		                	<?php
+		                		// Find connected participants
+		                        $connected = new WP_Query( array(
+		                            'connected_type' => 'subsessions_to_participants',
+		                            'connected_items' => $post,
+		                            'nopaging' => true
+		                        ) );
+		                	?>
+		                    <?php if ( $connected->have_posts() ) : // Display connected participants ?>
+                        		<?php while( $connected->have_posts() ) : $connected->the_post(); ?>
 		                        	<?php
+		                        		$id = get_the_ID();
                                         $job_title = get_field( 'job_title', $id );
                                         $affiliation = get_field( 'affiliation', $id );
                                         $separator = ( $job_title && $affiliation ) ? ' - ' : '';
+                                        $role = p2p_get_meta( get_post()->p2p_id, 'role', true );
+                                		$comma = $role ? ', ' : '';
                                     ?>
 		                            <div class="s-author">
 		                                <div class="author-data">
 		                                    <div class="author-name">
-		                                    	<a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a>
+		                                    	<a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a><span class="author-role"><?php echo $comma . $role; ?></span>
 		                                    </div>
 		                                    <div class="author-inst">
 		                                    	<span class="job-title"><?php echo $job_title; ?></span><?php echo $separator; ?><span class="affiliation"><?php echo $affiliation; ?></span>
 		                                    </div>
 		                                </div>
 		                            </div>
-		                        <?php endforeach; ?>
+		                        <?php endwhile; ?>
 		                    <?php endif; ?>
 		                </div>
 		                <?php if ( get_the_excerpt() ) : ?>
@@ -61,6 +72,8 @@ get_header(); ?>
 		                        <?php the_excerpt(); ?>
 		                    </div>
 		                <?php endif; ?>
+
+		                <?php $post = $obj; ?>
 
 		                <?php get_template_part( 'template-parts/presentation' ); ?>
 

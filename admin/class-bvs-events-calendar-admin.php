@@ -717,4 +717,64 @@ class BVS_Events_Calendar_Admin {
 
     }
 
+    public function events_calendar_connection_types() {
+        p2p_register_connection_type( array(
+            'name' => 'presentations_to_participants',
+            'from' => 'presentation',
+            'to' => 'participant',
+            'fields' => array(
+                'role' => array(
+                    'title' => __( 'Role', 'bvs-events-calendar' ),
+                    'type' => 'text',
+                )
+            ),
+            'admin_box' => array(
+                'show' => 'from',
+                'context' => 'advanced'
+            ),
+            'title' => array(
+                'from' => __( 'Related Participants', 'bvs-events-calendar' )
+            )
+        ) );
+
+        p2p_register_connection_type( array(
+            'name' => 'subsessions_to_participants',
+            'from' => 'subsession',
+            //'to' => array( 'participant', 'role' ),
+            'to' => 'participant',
+            'fields' => array(
+                'role' => array(
+                    'title' => __( 'Role', 'bvs-events-calendar' ),
+                    'type' => 'text',
+                )
+            ),
+            'admin_box' => array(
+                'show' => 'from',
+                'context' => 'advanced'
+            ),
+            'title' => array(
+                'from' => __( 'Related Participants', 'bvs-events-calendar' )
+            )
+        ) );
+
+        p2p_register_connection_type( array(
+            'name' => 'sessions_to_participants',
+            'from' => 'session',
+            'to' => 'participant',
+            'fields' => array(
+                'role' => array(
+                    'title' => __( 'Role', 'bvs-events-calendar' ),
+                    'type' => 'text',
+                )
+            ),
+            'admin_box' => array(
+                'show' => 'from',
+                'context' => 'advanced'
+            ),
+            'title' => array(
+                'from' => __( 'Related Participants', 'bvs-events-calendar' )
+            )
+        ) );
+    }
+
 }

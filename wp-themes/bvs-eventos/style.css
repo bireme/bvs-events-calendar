@@ -102,6 +102,7 @@ body::before { content: normal !important; }
 .author-name a {color: #666;border-bottom: 1px dotted;}
 .author-name a:hover {border-bottom: none;color:#007acc;}
 .author-inst {font-size:80%;}
+.author-role {font-size:80%; font-weight: normal;}
 .summary p {margin:0;font-size:85%;color:#686868;line-height: 1.7}
 .s-tags {margin: 10px 0;}
 .s-tags span {display: inline-block; border-radius: 12px; background: #efefef; padding: 0 10px;margin:0 4px;font-size: 80%;}

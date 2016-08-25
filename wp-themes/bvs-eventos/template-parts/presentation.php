@@ -16,7 +16,7 @@
         'post_type' => 'presentation',
         'post_status' => 'publish',
         'posts_per_page' => -1,
-        'order'   => 'ASC',
+        'order' => 'ASC',
         'meta_query' => array(
             array(
                 'key' => 'session',
@@ -35,9 +35,15 @@
         <?php
             $end_datetime = strtotime(get_field( 'end_date', $post->ID ));
             $initial_datetime = strtotime(get_field( 'initial_date', $post->ID ));
-            $author_ids = get_post_meta( $post->ID, 'author' );
             $attachment = get_field( 'attachments', $post->ID );
             $video = get_field( 'video', $post->ID );
+
+            // Find connected participants
+            $connected = new WP_Query( array(
+                'connected_type' => 'presentations_to_participants',
+                'connected_items' => $post,
+                'nopaging' => true
+            ) );
         ?>
         <div class="presentation-list">
             <div class="presentation">
@@ -50,13 +56,16 @@
                 <div class="view-detail "><?php _e( 'Details','bvs-events-calendar' ); ?> <i class="fa fa-eye"></i></div>
                 <div class="detail">
                     <div class="author-list">
-	                    <?php if ( $author_ids[0] ) : // Participants Loop ?>
-	                        <?php foreach ($author_ids[0] as $id) : ?>
+	                    <?php if ( $connected->have_posts() ) : // Display connected participants ?>
+                            <?php while( $connected->have_posts() ) : $connected->the_post(); ?>
 	                            <?php
+                                    $id = get_the_ID();
                                     $picture = get_field( 'picture', $id );
                                     $job_title = get_field( 'job_title', $id );
                                     $affiliation = get_field( 'affiliation', $id );
                                     $separator = ( $job_title && $affiliation ) ? ' - ' : '';
+                                    $role = p2p_get_meta( get_post()->p2p_id, 'role', true );
+                                    $comma = $role ? ', ' : '';
                                 ?>
 	                            <div class="s-author">
 	                                <?php if ($picture) : ?>
@@ -64,14 +73,14 @@
 	                                <?php endif; ?>
 	                                <div class="author-data">
 	                                    <div class="author-name">
-                                            <a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a>
+                                            <a href="<?php echo get_the_permalink($id); ?>"><?php echo get_the_title($id); ?></a><span class="author-role"><?php echo $comma . $role; ?></span>
                                         </div>
 	                                    <div class="author-inst">
                                             <span class="job-title"><?php echo $job_title; ?></span><?php echo $separator; ?><span class="affiliation"><?php echo $affiliation; ?></span>
                                         </div>
 	                                </div>
 	                            </div>
-	                        <?php endforeach; ?>
+	                        <?php endwhile; ?>
 	                    <?php endif; ?>
                     </div>
                     <div class="summary">
