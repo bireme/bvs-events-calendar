@@ -832,14 +832,74 @@ class BVS_Events_Calendar_Admin {
     }
 
     public function custom_category_columns_values( $deprecated, $column_name, $term_id ) {
-
         if( $column_name == 'event' ){
-            
             $term_meta = get_option( "taxonomy_$term_id" );
-            
             echo get_the_title( $term_meta['event'] );
-
         }
+    }
+
+    public function custom_presentation_columns( $columns ) {
+        $columns['session'] = __( 'Session/Subsession', 'bvs-events-calendar' );
+
+        return $columns;
+    }
+
+    public function custom_presentation_columns_values( $column, $post_id ) {
+        $meta = get_post_meta( $post_id, 'session' );
+
+        if( $column == 'session' ){
+            $titles = array();
+            
+            if ( $meta[0] ) {
+                foreach ( (array) $meta[0] as $id ) {
+                    if ( $title = get_the_title( $id ) ) {
+                        $label = '';
+                        $post_type = get_post_type( $id );
+
+                        if ( 'session' == $post_type )
+                            $label = ' (' . __( 'Session', 'bvs-events-calendar' ) . ')';
+                        elseif ( 'subsession' == $post_type )
+                            $label = ' (' . __( 'Subsession', 'bvs-events-calendar' ) . ')';
+
+                        $link = get_edit_post_link( $id );
+                        $titles[] = $link ? "<a href='{$link}'>{$title}{$label}</a>" : $title;
+                    }
+                }
+            }
+            
+            $value = implode( ', ', $titles );
+
+            echo $value;
+        }        
+    }
+
+    public function custom_presentation_admin_columns_values( $value, $object_id, $column, $storage_key ) {
+        $cfkey = 'session';
+        $meta = get_post_meta( $object_id, 'session' );
+
+        if ( 'column-meta' == $column->get_type() && $cfkey == $column->get_field() && 'presentation' == $storage_key ) {
+            $titles = array();
+            
+            if ( $meta[0] ) {
+                foreach ( (array) $meta[0] as $id ) {
+                    if ( $title = get_the_title( $id ) ) {
+                        $label = '';
+                        $post_type = get_post_type( $id );
+
+                        if ( 'session' == $post_type )
+                            $label = ' (' . __( 'Session', 'bvs-events-calendar' ) . ')';
+                        elseif ( 'subsession' == $post_type )
+                            $label = ' (' . __( 'Subsession', 'bvs-events-calendar' ) . ')';
+
+                        $link = get_edit_post_link( $id );
+                        $titles[] = $link ? "<a href='{$link}'>{$title}{$label}</a>" : $title;
+                    }
+                }
+            }
+            
+            $value = implode( '<span class="cpac-divider"></span>', $titles );
+        }
+        return $value;
     }
 
     public function post_categories_metabox_remove() {
