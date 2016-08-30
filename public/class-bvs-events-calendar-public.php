@@ -123,10 +123,11 @@ class BVS_Events_Calendar_Public {
 
             if ( 1 == count( $query ) )
                 $template = get_query_template( 'single-event' );
-            
-            return $template;
 
         }
+        
+        return $template;
+        
     }
 
     /**
