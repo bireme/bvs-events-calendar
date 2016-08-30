@@ -777,4 +777,136 @@ class BVS_Events_Calendar_Admin {
         ) );
     }
 
+    public function add_category_custom_fields( $term ){
+        global $typenow;
+        $term_id = $term->term_id;
+        $term_meta = get_option( "taxonomy_$term_id" );
+        $fields = array( 'event', 'schedule', 'session', 'subsession', 'presentation' );
+
+        if ( in_array( $typenow, $fields ) ) {
+            $args = array(
+                'post_type' => 'event',
+                'post_status' => 'any',
+                'posts_per_page' => -1,
+            );
+
+            $query = null;
+            $query = new WP_Query($args);
+
+            if( $query->have_posts() ) {
+    ?>
+        <tr class="form-field">
+            <th scope="row">
+                <label for="term_meta[event]"><?php _e( 'Event', 'bvs-events-calendar' ) ?></label>
+                <td>
+                    <select name="term_meta[event]" id="term_meta[event]">
+                        <option value=""></option>
+                        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                            <option value="<?php the_ID(); ?>" <?=($term_meta['event'] == get_the_ID()) ? 'selected': ''?>><?php the_title(); ?></option>
+                        <?php endwhile; ?>
+                    </select>
+                    <p class="description"><?php _e( 'Sets the associated event.', 'bvs-events-calendar' ); ?></p>
+                </td>
+            </th>
+        </tr>
+    <?php
+            }
+        }
+    }
+
+    public function save_custom_category_meta( $term_id ){ 
+  
+        if ( isset( $_POST['term_meta'] ) && !empty( $_POST['term_meta'] ) ) {
+             
+            $term_meta = array();
+ 
+            $term_meta['event'] = isset ( $_POST['term_meta']['event'] ) ? intval( $_POST['term_meta']['event'] ) : '';
+    
+            update_option( "taxonomy_$term_id", $term_meta );
+     
+        }
+    }
+
+    public function custom_category_columns( $columns ){
+        return array_merge( $columns, array( 'event' => __( 'Event', 'bvs-events-calendar' ) ) );
+    }
+
+    public function custom_category_columns_values( $deprecated, $column_name, $term_id ) {
+
+        if( $column_name == 'event' ){
+            
+            $term_meta = get_option( "taxonomy_$term_id" );
+            
+            echo get_the_title( $term_meta['event'] );
+
+        }
+    }
+
+    public function post_categories_metabox_remove() {
+        global $typenow;
+        $fields = array( 'event', 'schedule', 'session', 'subsession', 'presentation' );
+        $id = 'categorydiv';
+        $post_type = $fields;
+        $position = 'side';
+        remove_meta_box( $id, $post_type, $position );
+    }
+
+    public function custom_post_categories_metabox(){
+        global $typenow;
+        $fields = array( 'event', 'schedule', 'session', 'subsession', 'presentation' );
+        $id = 'categorydiv';
+        $heading = __( 'Categories' );
+        $callback = array( &$this, 'custom_callback_post_categories_metabox' );
+        $post_type = $fields;
+        $position = 'side';
+        $priority = 'default';
+        add_meta_box( $id, $heading, $callback, $post_type, $position, $priority );
+    }
+
+    public function custom_callback_post_categories_metabox( $post ) {
+        $meta = get_field( 'event_hidden_field' );
+        $ehf = $meta[0] ? $meta[0] : '';
+        $event = ( $post->post_type == 'event' ) ? $post->ID : $ehf;
+
+        // get all blog post categories as an array of objects
+        $categories = get_terms( 'category', array( 'hide_empty' => 0 ) ); 
+     
+        // get all categories assigned to a post
+        $post_categories = get_the_terms( $post->ID, 'category' );  
+     
+        // create an array of post categories ids
+        $ids = array();
+
+        if ( $post_categories ) {
+            foreach ( $post_categories as $cat ) {
+                $ids[] = $cat->term_id;
+            }
+        }
+     
+        // HTML
+        echo '<div id="taxonomy-category" class="categorydiv">';
+        echo '<input type="hidden" name="post_category[]" value="0" />';
+        echo '<ul class="categorychecklist">';
+        foreach( $categories as $cat ){
+            $term_meta = get_option( "taxonomy_$cat->term_id" );
+
+            if ( $term_meta['event'] && $event && $term_meta['event'] == $event ) {
+                $checked = "";
+
+                if ( in_array( $cat->term_id, $ids ) ) {
+                    $checked = " checked='checked'";
+                }
+
+                $id = 'category-' . $cat->term_id;
+
+                echo "<li id='{$id}'>";
+                echo "<label><input type='checkbox' name='post_category[]' id='in-$id'". $checked ." value='$cat->term_id' /> $cat->name</label><br />";
+                echo "</li>";
+            }
+        }
+        echo '</ul>';
+        echo '</div>';
+        // end HTML
+    }
+
 }
