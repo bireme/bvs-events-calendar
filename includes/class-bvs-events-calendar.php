@@ -170,6 +170,7 @@ class BVS_Events_Calendar {
 		$this->loader->add_action( 'edited_category', $plugin_admin, 'save_custom_category_meta' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'post_categories_metabox_remove' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'custom_post_categories_metabox' );
+		$this->loader->add_action( 'set_object_terms', $plugin_admin, 'custom_set_object_terms', 10, 4 );
 
 		// filter result and query for session field in Subsession
 		$this->loader->add_filter( 'acf/fields/relationship/result/key=field_569e804d50029', $plugin_admin, 'custom_relationship_result', 10, 4 );
