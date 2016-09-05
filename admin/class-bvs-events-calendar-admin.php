@@ -782,8 +782,17 @@ class BVS_Events_Calendar_Admin {
         $term_id = $term->term_id;
         $term_meta = get_option( "taxonomy_$term_id" );
         $fields = array( 'event', 'schedule', 'session', 'subsession', 'presentation' );
+        $q = array();
 
-        if ( in_array( $typenow, $fields ) ) {
+        if ( isset( $_GET['wp_http_referer'] ) ) {
+            $parts = parse_url($_GET['wp_http_referer']);
+            parse_str($parts['query'], $q);
+            $q['post_type'] = $q['post_type'] ? $q['post_type'] : $typenow;
+        } else {
+            $q['post_type'] = $typenow;
+        }
+
+        if ( in_array( $q['post_type'], $fields ) ) {
             $args = array(
                 'post_type' => 'event',
                 'post_status' => 'any',
@@ -835,7 +844,20 @@ class BVS_Events_Calendar_Admin {
     public function custom_category_columns_values( $deprecated, $column_name, $term_id ) {
         if( $column_name == 'event' ){
             $term_meta = get_option( "taxonomy_$term_id" );
-            echo get_the_title( $term_meta['event'] );
+
+            if ( $term_meta && isset( $term_meta['event'] ) ) {
+                $titles = array();
+
+                foreach ( $term_meta['event'] as $term ) {
+                    $title = get_the_title( $term );
+                    $link = get_edit_post_link( $term );
+                    $titles[] = $link ? "<a href='{$link}'>{$title}</a>" : $title;
+                }
+
+                $output = implode( ', ', $titles );
+
+                echo $output;
+            }
         }
     }
 
