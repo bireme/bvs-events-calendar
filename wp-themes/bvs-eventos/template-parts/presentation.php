@@ -35,6 +35,7 @@
 <?php if( $presentation_query->have_posts() ) : // Presentations Loop ?>
     <?php while ( $presentation_query->have_posts() ) : $presentation_query->the_post(); ?>
         <?php
+            $obj = $post;
             $end_datetime = strtotime(get_field( 'end_date', $post->ID ));
             $initial_datetime = strtotime(get_field( 'initial_date', $post->ID ));
             $attachment = get_field( 'attachments', $post->ID );
@@ -85,6 +86,9 @@
 	                        <?php endwhile; ?>
 	                    <?php endif; ?>
                     </div>
+
+                    <?php $post = $obj; ?>
+                    
                     <div class="summary">
                         <strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
                         <?php

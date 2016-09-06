@@ -824,8 +824,7 @@ class BVS_Events_Calendar_Admin {
     }
 
     public function save_custom_category_meta( $term_id ){ 
-        //echo "<pre>"; print_r($_POST); echo "</pre>"; die();
-  
+
         if ( isset( $_POST['term_meta'] ) && !empty( $_POST['term_meta'] ) ) {
              
             $term_meta = array();
@@ -835,10 +834,17 @@ class BVS_Events_Calendar_Admin {
             update_option( "taxonomy_$term_id", $term_meta );
      
         }
+
     }
 
     public function custom_category_columns( $columns ){
-        return array_merge( $columns, array( 'event' => __( 'Event', 'bvs-events-calendar' ) ) );
+        global $typenow;
+        $fields = array( 'event', 'schedule', 'session', 'subsession', 'presentation' );
+
+        if ( in_array( $typenow, $fields ) )
+            $columns = array_merge( $columns, array( 'event' => __( 'Event', 'bvs-events-calendar' ) ) );
+
+        return $columns;
     }
 
     public function custom_category_columns_values( $deprecated, $column_name, $term_id ) {
@@ -854,7 +860,7 @@ class BVS_Events_Calendar_Admin {
                     $titles[] = $link ? "<a href='{$link}'>{$title}</a>" : $title;
                 }
 
-                $output = implode( ', ', $titles );
+                $output = implode( '<span class="cpac-divider"></span>', $titles );
 
                 echo $output;
             }
@@ -890,7 +896,35 @@ class BVS_Events_Calendar_Admin {
                 }
             }
             
-            $value = implode( ', ', $titles );
+            $value = implode( '<span class="cpac-divider"></span>', $titles );
+
+            echo $value;
+        }        
+    }
+
+    public function custom_subsession_columns( $columns ) {
+        $columns['session'] = __( 'Session', 'bvs-events-calendar' );
+
+        return $columns;
+    }
+
+    public function custom_subsession_columns_values( $column, $post_id ) {
+        $meta = get_post_meta( $post_id, 'session' );
+
+        if( $column == 'session' ){
+            $titles = array();
+            
+            if ( $meta[0] ) {
+                foreach ( (array) $meta[0] as $id ) {
+                    if ( $title = get_the_title( $id ) ) {
+                        $post_type = get_post_type( $id );
+                        $link = get_edit_post_link( $id );
+                        $titles[] = $link ? "<a href='{$link}'>{$title}</a>" : $title;
+                    }
+                }
+            }
+            
+            $value = implode( '<span class="cpac-divider"></span>', $titles );
 
             echo $value;
         }        

@@ -10,6 +10,7 @@
 get_header(); ?>
 
 <?php
+    $obj = $post;
 	$description = '';
     $attachment = get_field( 'attachments', $post->ID );
     $video = get_field( 'video', $post->ID );
@@ -100,6 +101,9 @@ get_header(); ?>
 						<?php endwhile; ?>
     				<?php endif; ?>
 				</div>
+
+                <?php $post = $obj; ?>
+
 				<div class="summary">
 					<?php						
 						if ( $post->post_content ) {

@@ -172,6 +172,8 @@ class BVS_Events_Calendar {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'custom_post_categories_metabox' );
 		$this->loader->add_action( 'set_object_terms', $plugin_admin, 'custom_set_object_terms', 10, 4 );
 		$this->loader->add_action( 'manage_category_custom_column', $plugin_admin, 'custom_category_columns_values', 10, 3 );
+		$this->loader->add_action( 'manage_subsession_posts_custom_column', $plugin_admin, 'custom_subsession_columns_values', 10, 2 );
+		$this->loader->add_action( 'manage_presentation_posts_custom_column', $plugin_admin, 'custom_presentation_columns_values', 10, 2 );
 
 		// filter result and query for session field in Subsession
 		$this->loader->add_filter( 'acf/fields/relationship/result/key=field_569e804d50029', $plugin_admin, 'custom_relationship_result', 10, 4 );
@@ -183,10 +185,9 @@ class BVS_Events_Calendar {
 
 		$this->loader->add_filter( 'parse_query', $plugin_admin, 'event_parse_query' );
 		$this->loader->add_filter( 'manage_edit-category_columns', $plugin_admin, 'custom_category_columns' );
+		$this->loader->add_filter( 'manage_subsession_posts_columns', $plugin_admin, 'custom_subsession_columns' );
+		$this->loader->add_filter( 'manage_presentation_posts_columns', $plugin_admin, 'custom_presentation_columns' );
 		$this->loader->add_filter( 'cac/column/value', $plugin_admin, 'custom_presentation_admin_columns_values', 10, 4 );
-
-		//$this->loader->add_action( 'manage_presentation_posts_custom_column', $plugin_admin, 'custom_presentation_columns_values', 10, 2 );
-		//$this->loader->add_filter( 'manage_presentation_posts_columns', $plugin_admin, 'custom_presentation_columns' );
 
 	}
 

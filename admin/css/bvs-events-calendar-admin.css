@@ -11,3 +11,9 @@
     margin-top: 1em !important;
     border-top: 1px solid #ccc;
 }
+.cpac-divider {
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    background: url(../images/square.png) 50% 7px no-repeat;
+}
