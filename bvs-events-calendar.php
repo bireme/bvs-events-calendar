@@ -31,6 +31,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+defined('GOOGLE_MAPS_APIKEY') or define('GOOGLE_MAPS_APIKEY', '');
+
+if ( defined( 'POLYLANG_VERSION') ) {
+    require_once( PLL_INC . '/api.php');
+}
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-bvs-events-calendar-activator.php

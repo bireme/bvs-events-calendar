@@ -473,4 +473,10 @@
     }
     add_action('admin_footer', 'suggest_event_form');
 
+    function acf_google_map_api( $api ){
+        $api['key'] = GOOGLE_MAPS_APIKEY;
+        return $api;
+    }
+    add_filter('acf/fields/google_map/api', 'acf_google_map_api');
+
 ?>

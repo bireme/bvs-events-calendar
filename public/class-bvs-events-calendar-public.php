@@ -102,7 +102,7 @@ class BVS_Events_Calendar_Public {
         wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.11.4/jquery-ui.js', array(), '1.11.4', false );
         wp_enqueue_script( 'jquery-anyslider', plugin_dir_url( __FILE__ ) . 'js/jquery.anyslider.js', array(), '2.1.0-beta', false );
         wp_enqueue_script( 'jquery-easing', plugin_dir_url( __FILE__ ) . 'js/jquery.easing.1.3.js', array(), '1.3', false );
-        wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '3', false );
+        wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=' . GOOGLE_MAPS_APIKEY, array(), '3', false );
         wp_enqueue_script( 'google-map-init', plugin_dir_url( __FILE__ ) . 'js/google-maps.js', array('google-map', 'jquery'), $this->version, false );
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/bvs-events-calendar-public.js', array( 'jquery' ), $this->version, false );
 
