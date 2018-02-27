@@ -23,11 +23,11 @@
             <?php echo ( defined( 'POLYLANG_VERSION' ) ) ? '(' . strtoupper( $lang ) . ')' : ''; ?>
         </th>
     	<td>
-            <input id="header[logo-<?php echo $lang; ?>]" name="header[logo-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the URL','bvs-events-calendar');?>" type="text" class="full-width regular-text code header-logo" value="<?php echo esc_html( stripslashes( $header["logo-" . $lang] ) ); ?>">
+            <input id="header[logo-<?php echo $lang; ?>]" name="header[logo-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the URL','bvs-events-calendar');?>" type="text" class="regular-text code header-logo" value="<?php echo esc_html( stripslashes( $header["logo-" . $lang] ) ); ?>">
             <button type="button" class="clear-content"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
         </td>
     	<td>
-            <input id="header[logoLink-<?php echo $lang; ?>]" name="header[logoLink-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the link','bvs-events-calendar');?>" type="text" class="full-width regular-text code header-logo-link" value="<?php echo esc_html( stripslashes( $header["logoLink-" . $lang] ) ); ?>">
+            <input id="header[logoLink-<?php echo $lang; ?>]" name="header[logoLink-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the link','bvs-events-calendar');?>" type="text" class="regular-text code header-logo-link" value="<?php echo esc_html( stripslashes( $header["logoLink-" . $lang] ) ); ?>">
             <button type="button" class="clear-content"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
         </td>
     </tr>
@@ -49,11 +49,11 @@
             <?php echo ( defined( 'POLYLANG_VERSION' ) ) ? '(' . strtoupper( $lang ) . ')' : ''; ?>
         </th>
     	<td>
-            <input id="header[banner-<?php echo $lang; ?>]" name="header[banner-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the URL','bvs-events-calendar');?>" type="text" class="full-width regular-text code header-banner" value="<?php echo esc_html( stripslashes( $header["banner-" . $lang] ) ); ?>">
+            <input id="header[banner-<?php echo $lang; ?>]" name="header[banner-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the URL','bvs-events-calendar');?>" type="text" class="regular-text code header-banner" value="<?php echo esc_html( stripslashes( $header["banner-" . $lang] ) ); ?>">
             <button type="button" class="clear-content"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
         </td>
     	<td>
-            <input id="header[bannerLink-<?php echo $lang; ?>]" name="header[bannerLink-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the link','bvs-events-calendar');?>" type="text" class="full-width regular-text code header-banner-link" value="<?php echo esc_html( stripslashes( $header["bannerLink-" . $lang] ) ); ?>">
+            <input id="header[bannerLink-<?php echo $lang; ?>]" name="header[bannerLink-<?php echo $lang; ?>]" placeholder="<?php echo __('Paste the link','bvs-events-calendar');?>" type="text" class="regular-text code header-banner-link" value="<?php echo esc_html( stripslashes( $header["bannerLink-" . $lang] ) ); ?>">
             <button type="button" class="clear-content"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
         </td>
     </tr>
