@@ -16,7 +16,7 @@
  * Plugin Name:       Plugin BVS Agenda de Eventos
  * Plugin URI:        https://github.com/bireme/events-calendar
  * Description:       Plugin para publicação de agenda de eventos na BVS
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            BIREME/OPAS/OMS
  * Author URI:        http://reddes.bvsalud.org/
  * License:           LGPL
