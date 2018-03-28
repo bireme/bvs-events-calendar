@@ -18,6 +18,15 @@
     	) );
     }
 
+    // add custom style file
+    $custom_style_file = get_stylesheet_directory() . '/custom.css';
+    if(file_exists($custom_style_file)) {
+        add_action( 'wp_enqueue_scripts', 'custom_enqueue_styles');
+        function custom_enqueue_styles() {
+            wp_enqueue_style('custom-style', get_stylesheet_directory_uri() . '/custom.css', array());
+        }
+    }
+
     function get_days($end, $start) {
         $end_date   = strtotime($end);
         $start_date = $start ? strtotime($start) : 0;
