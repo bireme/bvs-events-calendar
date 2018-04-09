@@ -225,16 +225,16 @@
                         <li><a href="<?php echo $schedule; ?>"><?php _e( 'Schedule', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                     <?php if ( $start_date ) : ?>
-                        <li><a href="#date"><?php _e( 'Date', 'bvs-events-calendar' ); ?></a></li>
+                        <li><a href="#date" class="submenu"><?php _e( 'Date', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                     <?php if ( $post->post_content || $post->post_excerpt ) : ?>
-                        <li><a href="#event-content"><?php _e( 'Description', 'bvs-events-calendar' ); ?></a></li>
+                        <li><a href="#event-content" class="submenu"><?php _e( 'Description', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                     <?php if ( $registrations ) : ?>
-                        <li><a href="#registrations"><?php _e( 'Registrations', 'bvs-events-calendar' ); ?></a></li>
+                        <li><a href="#registrations" class="submenu"><?php _e( 'Registrations', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                     <?php if ( $location ) : ?>
-                        <li><a href="#location"><?php _e( 'Location', 'bvs-events-calendar' ); ?></a></li>
+                        <li><a href="#location" class="submenu"><?php _e( 'Location', 'bvs-events-calendar' ); ?></a></li>
                     <?php endif; ?>
                 </ul>
             </div>

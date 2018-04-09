@@ -47,13 +47,13 @@ get_header(); ?>
 			<?php event_nav_menu( $event_menu, $homepage ); ?>
 
 			<?php if ( ! empty( $start_date ) ) : ?>
-				<div id="date" class="event-date">
+				<div id="date" class="event-date highlight">
 					<h3 class="event-header"><?php _e( 'Date', 'bvs-events-calendar' ); ?></h3>
 					<?php echo $start_date . $end_date; ?>
 				</div>
 			<?php endif; ?>
 
-			<div id="event-content" class="event-content">
+			<div id="event-content" class="event-content highlight">
 				<h3 class="event-header"><?php _e( 'Description', 'bvs-events-calendar' ); ?></h3>
 				<?php
 					if ( $post->post_content ) {
@@ -65,14 +65,14 @@ get_header(); ?>
 			</div>
 
 			<?php if ( ! empty( $registrations ) ) : ?>
-				<div id="registrations" class="event-registrations">
+				<div id="registrations" class="event-registrations highlight">
 					<h3 class="event-header"><?php _e( 'Registrations', 'bvs-events-calendar' ); ?></h3>
 					<?php echo $registrations; ?>
 				</div>
 			<?php endif; ?>
 			
 			<?php if ( ! empty( $location ) ) : ?>
-				<div id="location" class="event-location">
+				<div id="location" class="event-location highlight">
 					<h3 class="event-header"><?php _e( 'Location', 'bvs-events-calendar' ); ?></h3>
 					<span>
 						<?php
