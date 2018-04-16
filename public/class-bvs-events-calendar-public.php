@@ -172,10 +172,8 @@ class BVS_Events_Calendar_Public {
 
             if ( $header['custom'] ) : // block custom header ?>
 
-            <style type="text/css">
                 <?php echo stripslashes( $header['custom'] ); ?>
-            </style>
-
+                
             <?php endif;
 
         }
