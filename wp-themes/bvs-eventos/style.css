@@ -274,6 +274,22 @@ h3{font-size: 13px !important;}
 
 #breadcrumb li:last-child:after { content: ""; }
 
+.widget_polylang {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 5px;
+}
+
+.widget_polylang ul {
+    list-style: none;
+    display: flex;
+}
+
+.widget_polylang ul li {
+    margin-right: 5px;
+}
+
 /*
 #breadcrumbs{
     list-style:none;
