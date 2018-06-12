@@ -36,7 +36,16 @@ h3{font-size: 13px !important;}
 .site-title {margin-top: 55px; color:#9acf29 !important;}
 .site-title a{margin-top: 55px; color:#9acf29 !important;}
 .site-branding .site-title, .site-description{position:inherit !important;}
-.entry-header{ font-size:14px !important; color: #666;}
+.entry-header{
+    font-size:14px !important;
+    color: #666;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+.entry-content {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
 #secondary{    background: #f7fbed;
     margin-top: 30px;
     min-height: 400px;
