@@ -89,16 +89,18 @@
 
                     <?php $post = $obj; ?>
                     
+                    <?php if ( get_the_excerpt() ) : ?>
                     <div class="summary">
                         <strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
-                        <?php
-                            if ( get_the_excerpt() ) {
-                                the_excerpt();
-                            } elseif ( get_the_content() ) {
-                                the_content();
-                            }
-                        ?>
+                        <?php the_excerpt(); ?>
                     </div>
+                    <?php elseif ( get_the_content() ) : ?>
+                    <div class="summary">
+                        <strong><?php _e( 'Summary','bvs-events-calendar' ); ?></strong>
+                        <?php the_content(); ?>
+                    </div>
+                    <?php endif; ?>
+
                     <?php if( has_tag() ) : ?>
                         <div class="s-tags">
                             <strong><?php _e('Tags'); ?>:</strong>
