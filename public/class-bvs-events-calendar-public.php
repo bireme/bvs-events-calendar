@@ -118,7 +118,15 @@ class BVS_Events_Calendar_Public {
         if ( 'bvs-eventos' == get_stylesheet() ) {
 
             global $wp_query;
-            $args = array_merge( $wp_query->query_vars, array( 'post_type' => 'event' ) );
+
+            $trangolango = array(
+                'post_type' => 'event',
+                'meta_key'  => 'start_date',
+                'orderby'   => 'meta_value_num',
+                'order'     => 'ASC'
+            );
+
+            $args = array_merge( $wp_query->query_vars, $trangolango );
             $query = query_posts($args);
 
             if ( 1 == count( $query ) )
