@@ -56,7 +56,9 @@
                 <div class="presentation-title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                 </div>
-                <div class="view-detail "><?php _e( 'Details','bvs-events-calendar' ); ?> <i class="fa fa-eye"></i></div>
+                <?php if ( get_the_excerpt() || get_the_content() ) : ?>
+                    <div class="view-detail "><?php _e( 'Details','bvs-events-calendar' ); ?> <i class="fa fa-eye"></i></div>
+                <?php endif; ?>
                 <div class="detail">
                     <div class="author-list">
 	                    <?php if ( $connected->have_posts() ) : // Display connected participants ?>
