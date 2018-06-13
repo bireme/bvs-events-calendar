@@ -48,7 +48,7 @@
 					do_action( 'twentysixteen_credits' );
 				?>
 				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'bvs-events-calendar' ) ); ?>"><?php printf( __( 'Powered by %s', 'bvs-events-calendar' ), 'WordPress' ); ?></a>
+				<a href="<?php echo esc_url( __( 'https://github.com/bireme', 'bvs-events-calendar' ) ); ?>" target="_blank"><?php printf( __( 'Powered by %s', 'bvs-events-calendar' ), 'BIREME' ); ?></a>
 			</div><!-- .site-info -->
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
