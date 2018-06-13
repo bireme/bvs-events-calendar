@@ -366,7 +366,11 @@ h3{font-size: 13px !important;}
    max-width: inherit !important;
 }
 
-.slider { border: 1px solid #d9d9d9 !important; background: rgb(245,245,245) !important; }
+.slider-wrapper .slider {
+    border: 1px solid #d9d9d9 !important;
+    background: rgb(245,245,245) !important;
+    height: 135px;
+}
 
 .menu-highlight {
     background: #ffa500 !important;
