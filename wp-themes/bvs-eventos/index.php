@@ -22,7 +22,11 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header>
+				<?php if ( defined( 'POLYLANG_VERSION' ) ) : ?>
+				<h1 class="event-label"><?php pll_e('Next events'); ?></h1>
+				<?php else : ?>
 				<h1 class="event-label"><?php _e( 'Next events', 'bvs-events-calendar' ); ?></h1>
+				<?php endif; ?>
 			</header>
 
 			<?php

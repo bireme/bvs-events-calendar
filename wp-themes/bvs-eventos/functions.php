@@ -488,4 +488,8 @@
     }
     add_filter('acf/fields/google_map/api', 'acf_google_map_api');
 
+    add_action('init', function() {
+        pll_register_string('BVS Events Calendar', 'Next events', 'Plugin');
+    });
+
 ?>
