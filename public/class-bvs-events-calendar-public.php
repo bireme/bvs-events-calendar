@@ -119,14 +119,14 @@ class BVS_Events_Calendar_Public {
 
             global $wp_query;
 
-            $trangolango = array(
+            $params = array(
                 'post_type' => 'event',
                 'meta_key'  => 'start_date',
                 'orderby'   => 'meta_value_num',
                 'order'     => 'ASC'
             );
 
-            $args = array_merge( $wp_query->query_vars, $trangolango );
+            $args = array_merge( $wp_query->query_vars, $params );
             $query = query_posts($args);
 
             if ( 1 == count( $query ) )
