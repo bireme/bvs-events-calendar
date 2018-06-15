@@ -49,7 +49,7 @@ get_header(); ?>
 			<?php if ( ! empty( $start_date ) ) : ?>
 				<div id="date" class="event-date highlight">
 					<h3 class="event-header"><?php _e( 'Date', 'bvs-events-calendar' ); ?></h3>
-					<?php echo $start_date . $end_date; ?>
+					<p><?php echo $start_date . $end_date; ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -71,20 +71,20 @@ get_header(); ?>
 				</div>
 			<?php endif; ?>
 			
-			<?php if ( ! empty( $location ) ) : ?>
+			<?php if ( !empty( $location ) || !empty( $venue ) ) : ?>
 				<div id="location" class="event-location highlight">
 					<h3 class="event-header"><?php _e( 'Location', 'bvs-events-calendar' ); ?></h3>
-					<span>
-						<?php
-							if ( ! empty( $venue ) )
-								echo $venue;
-							else
-								echo $location['address'];
-						?>
-					</span>
+					<?php if ( !empty( $venue ) ) : ?>
+					<span><?php echo $venue; ?></span>
+					<?php else : ?>
+					<span><?php echo $location['address']; ?></span>
+					<?php endif; ?>
+
+					<?php if ( !empty( $location ) ) : ?>
 					<div class="acf-map">
 						<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 					</div>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 
