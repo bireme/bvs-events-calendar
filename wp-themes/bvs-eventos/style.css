@@ -168,12 +168,16 @@ h3 { font-size: 13px; }
     font-style: italic;
 }
 .session .session-time {
-    background:#f3f3f3;
+    background: #f3f3f3;
     font-size: 12px !important;
     width: 20%;
     margin-right: 15px;
     font-weight: bold;
     text-align: center;
+}
+.single-presentation .session .session-time {
+    width: auto;
+    display: inline-block;
 }
 .presentation-list .session-time {
     background: #ffffff;
@@ -181,8 +185,8 @@ h3 { font-size: 13px; }
     width: 100%;
 }
 .subsession-time {
-    width: 25%;
-    font-size: 85%;
+    width: 30%;
+    font-size: 12px;
     margin-top: 5px;
     font-style: italic;
     border-bottom: 1px solid #ccc;
@@ -204,8 +208,8 @@ h3 { font-size: 13px; }
 .single-presentation .single-session-title { margin: 1em 0; }
 .single-presentation .session-data { width: auto; }
 .single-session .subsession-time {
-    width: 25%;
-    font-size: 85%;
+    width: 30%;
+    font-size: 12px;
     margin-top: 5px;
     font-style: italic;
     border-bottom: 1px solid #ccc;
@@ -229,8 +233,9 @@ h3 { font-size: 13px; }
     width: 75%;
 }
 .presentation .session-time {
-    width: 30%;
+    width: 40%;
     margin-top: 10px;
+    text-align: left;
 }
 .summary { margin:12px 0; }
 .view-detail {
