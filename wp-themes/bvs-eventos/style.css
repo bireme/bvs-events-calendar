@@ -170,7 +170,7 @@ h3 { font-size: 13px; }
 .session .session-time {
     background: #f3f3f3;
     font-size: 12px !important;
-    width: 20%;
+    width: 130px;
     margin-right: 15px;
     font-weight: bold;
     text-align: center;
@@ -185,7 +185,7 @@ h3 { font-size: 13px; }
     width: 100%;
 }
 .subsession-time {
-    width: 30%;
+    width: 130px;
     font-size: 12px;
     margin-top: 5px;
     font-style: italic;
@@ -208,7 +208,7 @@ h3 { font-size: 13px; }
 .single-presentation .single-session-title { margin: 1em 0; }
 .single-presentation .session-data { width: auto; }
 .single-session .subsession-time {
-    width: 30%;
+    width: 130px;
     font-size: 12px;
     margin-top: 5px;
     font-style: italic;
@@ -331,6 +331,10 @@ h3 { font-size: 13px; }
 .s-players #tabs div { text-align: center; }
 .related-content { margin-top: 2em; }
 .related-content li { margin-left: 2em; }
+.single-participant .content-area {
+    float: left;
+    width: 70%;
+}
 .single-participant aside ul {
     margin-top: 2.5em;
     list-style: none;
