@@ -13,6 +13,18 @@ get_header(); ?>
     global $id;
     $obj = $post;
 
+    $site     = get_field('site');
+    $twitter  = get_field('twitter');
+    $facebook = get_field('facebook');
+    $linkedin = get_field('linkedin');
+    $cv       = get_field('curriculum_vitae');
+
+    $class = 'full-width';
+
+    if ( $site || $twitter || $facebook || $linkedin || $cv ) {
+        $class = '';
+    }
+
     // Find connected presentations
     $connected = new WP_Query( array(
         'connected_type' => 'presentations_to_participants',
@@ -21,7 +33,7 @@ get_header(); ?>
     ) );
 ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area <?php echo $class; ?>">
     <main id="main" class="site-main" role="main">
     
         <?php event_breadcrumb( $id ); ?>
@@ -75,34 +87,36 @@ get_header(); ?>
 
 <?php $post = $obj; ?>
 
+<?php if ( empty($class) ) : ?>
 <aside id="secondary" class="sidebar" role="complementary">
     <ul class="social-links">
-        <?php if ( get_field( 'site' ) ) { ?>
+        <?php if ( $site ) { ?>
             <li><strong><i class="fa fa-link"></i> <?php _e( 'Site', 'bvs-events-calendar' ); ?></strong><br/>
-                <small><a href="<?php the_field( 'site' ); ?>" target="_blank"><?php the_field( 'site' ); ?></a></small>
+                <small><a href="<?php the_field( 'site' ); ?>" target="_blank"><?php echo $site; ?></a></small>
             </li>
         <?php } ?>
-        <?php if ( get_field( 'twitter' ) ) { ?>
+        <?php if ( $twitter ) { ?>
             <li><strong><i class="fa fa-twitter"></i> <?php _e( 'Twitter', 'bvs-events-calendar' ); ?></strong><br/>
-                <small><a href="<?php the_field( 'twitter' ); ?>" target="_blank"><?php the_field( 'twitter' ); ?></a></small>
+                <small><a href="<?php the_field( 'twitter' ); ?>" target="_blank"><?php echo $twitter; ?></a></small>
             </li>
         <?php } ?>
-        <?php if ( get_field( 'facebook' ) ) { ?>
+        <?php if ( $facebook ) { ?>
             <li><strong><i class="fa fa-facebook"></i> <?php _e( 'Facebook', 'bvs-events-calendar' ); ?></strong><br/>
-                <small><a href="<?php the_field( 'facebook' ); ?>" target="_blank"><?php the_field( 'facebook' ); ?></a></small>
+                <small><a href="<?php the_field( 'facebook' ); ?>" target="_blank"><?php echo $facebook; ?></a></small>
             </li>
         <?php } ?>
-        <?php if ( get_field( 'linkedin' ) ) { ?>
+        <?php if ( $linkedin ) { ?>
             <li><strong><i class="fa fa-linkedin"></i> <?php _e( 'LinkedIn', 'bvs-events-calendar' ); ?></strong><br/>
-                <small><a href="<?php the_field( 'linkedin' ); ?>" target="_blank"><?php the_field( 'linkedin' ); ?></a></small>
+                <small><a href="<?php the_field( 'linkedin' ); ?>" target="_blank"><?php echo $linkedin; ?></a></small>
             </li>
         <?php } ?>
-        <?php if ( get_field( 'curriculum_vitae' ) ) { ?>
+        <?php if ( $cv ) { ?>
             <li><strong><i class="fa fa-mortar-board"></i> <?php _e( 'Curriculum Vitae', 'bvs-events-calendar' ); ?></strong><br/>
-                <small><a href="<?php the_field( 'curriculum_vitae' ); ?>" target="_blank"><?php the_field( 'curriculum_vitae' ); ?></a></small>
+                <small><a href="<?php the_field( 'curriculum_vitae' ); ?>" target="_blank"><?php echo $cv; ?></a></small>
             </li>
         <?php } ?>
     </ul>
 </aside>
+<?php endif; ?>
 
 <?php get_footer(); ?>
