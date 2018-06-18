@@ -481,6 +481,11 @@ h3 { font-size: 13px; }
 .widget_polylang ul li { margin-right: 5px; }
 
 .full-width { width: 100% !important; }
+
+.home-description {
+    font-size: 13px;
+    padding-bottom: 10px;
+}
 /*
 #breadcrumbs{
     list-style:none;

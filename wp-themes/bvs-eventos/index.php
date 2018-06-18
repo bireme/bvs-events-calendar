@@ -29,6 +29,13 @@ get_header(); ?>
 				<?php endif; ?>
 			</header>
 
+			<?php if ( defined( 'POLYLANG_VERSION' ) ) : ?>
+				<?php $home_desc = pll__('Home description'); ?>
+				<?php if ( $home_desc ) : ?>
+					<p class="home-description"><?php echo $home_desc; ?></p>
+				<?php endif; ?>
+			<?php endif; ?>
+
 			<?php
 			// Start the loop.
 			while ( have_posts() ) : the_post();
