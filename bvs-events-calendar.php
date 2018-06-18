@@ -32,6 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 defined('GOOGLE_MAPS_APIKEY') or define('GOOGLE_MAPS_APIKEY', '');
+defined('BVS_EVENTS_CALENDAR_VERSION') or define('BVS_EVENTS_CALENDAR_VERSION', '1.2.0');
 
 if ( defined( 'POLYLANG_VERSION') ) {
     require_once( PLL_INC . '/api.php');
