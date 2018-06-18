@@ -205,7 +205,11 @@ h3 { font-size: 13px; }
     border-bottom: 1px solid #ccc;
     padding-bottom: 1.2em;
 }
-.single-presentation .single-session-title { margin: 1em 0; }
+.single-presentation .single-session-title {
+    margin: 1em 0;
+    text-transform: none;
+    font-weight: normal;
+}
 .single-presentation .session-data { width: auto; }
 .single-session .subsession-time {
     width: 130px;
