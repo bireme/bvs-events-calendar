@@ -490,7 +490,7 @@
 
     add_action('init', function() {
         pll_register_string('BVS Events Calendar', 'Next events', 'Plugin');
-        pll_register_string('BVS Events Calendar', 'Home description', 'Plugin');
+        pll_register_string('BVS Events Calendar', 'Home description', 'Plugin', true);
     });
 
 ?>
