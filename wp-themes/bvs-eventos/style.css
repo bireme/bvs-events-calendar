@@ -119,7 +119,11 @@ h3 { font-size: 13px; }
     display: flex;
     justify-content: center;
 }
-.sum-day .slider-wrapper { border-top: 1px solid #d1d1d1; }
+.sum-day .slider-wrapper {
+    border-top: 1px solid #d1d1d1;
+    margin-bottom: 0;
+    height: auto;
+}
 .program-day { margin-top: 4em; }
 .program-day:first-child { margin-top: 0; }
 .schedule-date,
@@ -560,9 +564,11 @@ h3 { font-size: 13px; }
 .acf-map img { max-width: inherit !important; }
 
 .slider-wrapper .slider {
+    margin-top: 0;
     border: 1px solid #d9d9d9 !important;
     background: rgb(245,245,245) !important;
-    height: 135px;
+    float: left;
+    height: auto;
 }
 
 .menu-highlight { background: #ffa500 !important; }
