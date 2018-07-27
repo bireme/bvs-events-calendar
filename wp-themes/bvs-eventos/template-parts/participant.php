@@ -13,6 +13,7 @@
     $job_title = get_field( 'job_title' );
     $affiliation = get_field( 'affiliation' );
     $separator = ( $job_title && $affiliation ) ? ' - ' : '';
+    $the_excerpt = get_the_excerpt();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-event' ); ?>>
@@ -29,9 +30,9 @@
             </div>
         </div>
 
-        <?php if ( ! empty( get_the_excerpt() ) ) : ?>
+        <?php if ( ! empty( $the_excerpt ) ) : ?>
         <div class="p-summary">
-            <?php the_excerpt(); ?>
+            <?php echo $the_excerpt; ?>
         </div>
         <?php endif; ?>
 
