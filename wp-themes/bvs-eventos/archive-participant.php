@@ -23,9 +23,6 @@ get_header(); ?>
 
             <header><h1 class="event-label"><?php _e( 'Participants', 'bvs-events-calendar' ); ?></h1></header>
 
-            <?php if ( defined( 'POLYLANG_VERSION' ) ) : ?>
-            <?php endif; ?>
-
             <?php
             // Start the loop.
             while ( have_posts() ) : the_post();
