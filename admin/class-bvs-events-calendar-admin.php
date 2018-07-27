@@ -369,7 +369,7 @@ class BVS_Events_Calendar_Admin {
 			"public" => true,
 			"show_ui" => true,
 			"show_in_rest" => false,
-			"has_archive" => false,
+			"has_archive" => true,
 			"show_in_menu" => true,
 			"exclude_from_search" => false,
 			"capability_type" => "post",

@@ -348,8 +348,19 @@ h3 { font-size: 13px; }
     list-style: none;
     padding: 0 10px;
 }
-.single-participant aside ul li {margin-bottom: 1em;line-height: 1;}
-.short-bio strong {display: block;margin: 10px 0;}
+.single-participant aside ul li {
+    margin-bottom: 1em;
+    line-height: 1;
+}
+.short-bio strong {
+    display: block;
+    margin: 10px 0;
+}
+
+.archive .participant .entry-content { width: 100% !important; }
+.archive .participant .event-details { margin-top: 1em; }
+.archive .participant .event-tags { margin-top: 4em; }
+.p-summary { font-size: 80%; width: 100%; }
 
 .entry-event {
     background: rgb(245,245,245);
