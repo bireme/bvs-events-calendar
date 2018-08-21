@@ -493,4 +493,12 @@
         pll_register_string('BVS Events Calendar', 'Home description', 'Plugin', true);
     });
 
+    add_action( 'pre_get_posts', 'participant_sort_order'); 
+    function participant_sort_order($query){
+        if ( is_post_type_archive('participant') ) {
+            $query->set( 'order', 'ASC' );
+            $query->set( 'orderby', 'title' );
+        }
+    };
+
 ?>
