@@ -39,7 +39,7 @@ get_header(); ?>
 	            <?php echo date_i18n("d/F/Y - l", $initial_datetime); ?>
 	        </div>
 	        <div class="session-time">
-	        	<?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
+	        	<?php echo date("h:i A", $initial_datetime ) . ' - ' . date("h:i A", $end_datetime ); ?>
 	    	</div>
 	    	<?php if ( $session ) : ?>
 		    	<div class="session-label"><?php echo get_the_title( $session[0][0] ); ?></div>

@@ -51,7 +51,7 @@
         <div class="presentation-list">
             <div class="presentation">
                 <div class="session-time">
-                    <?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
+                    <?php echo date("h:i A", $initial_datetime ) . ' - ' . date("h:i A", $end_datetime ); ?>
                 </div>
                 <div class="presentation-title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

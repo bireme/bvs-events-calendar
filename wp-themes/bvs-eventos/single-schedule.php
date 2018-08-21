@@ -88,7 +88,7 @@ get_header(); ?>
 
                 <div class="session" id="s<?php echo $post->ID; ?>">
                     <div class="session-time">
-                        <?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
+                        <?php echo date("h:i A", $initial_datetime ) . ' - ' . date("h:i A", $end_datetime ); ?>
                     </div>
                     <div class="session-data">
                         <?php if ( get_the_excerpt() ) : ?>

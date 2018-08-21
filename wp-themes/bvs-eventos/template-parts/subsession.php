@@ -39,7 +39,7 @@
 
         <div class="subsession-list session panel">
             <div class="subsession-time">
-                <?php echo date("H:i A", $initial_datetime ) . ' - ' . date("H:i A", $end_datetime ); ?>
+                <?php echo date("h:i A", $initial_datetime ) . ' - ' . date("h:i A", $end_datetime ); ?>
             </div>
             <div class="session-data">
                 <?php if ( get_the_excerpt() ) : ?>
