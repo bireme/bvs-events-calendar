@@ -108,8 +108,8 @@ get_header(); ?>
 					<?php						
 						if ( $post->post_content ) {
                             $description = wpautop($post->post_content);
-                        } elseif ( get_the_excerpt() ) {
-                            $description = get_the_excerpt();
+                        } elseif ( $post->post_excerpt ) {
+                            $description = $post->post_excerpt;
                         }
 
                         if ( ! empty($description) ) : ?>
