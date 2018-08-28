@@ -90,12 +90,6 @@ get_header(); ?>
                                 <?php endif; ?>
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </div>
-                            <div class="presentation-desc">
-                                <div>15/junio/2018 - viernes 12:00 AM - 01:00 AM</div>
-                                <div>Sessão (teste)</div>
-                                <div>BIREME</div>
-                                <a href="http://teste.crics10.org/eventos/presentation/teste/">Teste</a>
-                            </div>
                         <?php endwhile; ?>
                     </div>
                 <?php endif; ?>
