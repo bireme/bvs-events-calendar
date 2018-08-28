@@ -81,12 +81,12 @@ get_header(); ?>
                                     $date = date_i18n("d/F/Y - l", $initial_datetime);
                                     $date .= ' ' . date("h:i A", $initial_datetime ) . ' - ' . date("h:i A", $end_datetime );
                                 ?>
-                                <div><?php echo $date; ?></div>
+                                <div class="single-session-date"><?php echo $date; ?></div>
                                 <?php if ( $session ) : ?>
-                                <div><?php echo get_the_title( $session[0][0] ); ?></div>
+                                <div class="session-label"><?php echo get_the_title( $session[0][0] ); ?></div>
                                 <?php endif; ?>
                                 <?php if ( $location ) : ?>
-                                <div><?php echo $location; ?></div>
+                                <div class="location"><?php echo $location; ?></div>
                                 <?php endif; ?>
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </div>
