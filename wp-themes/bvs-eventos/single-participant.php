@@ -69,12 +69,34 @@ get_header(); ?>
 
                 <?php if ( $connected->have_posts() ) : // Presentations Loop ?>
                     <div class="related-content">
-                        <?php _e( 'See also by','bvs-events-calendar' ); ?> <strong><?php single_post_title(); ?></strong>
-                        <ul>
-                            <?php while( $connected->have_posts() ) : $connected->the_post(); ?>
-                                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-                            <?php endwhile; ?>
-                        </ul>
+                        <?php _e( 'Related Presentations','bvs-events-calendar' ); ?>:
+                        <?php while( $connected->have_posts() ) : $connected->the_post(); ?>
+                            <div class="presentation-desc">
+                                <?php
+                                    $session = get_post_meta( $post->ID, 'session' );
+                                    $location = get_field( 'location', $session[0][0] );
+                                    $end_datetime = strtotime(get_field( 'end_date', $post->ID ));
+                                    $initial_datetime = strtotime(get_field( 'initial_date', $post->ID ));
+
+                                    $date = date_i18n("d/F/Y - l", $initial_datetime);
+                                    $date .= ' ' . date("h:i A", $initial_datetime ) . ' - ' . date("h:i A", $end_datetime );
+                                ?>
+                                <div><?php echo $date; ?></div>
+                                <?php if ( $session ) : ?>
+                                <div><?php echo get_the_title( $session[0][0] ); ?></div>
+                                <?php endif; ?>
+                                <?php if ( $location ) : ?>
+                                <div><?php echo $location; ?></div>
+                                <?php endif; ?>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </div>
+                            <div class="presentation-desc">
+                                <div>15/junio/2018 - viernes 12:00 AM - 01:00 AM</div>
+                                <div>Sessão (teste)</div>
+                                <div>BIREME</div>
+                                <a href="http://teste.crics10.org/eventos/presentation/teste/">Teste</a>
+                            </div>
+                        <?php endwhile; ?>
                     </div>
                 <?php endif; ?>
             </div>

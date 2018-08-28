@@ -232,6 +232,12 @@ h3 { font-size: 13px; }
     border-top: 1px solid #eee;
     margin: 12px 0;
 }
+.presentation-desc {
+    margin: 5px 0;
+}
+.presentation-desc div {
+    font-size: 80%;
+}
 .presentation-list,
 .subsession-list { margin-left: 2em; }
 .presentation-title {
