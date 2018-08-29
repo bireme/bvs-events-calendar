@@ -491,6 +491,7 @@
     add_action('init', function() {
         pll_register_string('BVS Events Calendar', 'Next events', 'Plugin');
         pll_register_string('BVS Events Calendar', 'Participants', 'Plugin');
+        pll_register_string('BVS Events Calendar', 'Related Presentations', 'Plugin');
         pll_register_string('BVS Events Calendar', 'Home description', 'Plugin', true);
     });
 

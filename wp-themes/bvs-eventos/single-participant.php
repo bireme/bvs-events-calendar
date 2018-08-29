@@ -69,7 +69,12 @@ get_header(); ?>
 
                 <?php if ( $connected->have_posts() ) : // Presentations Loop ?>
                     <div class="related-content">
-                        <?php _e( 'Related Presentations','bvs-events-calendar' ); ?>:
+                        <?php if ( defined( 'POLYLANG_VERSION' ) ) : ?>
+                            <?php pll_e('Related Presentations'); ?>
+                        <?php else : ?>
+                            <?php _e( 'Related Presentations','bvs-events-calendar' ); ?>
+                        <?php endif; ?>
+
                         <?php while( $connected->have_posts() ) : $connected->the_post(); ?>
                             <div class="presentation-desc">
                                 <?php

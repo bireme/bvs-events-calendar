@@ -48,7 +48,7 @@
                 $tag_name = wp_list_pluck( $tags, 'name' );
                 echo implode(', ', $tag_name);
             ?> 
-          </div>
+        </div>
         <?php endif; ?>
 
         <?php
