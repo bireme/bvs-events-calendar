@@ -40,25 +40,29 @@ get_header(); ?>
             $session_ids = wp_list_pluck( $session_query->posts, 'ID' );
             $session_dates = array();
             $dates = get_session_dates($session_ids);
+            $slider_pages = ceil(count($dates) / 5);
+            $slider_pages = ( $slider_pages ) ? $slider_pages : 1;
         ?>
         <div class="event-summary slider-wrapper">
             <div class="slider slider1">
-                <?php foreach ($dates as $key => $value) : ?>
-                    <div class="sum-day">
-                        <strong><?php echo date_i18n("d/F/Y - l", strtotime($key) ); ?></strong>
-                        <div class="slider-wrapper">
-                            <div class="slider-s slider2">
-                                <div class="sum-sessions">
-                                    <?php foreach ($value as $v) { ?>
-                                        <div class="ss-item">
-                                            <span class="initial-time"><?php echo date("H:i", strtotime(get_field( 'initial_date_and_time', $v ))); ?></span><span class="ss-ttl"><a href="#s<?php echo $v; ?>"><?php echo get_the_title($v); ?></a></span>
-                                        </div>
-                                    <?php } ?>
-                                </div>
+                <?php while ( $slider_pages ) : $slider_pages--; ?>
+                <div class="sum-day">
+                    <strong><?php the_title(); ?></strong>
+                    <?php if ( count($dates) > 1 ) : ?>
+                    <div class="slider-wrapper">
+                        <div class="slider-s slider2">
+                            <div class="sum-sessions">
+                                <?php foreach ($dates as $key => $value) : ?>
+                                    <div class="ss-item">
+                                        <span class="ss-ttl"><a href="#d<?php echo $key; ?>"><?php echo date_i18n("d/F/Y - l", strtotime($key) ); ?></a></span>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+                <?php endwhile; ?>
             </div>
         </div>
 
@@ -79,14 +83,14 @@ get_header(); ?>
                     if ( ! isset($previous_initial_datetime) || date("Ymd", $initial_datetime ) != $previous_initial_datetime ) :
                         $previous_initial_datetime = date("Ymd", $initial_datetime );
                 ?>
-                    <div class="program-day">
+                    <div class="program-day" id="d<?php echo date_i18n("Ymd", $initial_datetime ); ?>">
                         <div class="schedule-date">
                             <?php echo date_i18n("d/F/Y - l", $initial_datetime ); ?>
                         </div>
                     </div>
                 <?php endif; ?>
 
-                <div class="session" id="s<?php echo $post->ID; ?>">
+                <div class="session">
                     <div class="session-time">
                         <?php echo date("h:i A", $initial_datetime ) . ' - ' . date("h:i A", $end_datetime ); ?>
                     </div>

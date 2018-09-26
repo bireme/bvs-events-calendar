@@ -115,10 +115,12 @@ h3 { font-size: 13px; }
 }
 .contact { margin-right: 2.5em; }
 .contact a { margin-left: 5px; }
+
 .sum-sessions {
     display: flex;
     justify-content: center;
 }
+
 .sum-day .slider-wrapper {
     border-top: 1px solid #d1d1d1;
     margin-bottom: 0;
@@ -580,6 +582,10 @@ h3 { font-size: 13px; }
 /* fixes potential theme css conflict */
 .acf-map img { max-width: inherit !important; }
 
+.event-summary.slider-wrapper {
+    height: auto;
+}
+
 .slider-wrapper .slider {
     margin-top: 0;
     border: 1px solid #d9d9d9 !important;
@@ -598,18 +604,15 @@ h3 { font-size: 13px; }
     transition: all 1s;
 }
 
-@media (max-width: 320px) {
-	.site { width: 320px; }
+@media (max-width: 414px) {
+	.site { width: 414px; }
+
 	#event-menu li {
         display: inherit !important;
         margin-bottom: 25px !important;
     }
-}
 
-@media (max-width: 360px) {
-	.site { width: 360px; }
-	#event-menu li {
-        display: inherit !important;
-        margin-bottom: 25px !important;
+    .sum-sessions {
+        display: block;
     }
 }
