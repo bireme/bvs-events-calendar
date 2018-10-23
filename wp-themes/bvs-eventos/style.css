@@ -614,5 +614,46 @@ h3 { font-size: 13px; }
 
     .sum-sessions {
         display: block;
-    }
+    } 
+	
 }
+
+@media only screen and (max-width: 600px){
+	.site-header-main, #polylang-2, #breadcrumb, .site-footer {display:none !important;}
+	.site {box-shadow: 0px 0px 0px 0px #fff !important; margin-top: -50px;    width: 96%;}
+	.site-main { margin-bottom:0px !important;}
+.single-participant aside ul{    padding-bottom: 40px;}
+	.author-data {width: 100%;}
+	.sum-day .slider-wrapper {display: none;}
+	.session { display: initial !important;}
+	.session-title, .single-session-title{font-size: 16px;}
+	.author-list, .single-presentation .presentation {width: 85%;}
+	.presentation-title{font-size: 100%;}
+	.presentation{    width: 133%;}
+	.detail {max-width: 90% !important;}
+	.single-participant .content-area {width: 100% !important;}
+	.summary{width:115%;}
+	.single-participant .summary{width:100%;}
+	.single-participant .detail {max-width: 100% !important;text-align: justify;}
+	#secondary{float: left !important; margin-top: 0px !important; min-height: auto !important;     width: 100%;}
+	}
+	
+@media only screen and (max-width: 768px){
+	.site-header-main, #polylang-2, #breadcrumb, .site-footer {display:none !important;}
+	.site {box-shadow: 0px 0px 0px 0px #fff !important; margin-top: -50px;    width: 96%;}
+	.site-main { margin-bottom:0px !important;}
+    .single-participant aside ul{    padding-bottom: 40px;}
+	.author-data {width: 100%;}
+	.sum-day .slider-wrapper {display: none;}
+	.session { display: initial !important;}
+	.session-title, .single-session-title{font-size: 16px;}
+	.author-list, .single-presentation .presentation {width: 85%;}
+	.presentation-title{font-size: 100%;}
+	.presentation{    width: 133%;}
+	.detail {max-width: 90% !important;}
+	.single-participant .content-area {width: 100% !important;}
+	.summary{width:115%;}
+	.single-participant .summary{width:100%;}
+	.single-participant .detail {max-width: 100% !important;text-align: justify;}
+	#secondary{float: left !important; margin-top: 0px !important; min-height: auto !important;     width: 100%;}
+	}
