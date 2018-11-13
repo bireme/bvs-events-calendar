@@ -101,9 +101,6 @@ get_header(); ?>
             </div>
         </div>
     </main><!-- .site-main -->
-
-    <?php get_sidebar( 'content-bottom' ); ?>
-
 </div><!-- .content-area -->
 
 <?php $post = $obj; ?>
@@ -139,5 +136,11 @@ get_header(); ?>
     </ul>
 </aside>
 <?php endif; ?>
+
+</div><!-- .site-content -->
+
+<?php get_sidebar( 'content-bottom' ); ?>
+
+<div>
 
 <?php get_footer(); ?>

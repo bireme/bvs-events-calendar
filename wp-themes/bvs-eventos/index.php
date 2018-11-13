@@ -68,4 +68,11 @@ get_header(); ?>
 	</div><!-- .content-area -->
 
 <?php get_sidebar(); ?>
+
+</div><!-- .site-content -->
+
+<?php get_sidebar( 'content-bottom' ); ?>
+
+<div>
+	
 <?php get_footer(); ?>
