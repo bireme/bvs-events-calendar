@@ -27,6 +27,14 @@
         }
     }
 
+    // add app style file
+    add_action( 'wp_enqueue_scripts', 'app_enqueue_styles');
+    function app_enqueue_styles() {
+        if ( strpos($_SERVER['HTTP_USER_AGENT'], 'gonative') !== false ) {
+            wp_enqueue_style('app-style', get_stylesheet_directory_uri() . '/style-app.css', array());
+        }
+    }
+
     function get_days($end, $start) {
         $end_date   = strtotime($end);
         $start_date = $start ? strtotime($start) : 0;
