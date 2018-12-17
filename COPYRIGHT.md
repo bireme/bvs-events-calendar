@@ -32,3 +32,8 @@ Observation: Information may be subject to alteration.
 * GPL-2.0 license
 * https://opensource.org/licenses/GPL-2.0
 ***
+6. Twenty Sixteen WordPress Theme » 1.1
+
+* GPL-2.0 license
+* https://opensource.org/licenses/GPL-2.0
+***
