@@ -496,7 +496,7 @@
     }
     add_filter('acf/fields/google_map/api', 'acf_google_map_api');
 
-    add_action('init', function() {
+    add_action('plugins_loaded', function() {
         pll_register_string('BVS Events Calendar', 'Next events', 'Plugin');
         pll_register_string('BVS Events Calendar', 'Participants', 'Plugin');
         pll_register_string('BVS Events Calendar', 'Related Presentations', 'Plugin');
